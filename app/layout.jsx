@@ -1,7 +1,7 @@
-import "./globals.css";
+import './globals.css';
 
 export const metadata = {
-  title: "BME Solar Boat Team",
+  title: 'BME Solar Boat Team',
 };
 
 export default function RootLayout({ children }) {
