@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { PARALLAX_LAYER_STYLES } from '~/utils/constants';
 import { MotionConfig, useScroll, useTransform, motion } from 'motion/react';
 import { HeroMouseIndicator } from './HeroMouseIndicator';
@@ -8,7 +8,7 @@ import { HeroMouseIndicator } from './HeroMouseIndicator';
 export const HeroParallax = () => {
   const containerRef = useRef(null);
   const { scrollY } = useScroll();
-  const isMobile = typeof window !== 'undefined' ? window.innerWidth <= 768 : false;
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
 
   const y0 = useTransform(scrollY, [0, 1000], [0, 1000]);
   const y1 = useTransform(scrollY, [0, 1000], [0, 550]);
@@ -19,6 +19,14 @@ export const HeroParallax = () => {
   const y6 = useTransform(scrollY, [0, 1000], [0, 800]);
   const y7 = useTransform(scrollY, [0, 1000], [0, 850]);
   const y8 = useTransform(scrollY, [0, 1000], [0, 900]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+  }, [isMobile]);
 
   return (
     <MotionConfig reducedMotion={'user'}>
