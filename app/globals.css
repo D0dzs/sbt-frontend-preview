@@ -8,11 +8,11 @@
   --font-poppins: var(--font-poppins);
   --font-comfortaa: var(--font-comfortaa);
 
-  --color-bme-yellow: #f9ac1b;
-  --color-bme-blue: #3c3e95;
-  --color-bme-purple: #93549f;
-  --color-bme-black: #1a1a1a;
-  --color-bme-white: #f2f2f2;
+  --color-bme-orange: #F9AC1B;
+  --color-bme-blue: #3C3E95;
+  --color-bme-purple: #93549F;
+  --color-bme-black: #1A1A1A;
+  --color-bme-white: #F2F2F2;
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
