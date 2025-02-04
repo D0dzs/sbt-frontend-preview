@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <ReactLenis root>
       <html lang="hu" className={`${poppins.variable} ${comfortaa.variable}`}>
-        <body className='bg-bme-black'>
+        <body className="bg-bme-black">
           <main>{children}</main>
         </body>
       </html>

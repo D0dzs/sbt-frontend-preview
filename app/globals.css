@@ -70,6 +70,10 @@
   }
 }
 
+* {
+  scrollbar-width: thin;
+}
+
 @layer base {
   * {
     @apply border-border font-poppins text-bme-white;
