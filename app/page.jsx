@@ -6,8 +6,8 @@ export default function Home() {
     <div className="mx-auto grid bg-bme-black items-center justify-center overflow-x-hidden relative">
       {/* Navbar */}
       <HeroScreen />
-      <SectionLayout>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, minima?
+      <SectionLayout className={""}>
+        <span className='text-sm lg:text-xl'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, minima?</span>
       </SectionLayout>
       {/* Footer */}
     </div>

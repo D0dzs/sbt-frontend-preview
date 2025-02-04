@@ -1,6 +1,8 @@
-const SectionLayout = ({ children }) => {
+import { cn } from "~/lib/utils"
+
+const SectionLayout = ({ children, className }) => {
   return (
-    <div className='p-12'>
+    <div className={`${cn('p-12', className)}`}>
         {children}
     </div>
   )
