@@ -9,9 +9,11 @@ export default function Home() {
       {/* Navbar */}
       <HeroScreen />
       <SectionLayout className={'h-[200vh] p-8'}>
-        <span className="text-sm lg:text-xl">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, minima?</span>
         <ModeToggle />
-        <Container className={'w-[1120px] h-[500px]'}>Lorem ipsum dolor sit amet.</Container>
+        <Container className={'w-[900px] h-[400px] grid'}>
+          <div> left </div>
+          <div> right </div>
+        </Container>
       </SectionLayout>
       {/* Footer */}
     </div>
