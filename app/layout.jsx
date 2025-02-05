@@ -16,9 +16,11 @@ export default function RootLayout({ children }) {
     <ReactLenis root>
       <html lang="hu" className={`${poppins.variable} ${comfortaa.variable}`} suppressHydrationWarning>
         <body className="bg-bme-lprimary dark:bg-bme-dprimary relative">
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-            <Navbar className={"hidden lg:flex absolute mx-auto min-w-full justify-center mt-6"} />
-            <main className="!text-bme-black dark:!text-bme-white">{children}</main>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+            <main className="!text-bme-black dark:!text-bme-white">
+              <Navbar className={'fixed hidden lg:flex mx-auto min-w-full justify-center mt-6'} />
+              {children}
+            </main>
           </ThemeProvider>
         </body>
       </html>

@@ -8,20 +8,20 @@
   --font-poppins: var(--font-poppins);
   --font-comfortaa: var(--font-comfortaa);
 
-  --color-bme-orange: #F9AC1B;
-  --color-bme-blue: #3C3E95;
-  --color-bme-purple: #93549F;
-  --color-bme-black: #1A1A1A;
-  --color-bme-white: #F2F2F2;
+  --color-bme-orange: #f9ac1b;
+  --color-bme-blue: #3c3e95;
+  --color-bme-purple: #93549f;
+  --color-bme-black: #1a1a1a;
+  --color-bme-white: #f2f2f2;
 
-  --color-bme-dprimary: #1A1A1A;
+  --color-bme-dprimary: #1a1a1a;
   --color-bme-dsecondary: #262626;
   --color-bme-dfront: #333333;
-  
-  --color-bme-lprimary: #FAFAFA;
-  --color-bme-lsecondary: #E6E6E6;
-  --color-bme-lfront: #FAFAFA;
-  
+
+  --color-bme-lprimary: #fafafa;
+  --color-bme-lsecondary: #e6e6e6;
+  --color-bme-lfront: #fafafa;
+
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
@@ -118,7 +118,7 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
-  
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
