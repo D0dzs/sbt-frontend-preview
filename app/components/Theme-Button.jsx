@@ -8,7 +8,7 @@ export function ModeToggle() {
   const { setTheme, theme } = useTheme();
 
   return (
-    <div onClick={() => (theme === 'light' ? setTheme('dark') : setTheme('light'))} className={'cursor-pointer h-fit'}>
+    <div onClick={() => (theme === 'light' ? setTheme('dark') : setTheme('light'))} className={'h-fit cursor-pointer'}>
       {theme === 'light' ? <Moon size={32} fill="none" stroke="black" /> : <Sun size={32} fill="none" stroke="black" />}
     </div>
   );

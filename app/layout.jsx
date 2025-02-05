@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         <body className="bg-bme-lprimary dark:bg-bme-dprimary relative">
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <main className="!text-bme-black dark:!text-bme-white">
-              <Navbar className={'fixed hidden lg:flex mx-auto min-w-full justify-center mt-6'} />
+              <Navbar className={'fixed mx-auto mt-6 hidden min-w-full justify-center lg:flex'} />
               {children}
             </main>
           </ThemeProvider>

@@ -5,8 +5,8 @@ const Container = ({ className, children, ...props }) => {
   return (
     <div
       className={`${cn(
-        'w-[75vw] bg-bme-lsecondary dark:bg-bme-dfront rounded-3xl p-6 outline-2 dark:outline-bme-lsecondary/20 outline-bme-dsecondary/20',
-        className
+        'bg-bme-lsecondary dark:bg-bme-dfront dark:outline-bme-lsecondary/20 outline-bme-dsecondary/20 w-[75vw] rounded-3xl p-6 outline-2',
+        className,
       )}`}
       {...props}
     >
