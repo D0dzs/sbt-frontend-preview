@@ -1,11 +1,11 @@
-import { cn } from "~/lib/utils"
+import { cn } from '~/lib/utils';
 
-const SectionLayout = ({ children, className }) => {
+const SectionLayout = ({ className, children, ...props }) => {
   return (
-    <div className={`${cn('p-12', className)}`}>
-        {children}
+    <div className={`${cn(className)}`} {...props}>
+      {children}
     </div>
-  )
-}
+  );
+};
 
-export default SectionLayout
+export default SectionLayout;
