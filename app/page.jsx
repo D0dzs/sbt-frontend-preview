@@ -6,7 +6,6 @@ import { ModeToggle } from './components/Theme-Button';
 export default function Home() {
   return (
     <div className="mx-auto grid items-center justify-center overflow-x-hidden relative">
-      {/* Navbar */}
       <HeroScreen />
       <SectionLayout className={'h-[200vh] p-8'}>
         <ModeToggle />
