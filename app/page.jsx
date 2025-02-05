@@ -5,7 +5,12 @@ import HeroLoader from './components/(Hero)/HeroLoader';
 
 const HeroScreen = dynamic(() => import('./components/(Hero)/HeroPage'), {
   ssr: false,
-  loading: () => <HeroLoader />,
+  loading: () => (
+    // valami megoldast kell erre kitalalni, nagyon gaz...
+    <HeroLoader>
+      <p className="font-comfortaa text-2xl font-bold">Loading...</p>
+    </HeroLoader>
+  ),
 });
 
 export default function Home() {
@@ -16,21 +21,13 @@ export default function Home() {
         <Container
           className={'grid h-fit w-[60vw] grid-flow-row grid-rows-1 p-0 lg:grid-flow-col lg:grid-cols-2 lg:grid-rows-1'}
         >
-          <div className="relative self-center p-8 lg:flex lg:items-center lg:justify-center lg:self-auto lg:p-0">
-            <img
-              src={'/csapat.png'}
-              alt="CSAPAT"
-              className="absolute z-1 h-3/4 self-end rounded-2xl lg:h-3/4 lg:self-center"
-            />
-            <img
-              src={'/csapat.png'}
-              alt="CSAPAT"
-              className="h-3/4 self-end rounded-2xl blur-md lg:h-3/4 lg:self-center"
-            />
+          <div className="relative flex h-full items-center justify-center">
+            <img src={'/csapat.png'} alt="CSAPAT" className="absolute z-1 h-3/4 rounded-2xl lg:h-3/4" />
+            <img src={'/csapat.png'} alt="CSAPAT" className="h-3/4 rounded-2xl blur-md lg:h-3/4" />
           </div>
           <div className="grid h-full grid-flow-row items-center justify-center p-8 lg:pr-16 lg:pl-0">
             <h3 className="self-end text-center text-xl font-bold lg:text-2xl">Rólunk</h3>
-            <p className="self-baseline text-justify text-xs font-extralight md:mx-auto md:text-base lg:text-base">
+            <p className="self-baseline text-justify text-xs font-extralight md:mx-auto md:text-base">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae velit culpa perferendis dignissimos,
               inventore veritatis fuga. Cum corrupti ducimus deserunt? Lorem ipsum dolor sit amet consectetur
               adipisicing elit. Fugiat, dolor iste! Accusantium culpa exercitationem sequi voluptatibus repellat
