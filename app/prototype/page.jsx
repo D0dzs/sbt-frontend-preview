@@ -3,8 +3,9 @@
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useCallback } from 'react';
+import { Button } from '~/components/ui/button';
 
-export function ModeToggle() {
+const page = () => {
   const { setTheme, resolvedTheme: theme } = useTheme();
 
   const handleClick = useCallback(() => {
@@ -13,10 +14,12 @@ export function ModeToggle() {
   }, [theme, setTheme]);
 
   return (
-    <button className="group/toggle h-8 w-8 cursor-pointer px-0" onClick={handleClick}>
-      <SunIcon className="hidden dark:block" stroke="black" />
-      <MoonIcon className="block dark:hidden" stroke="black" />
+    <Button className="group/toggle h-8 w-8 px-0 cursor-pointer" onClick={handleClick}>
+      <SunIcon className="hidden dark:block" />
+      <MoonIcon className="block dark:hidden" />
       <span className="sr-only">Toggle theme</span>
-    </button>
+    </Button>
   );
-}
+};
+
+export default page;

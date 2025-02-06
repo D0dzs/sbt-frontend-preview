@@ -4,8 +4,8 @@ import { ReactLenis } from 'lenis/dist/lenis-react';
 import Navbar from './components/Navbar';
 import { ThemeProvider } from './components/Providers/Theme-provider';
 
-const poppins = Poppins({ subsets: ['latin'], weight: '400', variable: '--font-poppins' });
-const comfortaa = Comfortaa({ subsets: ['latin'], weight: '400', variable: '--font-comfortaa' });
+const poppins = Poppins({ subsets: ['latin'], weight: '400', variable: '--font-poppins', preload: true });
+const comfortaa = Comfortaa({ subsets: ['latin'], weight: '400', variable: '--font-comfortaa', preload: true });
 
 export const metadata = {
   title: 'BME Solar Boat Team',
