@@ -2,6 +2,8 @@ import dynamic from 'next/dynamic';
 import SectionLayout from './components/(Layouts)/SectionLayout';
 import Container from './components/Container';
 import HeroLoader from './components/(Hero)/HeroLoader';
+import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
 
 const HeroScreen = dynamic(() => import('./components/(Hero)/HeroPage'), {
   ssr: false,
@@ -19,7 +21,9 @@ export default function Home() {
       <HeroScreen />
       <SectionLayout className={'grid justify-center p-8 pt-16 lg:pt-32'}>
         <Container
-          className={'grid h-fit w-[60vw] grid-flow-row grid-rows-1 p-0 lg:grid-flow-col lg:grid-cols-2 lg:grid-rows-1'}
+          className={
+            'grid h-full w-[75vw] grid-flow-row grid-rows-1 p-0 lg:grid-flow-col lg:grid-cols-2 lg:grid-rows-1'
+          }
         >
           <div className="relative flex h-full items-center justify-center">
             <img src={'/csapat.png'} alt="CSAPAT" className="absolute z-1 h-3/4 rounded-2xl lg:h-3/4" />
@@ -34,6 +38,13 @@ export default function Home() {
               cupiditate perspiciatis ab. Minus debitis magni nemo, vel culpa necessitatibus quas itaque assumenda
               molestiae. Facilis omnis voluptatibus ab dolor veritatis impedit fuga dolores.
             </p>
+            <Link
+              href={''}
+              className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black flex w-fit items-center justify-between gap-1 rounded-full px-4 py-1 text-center text-xl md:mx-auto"
+            >
+              Tudj meg többet rólunk
+              <ChevronRight />
+            </Link>
           </div>
         </Container>
       </SectionLayout>
