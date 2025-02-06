@@ -11,7 +11,7 @@ const Navbar = ({ className, ...props }) => {
         <div className="text-bme-black dark:text-bme-white grid h-full grid-flow-col items-center justify-between text-2xl">
           <div className="flex items-center gap-6">
             <Link href={'/'}>
-              <Image src={'/navbar/logo.svg'} width={64} height={64} alt="Logo" />
+              <Image priority src={'/navbar/logo.svg'} width={64} height={64} alt="Logo" />
             </Link>
             <div className="flex gap-4">
               <Link href={''}>Rólunk</Link>

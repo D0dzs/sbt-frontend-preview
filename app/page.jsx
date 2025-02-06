@@ -6,7 +6,7 @@ import HeroLoader from './components/(Hero)/HeroLoader';
 const HeroScreen = dynamic(() => import('./components/(Hero)/HeroPage'), {
   ssr: false,
   loading: () => (
-    // valami megoldast kell erre kitalalni, nagyon gaz...
+    //  valami megoldast kell erre kitalalni, nagyon gaz...
     <HeroLoader>
       <p className="font-comfortaa text-2xl font-bold">Loading...</p>
     </HeroLoader>

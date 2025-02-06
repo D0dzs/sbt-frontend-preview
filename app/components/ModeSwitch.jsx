@@ -2,21 +2,34 @@
 
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { useCallback } from 'react';
+import { useEffect, useState } from 'react';
 
 export function ModeToggle() {
-  const { setTheme, resolvedTheme: theme } = useTheme();
+  const { theme, setTheme } = useTheme();
+  const [changeThemeValue, setChangeThemeValue] = useState();
 
-  const handleClick = useCallback(() => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-    console.log('theme changed to: ' + theme + '!');
-  }, [theme, setTheme]);
+  useEffect(() => {
+    setChangeThemeValue(theme === 'dark' ? 'light' : 'dark');
+  }, [theme]);
+
+  useEffect(() => {
+    const checkDarkTheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const newValue = theme === 'dark' ? 'light' : theme === 'light' ? 'dark' : checkDarkTheme ? 'light' : 'dark';
+    setChangeThemeValue(newValue);
+  }, []);
 
   return (
-    <button className="group/toggle h-8 w-8 cursor-pointer px-0" onClick={handleClick}>
-      <SunIcon className="hidden dark:block" stroke="black" />
-      <MoonIcon className="block dark:hidden" stroke="black" />
-      <span className="sr-only">Toggle theme</span>
-    </button>
+    <div
+      className="bg-bme-orange dark:bg-bme-blue h-fit w-fit cursor-pointer rounded-full p-3"
+      onClick={() => setTheme(changeThemeValue ?? 'dark')}
+    >
+      <div className="relative flex w-full items-center gap-8">
+        <div
+          className={`bg-bme-white absolute z-1 ml-auto h-6 w-6 translate-x-0 rounded-full ${theme === 'dark' && 'translate-x-[175%]'}`}
+        />
+        <MoonIcon size={16} stroke="white" />
+        <SunIcon size={16} stroke="black" />
+      </div>
+    </div>
   );
 }
