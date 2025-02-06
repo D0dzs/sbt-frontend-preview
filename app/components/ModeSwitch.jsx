@@ -27,8 +27,8 @@ export function ModeToggle() {
         <div
           className={`bg-bme-white absolute z-1 ml-auto h-6 w-6 translate-x-0 rounded-full ${theme === 'dark' && 'translate-x-[175%]'}`}
         />
-        <MoonIcon size={16} stroke="white" />
-        <SunIcon size={16} stroke="black" />
+        <SunIcon size={16} stroke="white" />
+        <MoonIcon size={16} stroke="black" />
       </div>
     </div>
   );
