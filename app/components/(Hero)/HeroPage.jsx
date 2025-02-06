@@ -1,22 +1,37 @@
 'use client';
 
+import { useTheme } from 'next-themes';
+
 const HeroScreen = () => {
+  const { theme } = useTheme();
+  const fillColor = theme === 'light' ? '#fafafa' : '#1a1a1a';
+
   return (
-    <div className="relative grid h-screen w-screen items-center justify-center bg-[url(/hero/background.png)] bg-center xl:h-screen xl:bg-cover xl:bg-fixed">
+    <div className="relative grid h-[80vh] w-screen items-center justify-center bg-[url(/hero/background.png)] bg-center xl:h-screen xl:bg-cover xl:bg-fixed">
       <svg
-        id="Layer_2"
-        xmlns="http://www.w3.org/2000/svg"
         width="1920"
-        height="138.0685"
-        viewBox="0 0 1920 138.0685"
-        className="absolute -bottom-px left-0"
+        viewBox="0 0 1920 133"
+        xmlns="http://www.w3.org/2000/svg"
+        className="absolute -bottom-1 left-0 w-screen"
       >
-        <g id="Layer_1-2">
-          <path
-            d="M0,41.5549c53.5946-7.454,140.9578-18.0891,248.9422-23.8129C712.2625-6.8166,930.0986,92.1736,1291.9801,94.0619c143.5856.7492,360.0602-13.5264,628.0199-94.0619v138.0685H0V41.5549Z"
-            className="fill-bme-lprimary dark:fill-bme-dprimary"
+        <filter id="waveShadow" filterUnits="userSpaceOnUse" x="-10%" y="-10%" width="120%" height="120%">
+          <feDropShadow
+            dx="0"
+            dy="-5"
+            floodColor={fillColor ?? 'red'}
+            floodOpacity="0.5"
+            colorInterpolationFilters="sRGB"
           />
-        </g>
+        </filter>
+
+        <path
+          fillRule="inherit"
+          clipRule="inherit"
+          d="M2082 93.5L1961.9 84.5833C1843.6 75.6667 1603.4 57.8333 1365 66.75C1126.6 75.6667 886.402 111.333 648 111.333C409.598 111.333 169.402 75.6667 51.0974 57.8333L-69 40L-69 147L51.0974 147C169.402 147 409.598 147 648 147C886.402 147 1126.6 147 1365 147C1603.4 147 1843.6 147 1961.9 147L2082 147L2082 93.5Z"
+          fill={fillColor ?? 'red'}
+          className="z-1"
+          style={{ filter: 'url(#waveShadow)' }}
+        />
       </svg>
     </div>
   );
