@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         <body className="bg-bme-lprimary dark:bg-bme-dprimary">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             <main className="!text-bme-black dark:!text-bme-white">
-              <Navbar className={'fixed mx-auto mt-6 hidden min-w-screen justify-center xl:flex'} />
+              <Navbar className={'fixed mx-auto mt-0 min-w-screen justify-center lg:mt-6'} />
               {children}
             </main>
           </ThemeProvider>

@@ -19,8 +19,12 @@ export function ModeToggle() {
 
   return (
     <div className="h-8 w-8 cursor-pointer" onClick={() => setTheme(changeThemeValue ?? 'dark')}>
-      <SunIcon stroke="black" size={32} className="hidden dark:block" />
-      <MoonIcon stroke="black" size={32} className="block dark:hidden" />
+      <SunIcon
+        size={32}
+        strokeWidth={2.25}
+        className="stroke-bme-black dark:stroke-bme-orange xl:!stroke-bme-black hidden dark:block"
+      />
+      <MoonIcon size={32} strokeWidth={2.25} className="stroke-bme-black block dark:hidden" />
       <span className="sr-only">Toggle theme</span>
     </div>
   );
