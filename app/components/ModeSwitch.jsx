@@ -1,5 +1,4 @@
 'use client';
-
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
@@ -19,17 +18,10 @@ export function ModeToggle() {
   }, []);
 
   return (
-    <div
-      className="bg-bme-orange dark:bg-bme-blue h-fit w-fit cursor-pointer rounded-full p-3"
-      onClick={() => setTheme(changeThemeValue ?? 'dark')}
-    >
-      <div className="relative flex w-full items-center gap-8">
-        <div
-          className={`bg-bme-white absolute z-1 ml-auto h-6 w-6 translate-x-0 rounded-full ${theme === 'dark' && 'translate-x-[175%]'}`}
-        />
-        <SunIcon size={16} stroke="white" />
-        <MoonIcon size={16} stroke="black" />
-      </div>
+    <div className="h-8 w-8 cursor-pointer" onClick={() => setTheme(changeThemeValue ?? 'dark')}>
+      <SunIcon stroke="black" size={32} className="hidden dark:block" />
+      <MoonIcon stroke="black" size={32} className="block dark:hidden" />
+      <span className="sr-only">Toggle theme</span>
     </div>
   );
 }

@@ -15,10 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <ReactLenis root>
       <html lang="hu" className={`${poppins.variable} ${comfortaa.variable}`} suppressHydrationWarning>
-        <body className="bg-bme-lprimary dark:bg-bme-dprimary relative">
+        <body className="bg-bme-lprimary dark:bg-bme-dprimary">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             <main className="!text-bme-black dark:!text-bme-white">
-              <Navbar className={'fixed mx-auto mt-6 hidden min-w-full justify-center lg:flex'} />
+              <Navbar className={'fixed mx-auto mt-6 hidden min-w-screen justify-center xl:flex'} />
               {children}
             </main>
           </ThemeProvider>
