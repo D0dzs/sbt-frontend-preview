@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tailwindcss-animated';
+
 @config "../tailwind.config.js";
 
 @custom-variant dark (&:is(.dark *));
@@ -84,7 +85,7 @@
 }
 
 .no-scroll {
-  @apply overflow-hidden;
+  @apply overflow-clip h-1;
 }
 
 @layer base {

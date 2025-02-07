@@ -18,8 +18,9 @@ const HeroScreen = () => {
           <feDropShadow
             dx="0"
             dy="-5"
+            stdDeviation="5"
             floodColor={fillColor ?? 'red'}
-            floodOpacity="0.5"
+            floodOpacity="1"
             colorInterpolationFilters="sRGB"
           />
         </filter>

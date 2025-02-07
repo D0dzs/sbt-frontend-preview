@@ -22,7 +22,7 @@ const Navbar = ({ className, ...props }) => {
       >
         {isOpen && (
           <div
-            className={`animate-delay-[200ms] absolute grid h-svh w-full grid-cols-1 justify-between p-12 text-justify ${isOpen && 'animate-fade-down opacity-1'}`}
+            className={`animate-delay-[200ms] absolute grid h-svh w-full grid-cols-1 justify-between px-8 py-0 pb-4 text-justify ${isOpen && 'animate-fade-down opacity-1'}`}
           >
             <div>
               <XIcon

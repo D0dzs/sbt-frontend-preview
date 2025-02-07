@@ -4,10 +4,12 @@ import Container from './components/Container';
 import HeroLoader from './components/(Hero)/HeroLoader';
 import Link from 'next/link';
 
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Section } from 'lucide-react';
 import FilmStripElement from './components/FilmStripElement';
 import FilmStripContainer from './components/FilmStripContainer';
 import { InfiniteSlider } from '~/components/ui/infinite-slider';
+import GroupCard from './components/GroupCard';
+import { groupData } from '~/lib/mockupData';
 
 const HeroScreen = dynamic(() => import('./components/(Hero)/HeroPage'), {
   ssr: false,
@@ -23,7 +25,7 @@ export default function Home() {
   return (
     <div className="relative mx-auto grid items-center overflow-x-hidden">
       <HeroScreen />
-      <SectionLayout className={'flex w-screen items-center justify-center p-8 pt-16 xl:pt-32'}>
+      <SectionLayout className={'p-8 pt-16 xl:pt-32'}>
         <Container
           className={
             'grid h-fit w-[70vw] grid-flow-row grid-rows-1 overflow-clip p-0 xl:w-[60vw] xl:grid-flow-col xl:grid-cols-[.9fr_1.1fr] xl:grid-rows-1 xl:py-8'
@@ -63,17 +65,45 @@ export default function Home() {
       </SectionLayout>
 
       {/* Film strip (aka separator) */}
-      <FilmStripContainer className={'-translate-x-8 mt-12 lg:mt-24 xl:mt-32'}>
-        <InfiniteSlider gap={0} duration={50} durationOnHover={120}>
+      <FilmStripContainer className={'my-12 w-screen lg:my-24 xl:my-32'}>
+        <InfiniteSlider gap={0} duration={60} durationOnHover={120}>
           <div className="flex w-fit shrink-0 xl:h-64">
-            {Array.from({ length: 18 }, (_, i) => i).map((i) => (
+            {Array.from({ length: 10 }, (_, i) => i).map((i) => (
               <FilmStripElement key={i} imageURL={i % 2 === 0 ? '/images/0.webp' : '/hero/background.png'} />
             ))}
           </div>
         </InfiniteSlider>
       </FilmStripContainer>
 
-      <SectionLayout className={'h-screen'}></SectionLayout>
+      {/* Main Groups Container */}
+      <SectionLayout>
+        <Container className={'grid w-[70vw] justify-center gap-8 p-8 xl:w-[60vw]'}>
+          <h1 className="text-center text-3xl">Csapatunk felépítése</h1>
+          <div className="grid w-fit grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+            {groupData.map((group, idx) => {
+              return (
+                <GroupCard
+                  key={idx}
+                  descriptionOfTheGroup={group.descriptionOfTheGroup}
+                  imageSource={group.imageSource}
+                  nameOfTheGroup={group.nameOfTheGroup}
+                />
+              );
+            })}
+          </div>
+          <Link
+            href={''}
+            className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-4 py-1 text-center text-sm xl:mt-0 xl:text-xl"
+          >
+            Tudj meg többet rólunk
+            <ChevronRight size={16} className="block xl:hidden" />
+            <ChevronRight className="hidden xl:block" />
+          </Link>
+        </Container>
+      </SectionLayout>
+
+      {/* Placeholder for scrolling... */}
+      <SectionLayout className={'h-screen'} />
       {/* Footer */}
     </div>
   );
