@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import FilmStripElement from './components/FilmStripElement';
 import FilmStripContainer from './components/FilmStripContainer';
+import { InfiniteSlider } from '~/components/ui/infinite-slider';
 
 const HeroScreen = dynamic(() => import('./components/(Hero)/HeroPage'), {
   ssr: false,
@@ -62,12 +63,14 @@ export default function Home() {
       </SectionLayout>
 
       {/* Film strip (aka separator) */}
-      <FilmStripContainer className={'mt-12 w-max -translate-x-8 xl:mt-24'}>
-        <div className="flex w-fit shrink-0 xl:h-64">
-          {Array.from({ length: 18 }, (_, i) => i).map((i) => (
-            <FilmStripElement key={i} imageURL={i % 2 === 0 ? '/images/0.webp' : '/hero/background.png'} />
-          ))}
-        </div>
+      <FilmStripContainer className={'-translate-x-8 mt-12 lg:mt-24 xl:mt-32'}>
+        <InfiniteSlider gap={0} duration={50} durationOnHover={120}>
+          <div className="flex w-fit shrink-0 xl:h-64">
+            {Array.from({ length: 18 }, (_, i) => i).map((i) => (
+              <FilmStripElement key={i} imageURL={i % 2 === 0 ? '/images/0.webp' : '/hero/background.png'} />
+            ))}
+          </div>
+        </InfiniteSlider>
       </FilmStripContainer>
 
       <SectionLayout className={'h-screen'}></SectionLayout>
