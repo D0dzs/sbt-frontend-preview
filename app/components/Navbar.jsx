@@ -12,6 +12,7 @@ const Navbar = ({ className, ...props }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleToggle = async () => {
     setIsOpen(!isOpen);
+    document.body.classList.toggle('no-scroll');
   };
 
   return (

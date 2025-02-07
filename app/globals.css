@@ -83,6 +83,10 @@
   scrollbar-width: thin;
 }
 
+.no-scroll {
+  @apply overflow-hidden;
+}
+
 @layer base {
   * {
     @apply border-border font-poppins leading-normal;
