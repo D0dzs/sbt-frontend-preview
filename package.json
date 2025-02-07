@@ -23,6 +23,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-use-measure": "^2.1.7",
+    "swiper": "^11.2.2",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-animated": "^2.0.0"

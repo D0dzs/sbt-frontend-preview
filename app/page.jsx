@@ -1,15 +1,16 @@
 import dynamic from 'next/dynamic';
+import { ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+
 import SectionLayout from './components/(Layouts)/SectionLayout';
 import Container from './components/Container';
 import HeroLoader from './components/(Hero)/HeroLoader';
-import Link from 'next/link';
-
-import { ChevronRight, Section } from 'lucide-react';
+import GroupCard from './components/GroupCard';
 import FilmStripElement from './components/FilmStripElement';
 import FilmStripContainer from './components/FilmStripContainer';
 import { InfiniteSlider } from '~/components/ui/infinite-slider';
-import GroupCard from './components/GroupCard';
 import { groupData } from '~/lib/mockupData';
+import GroupSwiper from './components/GroupSwiper';
 
 const HeroScreen = dynamic(() => import('./components/(Hero)/HeroPage'), {
   ssr: false,
@@ -31,16 +32,16 @@ export default function Home() {
             'grid h-fit w-[70vw] grid-flow-row grid-rows-1 overflow-clip p-0 xl:w-[60vw] xl:grid-flow-col xl:grid-cols-[.9fr_1.1fr] xl:grid-rows-1 xl:py-8'
           }
         >
-          <div className="relative grid h-full w-full items-center justify-center py-8 xl:py-0">
+          <div className="relative mt-4 grid h-full w-full items-center justify-center px-1.5 py-8 lg:mt-0 xl:py-0 xl:pt-0">
             <img
-              src={'/csapat.png'}
+              src={'/images/this_is_us.webp'}
               alt="CSAPAT (front)"
-              className="absolute top-1/2 left-1/2 z-1 max-w-72 min-w-32 -translate-x-1/2 -translate-y-1/2 self-center rounded-2xl lg:max-w-96 xl:h-fit xl:w-96"
+              className="absolute top-1/2 left-1/2 z-1 w-60 -translate-x-1/2 -translate-y-1/2 self-center rounded-2xl lg:max-w-96 xl:h-fit xl:w-96"
             />
             <img
-              src={'/csapat.png'}
+              src={'/images/this_is_us.webp'}
               alt="CSAPAT (back)"
-              className="mx-auto max-w-72 min-w-32 rounded-2xl blur-xl lg:max-w-96 xl:mt-0 xl:h-fit xl:w-96 xl:-translate-y-0"
+              className="w-60 rounded-2xl blur-xl lg:max-w-96 xl:h-fit xl:w-96"
             />
           </div>
           <div className="grid h-full grid-flow-row items-center justify-center gap-3 p-8 pt-0 lg:px-8 xl:p-0">
@@ -68,8 +69,8 @@ export default function Home() {
       <FilmStripContainer className={'my-12 w-screen lg:my-24 xl:my-32'}>
         <InfiniteSlider gap={0} duration={60} durationOnHover={120}>
           <div className="flex w-fit shrink-0 xl:h-64">
-            {Array.from({ length: 10 }, (_, i) => i).map((i) => (
-              <FilmStripElement key={i} imageURL={i % 2 === 0 ? '/images/0.webp' : '/hero/background.png'} />
+            {Array.from({ length: 12 }, (_, i) => i).map((i) => (
+              <FilmStripElement key={i} imageURL={`/images/carousel/${i + 1}kep.webp`} />
             ))}
           </div>
         </InfiniteSlider>
@@ -77,8 +78,9 @@ export default function Home() {
 
       {/* Main Groups Container */}
       <SectionLayout>
-        <Container className={'grid w-[70vw] justify-center gap-8 p-8 xl:w-[60vw]'}>
-          <h1 className="text-center text-3xl">Csapatunk felépítése</h1>
+        {/* Desktop view */}
+        <Container className={'hidden w-[70vw] justify-center gap-8 p-8 xl:grid xl:w-[60vw]'}>
+          <h1 className="text-center text-xl lg:text-3xl">Csapatunk felépítése</h1>
           <div className="grid w-fit grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
             {groupData.map((group, idx) => {
               return (
@@ -100,10 +102,18 @@ export default function Home() {
             <ChevronRight className="hidden xl:block" />
           </Link>
         </Container>
+
+        {/* Mobile view */}
+        {/* TODO: NEED TO FIX CARD HEIGHT 😢 */}
+        <Container className={'w-[70vw] justify-center gap-8 p-8 xl:hidden'}>
+          <h1 className="text-center text-xl lg:text-3xl">Csapatunk felépítése</h1>
+          <GroupSwiper customArray={groupData} />
+        </Container>
       </SectionLayout>
 
       {/* Placeholder for scrolling... */}
       <SectionLayout className={'h-screen'} />
+
       {/* Footer */}
     </div>
   );

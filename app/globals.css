@@ -80,12 +80,20 @@
   }
 }
 
+.swiper-pagination-bullet-inactive {
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+}
+
 * {
   scrollbar-width: thin;
 }
 
 .no-scroll {
-  @apply overflow-clip h-1;
+  @apply h-1 overflow-clip;
 }
 
 @layer base {

@@ -16,13 +16,13 @@ const Navbar = ({ className, ...props }) => {
   };
 
   return (
-    <nav className={`${cn('z-10 grid', className)}`} {...props}>
+    <nav className={`${cn('z-9999 grid', className)}`} {...props}>
       <div
         className={`bg-bme-lprimary dark:bg-bme-dprimary absolute top-0 left-0 z-50 mt-20 block min-w-screen -translate-y-20 transition-all duration-500 lg:hidden ${isOpen ? 'min-h-screen' : 'min-h-0'}`}
       >
         {isOpen && (
           <div
-            className={`animate-delay-[200ms] absolute grid h-svh w-full grid-cols-1 justify-between px-8 py-0 pb-4 text-justify ${isOpen && 'animate-fade-down opacity-1'}`}
+            className={`animate-delay-[200ms] absolute grid h-svh w-full grid-cols-1 justify-between p-12 text-justify ${isOpen && 'animate-fade-down opacity-1'}`}
           >
             <div>
               <XIcon

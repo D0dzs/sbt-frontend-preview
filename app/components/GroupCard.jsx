@@ -1,19 +1,20 @@
-import React from 'react';
+'use client';
+
 import { cn } from '~/lib/utils';
 
 const GroupCard = ({ className, imageSource, nameOfTheGroup, descriptionOfTheGroup, ...props }) => {
   return (
     <div
-      className={`${cn('bg-bme-lfront dark:bg-bme-dfront grid min-h-96 max-w-80 min-w-64 grid-rows-2 gap-4 overflow-clip rounded-2xl lg:min-h-[500px]', className)}`}
+      className={`${cn('bg-bme-lfront dark:bg-bme-dfront flex max-w-80 min-w-56 min-h-48 max-h-full flex-col gap-4 overflow-clip rounded-2xl shadow-lg select-none', className)}`}
       {...props}
     >
-      <div className="relative">
-        <img src={imageSource} className="absolute top-0 left-0 z-3 h-full" />
-        <img src={imageSource} className="z-5 h-full rounded-xl blur-2xl" />
+      <div className="relative h-64">
+        <img src={imageSource} className="absolute top-0 left-0 z-3 h-full w-full object-cover" />
+        <img src={imageSource} className="h-full w-full object-cover blur-2xl" />
       </div>
-      <article className="z-15 p-4">
-        <h3 className="mb-4 text-center text-xl">{nameOfTheGroup}</h3>
-        <p className="line-clamp-4 w-full text-justify font-extralight lg:line-clamp-6">{descriptionOfTheGroup}</p>
+      <article className="z-15 flex flex-1 flex-col gap-2 p-4">
+        <h3 className="text-center text-lg lg:text-xl">{nameOfTheGroup}</h3>
+        <p className="mt-4 line-clamp-4 text-justify text-xs lg:line-clamp-6 lg:text-base">{descriptionOfTheGroup}</p>
       </article>
     </div>
   );

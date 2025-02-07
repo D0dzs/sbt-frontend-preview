@@ -6,7 +6,7 @@ const HeroLoader = ({ className, children, ...props }) => {
   return (
     <div
       className={cn(
-        'from-bme-lprimary to-bme-lsecondary dark:bg-bme-dprimary text-bme-black dark:text-bme-white dark:from-bme-dprimary dark:to-bme-dsecondary z-50 grid h-screen w-screen items-center justify-center bg-radial',
+        'from-bme-lprimary to-bme-lsecondary dark:bg-bme-dprimary text-bme-black dark:text-bme-white dark:from-bme-dprimary dark:to-bme-dsecondary z-99999 grid h-screen w-screen items-center justify-center bg-radial',
         className,
       )}
       {...props}
