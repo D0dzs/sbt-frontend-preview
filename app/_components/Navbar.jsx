@@ -74,7 +74,7 @@ const Navbar = ({ className, ...props }) => {
                 </Accordion>
                 <Accordion type="single" collapsible className="min-w-full">
                   <AccordionItem value="item-1">
-                    <Link href={''} onClick={handleToggle}>
+                    <Link href={'/sponsors'} onClick={handleToggle}>
                       <AccordionTrigger className={'text-2xl'}>SZPONZOROK</AccordionTrigger>
                     </Link>
                   </AccordionItem>
@@ -83,14 +83,14 @@ const Navbar = ({ className, ...props }) => {
               <div className="mt-auto max-h-fit min-h-fit">
                 <Link
                   href={''}
-                  className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-16 py-1 text-center text-2xl xl:mt-0 xl:text-xl"
+                  className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-16 py-1 text-center text-2xl lg:mt-0 lg:text-xl"
                   onClick={handleToggle}
                 >
                   KAPCSOLAT
                 </Link>
                 <Link
                   href={''}
-                  className="dark:bg-bme-white bg-bme-black text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-12 py-1 text-center text-2xl xl:mt-0 xl:text-xl"
+                  className="dark:bg-bme-white bg-bme-black text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-12 py-1 text-center text-2xl lg:mt-0 lg:text-xl"
                   onClick={handleToggle}
                 >
                   LOGIN
@@ -100,53 +100,56 @@ const Navbar = ({ className, ...props }) => {
           )}
         </div>
       ) : null}
-      <div className="outline-bme-dsecondary/15 dark:outline-bme-lsecondary/15 shadow-bme-black/10 lg:shadow-bme-black/20 dark:shadow-bme-white/10 lg:dark:outline-bme-lsecondary/50 bg-bme-lprimary dark:bg-bme-dprimary lg:from-bme-white/50 lg:to-bme-white/30 grid h-20 w-screen items-center rounded-none px-8 shadow-lg outline-2 backdrop-blur-sm transition-all lg:w-[80vw] lg:rounded-full lg:bg-transparent lg:bg-linear-to-t xl:w-[60vw] lg:dark:bg-transparent">
-        <div
-          id="desktop-navbar"
-          className="text-bme-black dark:text-bme-white hidden h-full grid-flow-col items-center justify-between text-2xl lg:grid"
-        >
-          <div className="flex items-center gap-6">
+      <div className="outline-bme-dsecondary/15 dark:outline-bme-lsecondary/15 shadow-bme-black/5 lg:shadow-bme-black/20 dark:shadow-bme-white/5 lg:dark:outline-bme-lsecondary/50 bg-bme-lprimary dark:bg-bme-dprimary lg:from-bme-white/50 lg:to-bme-white/30 grid h-20 w-screen items-center rounded-none px-8 shadow-lg outline-2 backdrop-blur-sm transition-all lg:rounded-full lg:w-[60vw] lg:bg-transparent lg:bg-linear-to-t lg:dark:bg-transparent">
+        {isMobile ? (
+          <div
+            id="mobile-navbar"
+            className="text-bme-black dark:text-bme-white relative flex items-center justify-between gap-6 lg:hidden"
+          >
             <Link href={'/'}>
-              <Image priority src={'/navbar/logo.svg'} width={64} height={64} alt="Logo" />
+              <Image priority src={'/navbar/logo.svg'} width={64} height={64} alt="Logo" className="h-16 w-16" />
             </Link>
-            <div className="flex gap-4">
-              <Link href={''}>Rólunk</Link>
-              <Link href={''}>Hírek</Link>
-              <Link href={''}>Galéria</Link>
-              <Link href={''}>Szponzorok</Link>
+            <ModeToggle />
+            <AlignJustifyIcon
+              onClick={handleToggle}
+              size={48}
+              stroke="white"
+              className="hidden cursor-pointer dark:block"
+            />
+            <AlignJustifyIcon
+              onClick={handleToggle}
+              size={48}
+              stroke="black"
+              className="block cursor-pointer dark:hidden"
+            />
+          </div>
+        ) : (
+          <div
+            id="desktop-navbar"
+            className="text-bme-black dark:text-bme-white hidden h-full grid-flow-col items-center justify-between text-2xl lg:grid"
+          >
+            <div className="flex items-center gap-6">
+              <Link href={'/'}>
+                <Image priority src={'/navbar/logo.svg'} width={64} height={64} alt="Logo" />
+              </Link>
+              <div className="flex gap-4">
+                <Link href={''}>Rólunk</Link>
+                <Link href={''}>Hírek</Link>
+                <Link href={''}>Galéria</Link>
+                <Link href={'/sponsors'}>Szponzorok</Link>
+              </div>
+            </div>
+            <div className="grid w-full grid-flow-col items-center gap-6">
+              <ModeToggle />
+              <Link
+                href={''}
+                className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black rounded-full px-4 py-1 text-center"
+              >
+                Kapcsolat
+              </Link>
             </div>
           </div>
-          <div className="grid w-full grid-flow-col items-center gap-6">
-            <ModeToggle />
-            <Link
-              href={''}
-              className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black rounded-full px-4 py-1 text-center"
-            >
-              Kapcsolat
-            </Link>
-          </div>
-        </div>
-        <div
-          id="mobile-navbar"
-          className="text-bme-black dark:text-bme-white relative flex items-center justify-between gap-6 lg:hidden"
-        >
-          <Link href={''}>
-            <Image priority src={'/navbar/logo.svg'} width={64} height={64} alt="Logo" className="h-16 w-16" />
-          </Link>
-          <ModeToggle />
-          <AlignJustifyIcon
-            onClick={handleToggle}
-            size={48}
-            stroke="white"
-            className="hidden cursor-pointer dark:block"
-          />
-          <AlignJustifyIcon
-            onClick={handleToggle}
-            size={48}
-            stroke="black"
-            className="block cursor-pointer dark:hidden"
-          />
-        </div>
+        )}
       </div>
     </nav>
   );

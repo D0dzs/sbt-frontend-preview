@@ -20,9 +20,9 @@ const GroupDisplay = () => {
           <GroupSwiper customArray={groupData} />
         </Container>
       ) : (
-        <Container className={'w-[70vw] justify-center gap-8 p-8 xl:grid xl:w-[60vw]'}>
+        <Container className={'w-[70vw] justify-center gap-8 p-8 lg:grid lg:w-[60vw]'}>
           <h1 className="text-center text-xl lg:text-3xl">Csapatunk felépítése</h1>
-          <div className="grid w-fit grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+          <div className="grid w-fit grid-cols-1 gap-4 lg:grid-cols-2">
             {groupData.map((group, idx) => {
               return (
                 <GroupCard
@@ -36,11 +36,11 @@ const GroupDisplay = () => {
           </div>
           <Link
             href={''}
-            className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-4 py-1 text-center text-sm xl:mt-0 xl:text-xl"
+            className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-4 py-1 text-center text-sm lg:mt-0 lg:text-xl"
           >
             Tudj meg többet rólunk
-            <ChevronRight size={16} className="block xl:hidden" />
-            <ChevronRight className="hidden xl:block" />
+            <ChevronRight size={16} className="block lg:hidden" />
+            <ChevronRight className="hidden lg:block" />
           </Link>
         </Container>
       )}

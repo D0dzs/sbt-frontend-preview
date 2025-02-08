@@ -23,7 +23,7 @@ export function ModeToggle() {
       <SunIcon
         size={32}
         strokeWidth={2.25}
-        className="stroke-bme-black dark:stroke-bme-orange xl:!stroke-bme-black hidden dark:block"
+        className="stroke-bme-black dark:stroke-bme-orange lg:!stroke-bme-black hidden dark:block"
       />
       <MoonIcon size={32} strokeWidth={2.25} className="stroke-bme-black block dark:hidden" />
       <span className="sr-only">Toggle theme</span>

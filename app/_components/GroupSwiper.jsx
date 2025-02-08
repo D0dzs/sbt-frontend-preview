@@ -16,6 +16,7 @@ const GroupSwiper = ({ customArray, className, children, ...props }) => {
         modules={[Pagination]}
         spaceBetween={30}
         slidesPerView={1}
+        loop={true}
         pagination={{
           el: '.swiper-custom-pagination',
           renderBullet: (index, className) => {
@@ -44,11 +45,11 @@ const GroupSwiper = ({ customArray, className, children, ...props }) => {
 
       <Link
         href={''}
-        className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-4 py-1 text-center text-sm xl:mt-0 xl:text-xl"
+        className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-4 py-1 text-center text-sm lg:mt-0 lg:text-xl"
       >
         Tudj meg többet rólunk
-        <ChevronRight size={16} className="block xl:hidden" />
-        <ChevronRight className="hidden xl:block" />
+        <ChevronRight size={16} className="block lg:hidden" />
+        <ChevronRight className="hidden lg:block" />
       </Link>
     </>
   );

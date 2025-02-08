@@ -7,7 +7,7 @@ const HeroScreen = () => {
   const fillColor = theme === 'light' ? '#fafafa' : '#1a1a1a';
 
   return (
-    <div className="relative grid h-[80vh] w-screen items-center justify-center bg-[url(/hero/background.webp)] bg-cover bg-center xl:h-screen xl:bg-cover xl:bg-fixed xl:bg-bottom">
+    <div className="relative grid h-[80vh] w-screen items-center justify-center bg-[url(/hero/background.webp)] bg-cover bg-center lg:h-screen lg:bg-cover lg:bg-fixed lg:bg-bottom">
       <svg
         width="1920"
         viewBox="0 0 1920 133"
