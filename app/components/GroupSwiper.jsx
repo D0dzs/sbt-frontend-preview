@@ -16,7 +16,6 @@ const GroupSwiper = ({ customArray, className, children, ...props }) => {
         modules={[Pagination]}
         spaceBetween={30}
         slidesPerView={1}
-        loop={true}
         pagination={{
           el: '.swiper-custom-pagination',
           renderBullet: (index, className) => {

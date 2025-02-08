@@ -5,12 +5,10 @@ import Link from 'next/link';
 import SectionLayout from './components/(Layouts)/SectionLayout';
 import Container from './components/Container';
 import HeroLoader from './components/(Hero)/HeroLoader';
-import GroupCard from './components/GroupCard';
 import FilmStripElement from './components/FilmStripElement';
 import FilmStripContainer from './components/FilmStripContainer';
 import { InfiniteSlider } from '~/components/ui/infinite-slider';
-import { groupData } from '~/lib/mockupData';
-import GroupSwiper from './components/GroupSwiper';
+import GroupDisplay from './components/GroupDisplay';
 
 const HeroScreen = dynamic(() => import('./components/(Hero)/HeroPage'), {
   ssr: false,
@@ -78,37 +76,7 @@ export default function Home() {
 
       {/* Main Groups Container */}
       <SectionLayout>
-        {/* Desktop view */}
-        <Container className={'hidden w-[70vw] justify-center gap-8 p-8 xl:grid xl:w-[60vw]'}>
-          <h1 className="text-center text-xl lg:text-3xl">Csapatunk felépítése</h1>
-          <div className="grid w-fit grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
-            {groupData.map((group, idx) => {
-              return (
-                <GroupCard
-                  key={idx}
-                  descriptionOfTheGroup={group.descriptionOfTheGroup}
-                  imageSource={group.imageSource}
-                  nameOfTheGroup={group.nameOfTheGroup}
-                />
-              );
-            })}
-          </div>
-          <Link
-            href={''}
-            className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-4 py-1 text-center text-sm xl:mt-0 xl:text-xl"
-          >
-            Tudj meg többet rólunk
-            <ChevronRight size={16} className="block xl:hidden" />
-            <ChevronRight className="hidden xl:block" />
-          </Link>
-        </Container>
-
-        {/* Mobile view */}
-        {/* TODO: NEED TO FIX CARD HEIGHT 😢 */}
-        <Container className={'w-[70vw] justify-center gap-8 p-8 xl:hidden'}>
-          <h1 className="text-center text-xl lg:text-3xl">Csapatunk felépítése</h1>
-          <GroupSwiper customArray={groupData} />
-        </Container>
+        <GroupDisplay />
       </SectionLayout>
 
       {/* Placeholder for scrolling... */}
