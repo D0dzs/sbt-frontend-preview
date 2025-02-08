@@ -20,9 +20,9 @@ const GroupDisplay = () => {
           <GroupSwiper customArray={groupData} />
         </Container>
       ) : (
-        <Container className={'w-[70vw] justify-center gap-8 p-8 lg:grid lg:w-[60vw]'}>
+        <Container className={'w-[70vw] justify-center gap-8 p-8 lg:grid lg:w-fit'}>
           <h1 className="text-center text-xl lg:text-3xl">Csapatunk felépítése</h1>
-          <div className="grid w-fit grid-cols-1 gap-4 lg:grid-cols-2">
+          <div className="grid w-fit grid-cols-3 gap-4">
             {groupData.map((group, idx) => {
               return (
                 <GroupCard
