@@ -1,9 +1,9 @@
 import { Comfortaa, Poppins } from 'next/font/google';
 import { ReactLenis } from 'lenis/dist/lenis-react';
 
-import Navbar from './components/Navbar';
+import Navbar from './_components/Navbar';
 import { siteConfig } from '~/config/site';
-import Providers from './components/Providers/Providers';
+import Providers from './_components/Providers/Providers';
 
 import './globals.css';
 
