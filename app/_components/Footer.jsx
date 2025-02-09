@@ -53,6 +53,12 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        <div className="hidden p-8 px-16 lg:block">
+          <Separator className="bg-bme-black/50 dark:bg-bme-white/50" />
+        </div>
+        <h2 className="z-10 px-16 py-8 pt-0 text-center text-sm lg:text-xl">
+          Copyright &copy; 2025 BME Solar Boat Team. All Rights Reserved.
+        </h2>
       </div>
     </footer>
   )
