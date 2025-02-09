@@ -9,6 +9,7 @@ import FilmStripElement from './_components/FilmStripElement';
 import FilmStripContainer from './_components/FilmStripContainer';
 import { InfiniteSlider } from '~/components/ui/infinite-slider';
 import GroupDisplay from './_components/GroupDisplay';
+import Footer from './_components/Footer';
 
 const HeroScreen = dynamic(() => import('./_components/(Hero)/HeroPage'), {
   ssr: false,
@@ -83,6 +84,9 @@ export default function Home() {
       <SectionLayout className={'h-screen'} />
 
       {/* Footer */}
+      <SectionLayout>
+        <Footer />
+      </SectionLayout>
     </div>
   );
 }
