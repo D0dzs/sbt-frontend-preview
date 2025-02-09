@@ -1,8 +1,9 @@
 'use client';
 
+import { Separator } from '@radix-ui/react-dropdown-menu';
 import Link from 'next/link';
 import React from 'react'
-import { Separator } from '~/components/ui/separator';
+
 
 const Footer = () => {
   return (
@@ -32,24 +33,24 @@ const Footer = () => {
                 <Separator className="bg-bme-black/50 dark:bg-bme-white/50 my-2 lg:hidden" />
               </div>
               <div className="grid h-fit gap-2">
-              <p className="font-bold" href={''}>
-                Hírek
-              </p>
-              <Link href={''}>Sajtó</Link>
-              <Link href={''}>Blog</Link>
-              <Separator className="bg-bme-black/50 dark:bg-bme-white/50 my-2 lg:hidden" />
-            </div>
-            <div className="grid h-fit gap-2">
-              <p className="font-bold" href={''}>
-                Egyéb
-              </p>
-              <Link href={''}>Galéria</Link>
-              <Link href={'/sponsors'} scroll>
-                Szponzorok
-              </Link>
-              <Link href={''}>Elérhetőségek</Link>
-              <Separator className="bg-bme-black/50 dark:bg-bme-white/50 my-2 lg:hidden" />
-            </div>
+                <p className="font-bold" href={''}>
+                  Hírek
+                </p>
+                <Link href={''}>Sajtó</Link>
+                <Link href={''}>Blog</Link>
+                <Separator className="bg-bme-black/50 dark:bg-bme-white/50 my-2 lg:hidden" />
+              </div>
+              <div className="grid h-fit gap-2">
+                <p className="font-bold" href={''}>
+                  Egyéb
+                </p>
+                <Link href={''}>Galéria</Link>
+                <Link href={'/sponsors'} scroll>
+                  Szponzorok
+                </Link>
+                <Link href={''}>Elérhetőségek</Link>
+                <Separator className="bg-bme-black/50 dark:bg-bme-white/50 my-2 lg:hidden" />
+              </div>
             </div>
           </div>
         </div>
@@ -59,6 +60,16 @@ const Footer = () => {
         <h2 className="z-10 px-16 py-8 pt-0 text-center text-sm lg:text-xl">
           Copyright &copy; 2025 BME Solar Boat Team. All Rights Reserved.
         </h2>
+      </div>
+
+      {/* BOTTOM BLOCK */}
+      <div className="bg-bme-orange shadow-bme-orange/50 !text-bme-black mx-auto grid h-full w-[55vw] items-center gap-3 rounded-b-xl p-8 py-6 shadow-xl lg:grid-cols-2">
+      <div className="flex justify-between lg:justify-normal lg:gap-6 lg:text-xl">
+          <span className="self-center">Tagoknak</span>
+          <Link href={''} scroll className="bg-bme-black text-bme-white rounded-full px-8 py-2 lg:px-12">
+            Login
+          </Link>
+        </div>
       </div>
     </footer>
   )
