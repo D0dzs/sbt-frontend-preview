@@ -11,8 +11,11 @@ const Footer = () => {
               <img src="./images/logo/secondarylogodark.svg" className="mx-auto block h-18 lg:mx-0 dark:hidden" />
               <img src="./images/logo/secondarylogowhite.svg" className="mx-auto hidden h-18 lg:mx-0 dark:block" />
             </Link>
-            <p>info@solarboatteam.hu</p>
-            <p>+36 70 608 7004</p>
+            <div className="flex flex-col gap-2">
+              <p>info@solarboatteam.hu</p>
+              <p>+36 70 608 7004</p>
+            </div>
+            <Separator className="bg-bme-black/50 dark:bg-bme-white/50 lg:hidden" />
           </div>
           <div className="grid">
             <Link className='text font-bold' href={""}>Rólunk</Link>
