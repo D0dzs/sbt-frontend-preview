@@ -31,11 +31,14 @@ const Footer = () => {
                 <Link href={''}>Eredményeink</Link>
                 <Separator className="bg-bme-black/50 dark:bg-bme-white/50 my-2 lg:hidden" />
               </div>
-              <div className="grid">
-                <Link className='text font-bold' href={""}>Hírek</Link>
-                <Link href={""}>Sajtó</Link>
-                <Link href={""}>Blog</Link>
-              </div>
+              <div className="grid h-fit gap-2">
+              <p className="font-bold" href={''}>
+                Hírek
+              </p>
+              <Link href={''}>Sajtó</Link>
+              <Link href={''}>Blog</Link>
+              <Separator className="bg-bme-black/50 dark:bg-bme-white/50 my-2 lg:hidden" />
+            </div>
               <div className="grid">
                 <Link className='text font-bold' href={""}>Egyéb</Link>
                 <Link href={""}>Galéria</Link>
