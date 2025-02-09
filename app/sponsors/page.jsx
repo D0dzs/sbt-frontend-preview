@@ -9,27 +9,30 @@ const page = () => {
       {/* GIGAWATT SPONSORS */}
       <SectionLayout
         className={
-          'just relative grid min-h-screen items-start bg-[url(/images/sponsors/gigawatt_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
+          'relative min-h-screen bg-[url(/images/sponsors/gigawatt_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
         }
       >
-        <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-50% to-90%" />
-        <div className="z-10 grid h-svh w-screen justify-center gap-16 pt-(--mobile-navbar-height) lg:pt-0">
-          <h3 className="self-end text-center text-3xl font-semibold lg:text-5xl">GIGAWATT Szponzorok</h3>
-          <div className="mx-auto grid h-fit w-fit gap-8 p-8 lg:grid-flow-row lg:grid-cols-3">
+        <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
+        <div className="z-10 flex h-svh flex-col items-center justify-center gap-16 pt-(--mobile-navbar-height) lg:pt-0">
+          <h3 className="text-center text-3xl font-semibold lg:text-5xl">GIGAWATT Szponzorok</h3>
+          <div className="grid h-fit gap-4 lg:grid-cols-3 lg:gap-8">
             <SponsorCard
               sponsorURL={'https://mvm.hu/'}
               sponsorName={'MVM'}
               sponsorImage={'/images/sponsors/gigawatt/MVM.svg'}
+              imageClassName={'h-18'}
             />
             <SponsorCard
               sponsorURL={'https://www.polinvent.com/'}
               sponsorName={'Polinvent'}
               sponsorImage={'/images/sponsors/gigawatt/Polinvent.svg'}
+              imageClassName={'h-18'}
             />
             <SponsorCard
               sponsorURL={'https://www.hds.bme.hu/'}
               sponsorName={'HRT'}
               sponsorImage={'/images/sponsors/gigawatt/HRT.svg'}
+              imageClassName={'h-18'}
             />
           </div>
         </div>
@@ -38,13 +41,13 @@ const page = () => {
       {/* MEGAWATT SPONSORS */}
       <SectionLayout
         className={
-          'just relative grid min-h-screen items-start bg-[url(/images/sponsors/megawatt_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
+          'relative grid min-h-screen items-start bg-[url(/images/sponsors/megawatt_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
         }
       >
-        <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-50% to-90%" />
-        <div className="z-10 grid w-screen justify-center gap-16 pt-(--mobile-navbar-height) lg:w-[60vw] lg:pt-(--navbar-height)">
-          <h3 className="self-end text-center text-3xl font-semibold lg:text-5xl">MEGAWATT Szponzorok</h3>
-          <div className="row-auto mx-auto grid h-fit w-fit justify-center gap-8 p-8 lg:grid-flow-row lg:grid-cols-4 lg:gap-8">
+        <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
+        <div className="z-10 flex w-screen flex-col gap-16 pt-(--mobile-navbar-height) lg:w-[70vw] lg:pt-(--navbar-height)">
+          <h3 className="text-center text-3xl font-semibold lg:text-5xl">MEGAWATT Szponzorok</h3>
+          <div className="flex flex-wrap items-center justify-center gap-8 p-8">
             <SponsorCard
               sponsorURL={'https://www.foxconn.hu/'}
               imageClassName={'h-10'}
@@ -99,7 +102,6 @@ const page = () => {
               imageClassName={'h-10'}
               sponsorName={'Porsche Hungaria'}
               sponsorImage={'/images/sponsors/megawatt/Porsche.svg'}
-              className={'lg:col-start-2'}
             />
             <SponsorCard
               sponsorURL={'https://zoltek.com/'}
@@ -114,13 +116,13 @@ const page = () => {
       {/* KILOWATT SPONSORS */}
       <SectionLayout
         className={
-          'just relative grid min-h-screen items-start bg-[url(/images/sponsors/kilowatt_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
+          'relative min-h-screen bg-[url(/images/sponsors/kilowatt_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
         }
       >
-        <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-50% to-90%" />
-        <div className="z-10 grid w-screen justify-center gap-16 pt-(--mobile-navbar-height) lg:pt-(--navbar-height)">
-          <h3 className="self-end text-center text-3xl font-semibold lg:text-5xl">KILOWATT Szponzorok</h3>
-          <div className="mx-auto grid h-fit w-fit gap-8 p-8 lg:w-[60vw] lg:grid-flow-row lg:grid-cols-6 lg:gap-8 lg:p-0">
+        <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
+        <div className="z-10 flex w-screen flex-col gap-16 pt-(--mobile-navbar-height) lg:w-[70vw] lg:pt-(--navbar-height)">
+          <h3 className="text-center text-3xl font-semibold lg:text-5xl">KILOWATT Szponzorok</h3>
+          <div className="flex flex-wrap items-center justify-center gap-8 p-8">
             <SponsorCard
               sponsorURL={'https://www.wago.com/global/'}
               imageClassName={'h-10'}
@@ -203,52 +205,52 @@ const page = () => {
           'just relative grid min-h-screen items-start bg-[url(/images/sponsors/special_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
         }
       >
-        <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-50% to-90%" />
-        <div className="z-10 grid w-screen justify-center gap-16 pt-(--mobile-navbar-height) lg:w-[60vw] lg:pt-(--navbar-height)">
+        <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
+        <div className="z-10 w-screen justify-center gap-16 pt-(--mobile-navbar-height) lg:w-[60vw] lg:pt-(--navbar-height)">
           <div>
-            <h3 className="self-end p-4 text-center text-3xl font-semibold lg:p-0 lg:text-5xl lg:text-nowrap">
+            <h3 className="p-4 text-center text-3xl font-semibold lg:p-0 lg:text-5xl">
               Budapesti Műszaki és Gazdaságtudományi Egyetem
             </h3>
-            <div className="row-auto mx-auto grid h-fit w-fit justify-center gap-8 p-8 lg:grid-flow-col lg:gap-8">
+            <div className="flex flex-wrap items-center justify-center gap-8 p-8">
               <SponsorCard
                 sponsorURL={'https://manuf.bme.hu/'}
-                imageClassName={'h-24 w-24'}
+                imageClassName={'h-18 w-full'}
                 sponsorName={'BME Gyártástudomány és -technológia Tanszék'}
                 sponsorImage={'/images/sponsors/bme/gtt.svg'}
               />
               <SponsorCard
                 sponsorURL={'https://att.bme.hu/'}
-                imageClassName={'h-24 w-24'}
+                imageClassName={'h-18 w-full'}
                 sponsorName={'Anyagtudomány és technológia Tanszék'}
                 sponsorImage={'/images/sponsors/bme/att.svg'}
               />
               <SponsorCard
                 sponsorURL={'https://www.aut.bme.hu/'}
-                imageClassName={'h-24 w-24'}
+                imageClassName={'h-18 w-full'}
                 sponsorName={'Automatizálási és Alkalmazott Informatikai Tanszék'}
                 sponsorImage={'/images/sponsors/bme/aut.svg'}
               />
               <SponsorCard
                 sponsorURL={'http://ehk.bme.hu/'}
-                imageClassName={'h-24 w-24'}
+                imageClassName={'h-18 w-full'}
                 sponsorName={'Egyetemi Hallgatói Képviselet'}
                 sponsorImage={'/images/sponsors/bme/ehk.svg'}
               />
               <SponsorCard
                 sponsorURL={'https://gpk.bme.hu/hu/'}
-                imageClassName={'h-24 w-24'}
+                imageClassName={'h-18 w-full'}
                 sponsorName={'Gépészmérnöki Kar'}
                 sponsorImage={'/images/sponsors/bme/gpk.svg'}
               />
               <SponsorCard
                 sponsorURL={'https://gt3.bme.hu/'}
-                imageClassName={'h-24 w-24'}
+                imageClassName={'h-18 w-full'}
                 sponsorName={'Gép- és Terméktervezés Tanszék'}
                 sponsorImage={'/images/sponsors/bme/gt3.svg'}
               />
               <SponsorCard
                 sponsorURL={'http://ehk.bme.hu/'}
-                imageClassName={'h-24 w-24'}
+                imageClassName={'h-18 w-full'}
                 sponsorName={'Egyetemi Hallgatói Képviselet'}
                 sponsorImage={'/images/sponsors/bme/ehk2.svg'}
               />
@@ -257,7 +259,7 @@ const page = () => {
         </div>
 
         {/* SCIENCE PARTNER */}
-        <div className="z-15 mx-auto flex flex-col items-center justify-center">
+        <div className="z-15 mx-auto mt-(--navbar-height) flex flex-col items-center justify-center">
           <h3 className="self-end text-center text-3xl font-semibold lg:text-5xl lg:text-nowrap">
             Tudományos partnerünk
           </h3>

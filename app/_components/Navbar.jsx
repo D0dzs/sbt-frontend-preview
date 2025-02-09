@@ -46,13 +46,13 @@ const Navbar = ({ className, ...props }) => {
                       RÓLUNK
                     </AccordionTrigger>
                     <AccordionContent className={'flex flex-col gap-4'}>
-                      <Link className="ml-8" href={''} onClick={handleToggle}>
+                      <Link scroll className="ml-8" href={''} onClick={handleToggle}>
                         Csapattagok
                       </Link>
-                      <Link className="ml-8" href={''} onClick={handleToggle}>
+                      <Link scroll className="ml-8" href={''} onClick={handleToggle}>
                         Rólunk+
                       </Link>
-                      <Link className="ml-8" href={''} onClick={handleToggle}>
+                      <Link scroll className="ml-8" href={''} onClick={handleToggle}>
                         Eredményeink
                       </Link>
                     </AccordionContent>
@@ -60,21 +60,21 @@ const Navbar = ({ className, ...props }) => {
                 </Accordion>
                 <Accordion type="single" collapsible className="min-w-full">
                   <AccordionItem value="item-1">
-                    <Link href={''} onClick={handleToggle}>
+                    <Link scroll href={''} onClick={handleToggle}>
                       <AccordionTrigger className={'text-2xl'}>HÍREK</AccordionTrigger>
                     </Link>
                   </AccordionItem>
                 </Accordion>
                 <Accordion type="single" collapsible className="min-w-full">
                   <AccordionItem value="item-1">
-                    <Link href={''} onClick={handleToggle}>
+                    <Link scroll href={''} onClick={handleToggle}>
                       <AccordionTrigger className={'text-2xl'}>GALÉRIA</AccordionTrigger>
                     </Link>
                   </AccordionItem>
                 </Accordion>
                 <Accordion type="single" collapsible className="min-w-full">
                   <AccordionItem value="item-1">
-                    <Link href={'/sponsors'} onClick={handleToggle}>
+                    <Link scroll href={'/sponsors'} onClick={handleToggle}>
                       <AccordionTrigger className={'text-2xl'}>SZPONZOROK</AccordionTrigger>
                     </Link>
                   </AccordionItem>
@@ -100,14 +100,14 @@ const Navbar = ({ className, ...props }) => {
           )}
         </div>
       ) : null}
-      <div className="outline-bme-dsecondary/15 dark:outline-bme-lsecondary/15 shadow-bme-black/5 lg:shadow-bme-black/20 dark:shadow-bme-white/5 lg:dark:outline-bme-lsecondary/50 bg-bme-lprimary dark:bg-bme-dprimary lg:from-bme-white/50 lg:to-bme-white/30 grid h-20 w-screen items-center rounded-none px-8 shadow-lg outline-2 backdrop-blur-sm transition-all lg:rounded-full lg:w-[60vw] lg:bg-transparent lg:bg-linear-to-t lg:dark:bg-transparent">
+      <div className="outline-bme-dsecondary/15 dark:outline-bme-lsecondary/15 shadow-bme-black/5 lg:shadow-bme-black/20 dark:shadow-bme-white/5 lg:dark:outline-bme-lsecondary/50 bg-bme-lprimary dark:bg-bme-dprimary lg:from-bme-white/50 lg:to-bme-white/30 grid h-20 w-screen items-center rounded-none px-8 shadow-lg outline-2 backdrop-blur-sm transition-all lg:w-full lg:rounded-full lg:bg-transparent lg:bg-linear-to-t xl:w-[60vw] lg:dark:bg-transparent">
         {isMobile ? (
           <div
             id="mobile-navbar"
             className="text-bme-black dark:text-bme-white relative flex items-center justify-between gap-6 lg:hidden"
           >
             <Link href={'/'}>
-              <Image priority src={'/navbar/logo.svg'} width={64} height={64} alt="Logo" className="h-16 w-16" />
+              <Image priority src={'/navbar/logo.svg'} width={64} height={64} alt="Logo" />
             </Link>
             <ModeToggle />
             <AlignJustifyIcon
@@ -126,17 +126,25 @@ const Navbar = ({ className, ...props }) => {
         ) : (
           <div
             id="desktop-navbar"
-            className="text-bme-black dark:text-bme-white hidden h-full grid-flow-col items-center justify-between text-2xl lg:grid"
+            className="text-bme-black dark:text-bme-white hidden h-full grid-flow-col items-center justify-between gap-4 text-2xl lg:grid"
           >
             <div className="flex items-center gap-6">
-              <Link href={'/'}>
+              <Link href={'/'} scroll>
                 <Image priority src={'/navbar/logo.svg'} width={64} height={64} alt="Logo" />
               </Link>
               <div className="flex gap-4">
-                <Link href={''}>Rólunk</Link>
-                <Link href={''}>Hírek</Link>
-                <Link href={''}>Galéria</Link>
-                <Link href={'/sponsors'}>Szponzorok</Link>
+                <Link href={''} scroll>
+                  Rólunk
+                </Link>
+                <Link href={''} scroll>
+                  Hírek
+                </Link>
+                <Link href={''} scroll>
+                  Galéria
+                </Link>
+                <Link href={'/sponsors'} scroll>
+                  Szponzorok
+                </Link>
               </div>
             </div>
             <div className="grid w-full grid-flow-col items-center gap-6">
