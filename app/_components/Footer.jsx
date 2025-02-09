@@ -39,12 +39,17 @@ const Footer = () => {
               <Link href={''}>Blog</Link>
               <Separator className="bg-bme-black/50 dark:bg-bme-white/50 my-2 lg:hidden" />
             </div>
-              <div className="grid">
-                <Link className='text font-bold' href={""}>Egyéb</Link>
-                <Link href={""}>Galéria</Link>
-                <Link href={""}>Szponzorok</Link>
-                <Link href={""}>Elérhetőségek</Link>
-              </div>
+            <div className="grid h-fit gap-2">
+              <p className="font-bold" href={''}>
+                Egyéb
+              </p>
+              <Link href={''}>Galéria</Link>
+              <Link href={'/sponsors'} scroll>
+                Szponzorok
+              </Link>
+              <Link href={''}>Elérhetőségek</Link>
+              <Separator className="bg-bme-black/50 dark:bg-bme-white/50 my-2 lg:hidden" />
+            </div>
             </div>
           </div>
         </div>
