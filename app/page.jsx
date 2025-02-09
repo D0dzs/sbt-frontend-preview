@@ -24,8 +24,10 @@ export default function Home() {
     <div className="relative mx-auto grid items-center overflow-x-hidden">
       <HeroScreen />
       <SectionLayout className={'p-8 pt-16 lg:pt-32'}>
-        <Container className={'overflow-cliplg flex h-fit w-[70vw] lg:w-[60vw] flex-col gap-8 p-8 lg:flex-row lg:py-8'}>
-          <div className="relative mt-0 flex h-full w-full px-1.5 py-8 lg:my-auto lg:py-0 lg:pt-0">
+        <Container
+          className={'overflow-cliplg flex h-fit w-[70vw] flex-col gap-8 p-8 lg:w-[60vw] lg:py-8 2xl:flex-row'}
+        >
+          <div className="relative mt-0 h-full w-full px-1.5 py-8 lg:my-auto lg:py-0 lg:pt-0">
             <img
               src={'/images/this_is_us.webp'}
               alt="CSAPAT (front)"
@@ -34,12 +36,12 @@ export default function Home() {
             <img
               src={'/images/this_is_us.webp'}
               alt="CSAPAT (back)"
-              className="w-60 rounded-2xl blur-xl lg:h-fit lg:w-96 lg:max-w-96"
+              className="mx-auto w-60 rounded-2xl blur-xl lg:h-fit lg:w-96 lg:max-w-96"
             />
           </div>
           <div className="flex h-full flex-col items-center justify-center gap-3 pt-0 lg:p-0 lg:px-8">
             <h3 className="text-xl font-bold lg:text-2xl">Rólunk</h3>
-            <p className="text-justify text-xs font-extralight md:mx-auto md:text-base lg:px-8">
+            <p className="text-justify text-xs font-extralight md:mx-auto md:text-base">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae velit culpa perferendis dignissimos,
               inventore veritatis fuga. Cum corrupti ducimus deserunt? Lorem ipsum dolor sit amet consectetur
               adipisicing elit. Fugiat, dolor iste! Accusantium culpa exercitationem sequi voluptatibus repellat

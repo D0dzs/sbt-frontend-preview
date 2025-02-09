@@ -18,10 +18,10 @@ const Navbar = ({ className, ...props }) => {
   };
 
   return (
-    <nav className={`${cn('z-9999 grid', className)}`} {...props}>
+    <nav className={`${cn('z-9999 flex justify-center', className)}`} {...props}>
       {isMobile ? (
         <div
-          className={`bg-bme-lprimary dark:bg-bme-dprimary absolute top-0 left-0 z-50 mt-20 block min-w-screen -translate-y-20 transition-all duration-500 lg:hidden ${isOpen ? 'min-h-screen' : 'min-h-0'}`}
+          className={`bg-bme-lprimary dark:bg-bme-dprimary absolute top-0 left-0 z-50 mt-20 block min-w-screen -translate-y-20 transition-all lg:hidden ${isOpen ? 'min-h-screen' : 'min-h-0'}`}
         >
           {isOpen && (
             <div
@@ -100,7 +100,7 @@ const Navbar = ({ className, ...props }) => {
           )}
         </div>
       ) : null}
-      <div className="outline-bme-dsecondary/15 dark:outline-bme-lsecondary/15 shadow-bme-black/5 lg:shadow-bme-black/20 dark:shadow-bme-white/5 lg:dark:outline-bme-lsecondary/50 bg-bme-lprimary dark:bg-bme-dprimary lg:from-bme-white/50 lg:to-bme-white/30 grid h-20 w-screen items-center rounded-none px-8 shadow-lg outline-2 backdrop-blur-sm transition-all lg:w-full lg:rounded-full lg:bg-transparent lg:bg-linear-to-t xl:w-[60vw] lg:dark:bg-transparent">
+      <div className="outline-bme-dsecondary/15 dark:outline-bme-lsecondary/15 shadow-bme-black/5 lg:shadow-bme-black/20 dark:shadow-bme-white/5 lg:dark:outline-bme-lsecondary/50 bg-bme-lprimary dark:bg-bme-dprimary lg:from-bme-white/50 lg:to-bme-white/30 grid h-20 w-screen items-center rounded-none px-8 shadow-lg outline-2 backdrop-blur-sm transition-all duration-75 lg:w-fit lg:rounded-full lg:bg-transparent lg:bg-linear-to-t xl:w-[60vw] lg:dark:bg-transparent">
         {isMobile ? (
           <div
             id="mobile-navbar"
