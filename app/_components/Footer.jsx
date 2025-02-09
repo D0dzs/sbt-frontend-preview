@@ -3,8 +3,8 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="grid rounded-md dark:bg-bme-white/95 shadow-bme-orange bg-bme-black text-bme-white dark:text-bme-black">
+    <footer className="mx-auto w-[70vw] py-8 pt-32">
+      <div className="bg-bme-lsecondary text-bme-black dark:text-bme-white dark:bg-bme-dsecondary relative grid overflow-clip rounded-2xl shadow-xl">
         <div className="grid justify-items-center h-fit w-[70vw] grid-cols-4 p-0 lg:w-[60vw] lg:grid-flow-col lg:p-8">
           <div className="grid h-fit w-[70vw] grid-cols-1 gap-2 p-0 lg:w-[10vw]  ">
             <img src="./images/logo/secondarylogodark.svg" />
