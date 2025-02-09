@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="mx-auto w-[70vw] py-8 pt-32">
       <div className="bg-bme-lsecondary text-bme-black dark:text-bme-white dark:bg-bme-dsecondary relative grid overflow-clip rounded-2xl shadow-xl">
-        <div className="from-bme-orange/30 lg:from-bme-orange/60 absolute top-3/2 left-1/2 z-5 h-screen w-[3000px] -translate-x-1/2 -translate-y-full bg-radial to-transparent to-60% lg:-translate-y-1/2">
+      <div className="from-bme-orange/30 lg:from-bme-orange/60 absolute top-3/2 left-1/2 z-5 h-[1000px] w-[3000px] -translate-x-1/2 -translate-y-full bg-radial to-transparent to-60% lg:-translate-y-1/2" />
           <div className="z-10 grid h-fit w-full grid-cols-1 p-0 lg:grid-flow-col lg:grid-cols-2 lg:px-16 lg:pt-8">
             <div className="grid h-fit w-full grid-cols-1 gap-6 p-8 lg:p-0">
               <Link href={'/'} scroll>
@@ -53,7 +53,6 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
         <div className="hidden p-8 px-16 lg:block">
           <Separator className="bg-bme-black/50 dark:bg-bme-white/50" />
         </div>
