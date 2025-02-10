@@ -1,17 +1,18 @@
 'use client';
 
+import { AlignJustifyIcon, XIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useContext, useState } from 'react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~/components/ui/accordion';
 import { cn } from '~/lib/utils';
 import { ModeToggle } from './ModeSwitch';
-import { AlignJustifyIcon, XIcon } from 'lucide-react';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~/components/ui/accordion';
 import { MobileContext } from './Providers/Screen-provider';
 
 const Navbar = ({ className, ...props }) => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useContext(MobileContext);
+
   const handleToggle = async () => {
     setIsOpen(!isOpen);
     document.body.classList.toggle('no-scroll');
@@ -21,7 +22,7 @@ const Navbar = ({ className, ...props }) => {
     <nav className={`${cn('z-9999 flex justify-center', className)}`} {...props}>
       {isMobile ? (
         <div
-          className={`bg-bme-lprimary dark:bg-bme-dprimary absolute top-0 left-0 z-50 mt-20 block min-w-screen -translate-y-20 transition-all lg:hidden ${isOpen ? 'min-h-screen' : 'min-h-0'}`}
+          className={`bg-bme-lprimary dark:bg-bme-dprimary absolute top-0 left-0 z-50 mt-20 block min-w-screen -translate-y-20 transition-all duration-200 lg:hidden ${isOpen ? 'min-h-screen' : 'min-h-0'}`}
         >
           {isOpen && (
             <div
@@ -82,14 +83,16 @@ const Navbar = ({ className, ...props }) => {
               </div>
               <div className="mt-auto max-h-fit min-h-fit">
                 <Link
-                  href={''}
+                  scroll
+                  href={'/contact'}
                   className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-16 py-1 text-center text-2xl lg:mt-0 lg:text-xl"
                   onClick={handleToggle}
                 >
                   KAPCSOLAT
                 </Link>
                 <Link
-                  href={''}
+                  scroll
+                  href={'/contact'}
                   className="dark:bg-bme-white bg-bme-black text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-12 py-1 text-center text-2xl lg:mt-0 lg:text-xl"
                   onClick={handleToggle}
                 >
@@ -106,7 +109,7 @@ const Navbar = ({ className, ...props }) => {
             id="mobile-navbar"
             className="text-bme-black dark:text-bme-white relative flex items-center justify-between gap-6 lg:hidden"
           >
-            <Link href={'/'}>
+            <Link href={'/'} scroll>
               <Image priority src={'/navbar/logo.svg'} width={64} height={64} alt="Logo" />
             </Link>
             <ModeToggle />
@@ -150,8 +153,9 @@ const Navbar = ({ className, ...props }) => {
             <div className="grid w-full grid-flow-col items-center gap-6">
               <ModeToggle />
               <Link
-                href={''}
+                href={'/contact'}
                 className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black rounded-full px-4 py-1 text-center"
+                scroll
               >
                 Kapcsolat
               </Link>

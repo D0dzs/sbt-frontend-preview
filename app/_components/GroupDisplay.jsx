@@ -1,13 +1,13 @@
 'use client';
 
-import { useContext } from 'react';
-import { MobileContext } from './Providers/Screen-provider';
-import GroupSwiper from './GroupSwiper';
-import { groupData } from '~/lib/mockupData';
 import { ChevronRight } from 'lucide-react';
-import GroupCard from './GroupCard';
 import Link from 'next/link';
+import { useContext } from 'react';
+import { groupData } from '~/lib/mockupData';
 import Container from './Container';
+import GroupCard from './GroupCard';
+import GroupSwiper from './GroupSwiper';
+import { MobileContext } from './Providers/Screen-provider';
 
 const GroupDisplay = () => {
   const isMobile = useContext(MobileContext);

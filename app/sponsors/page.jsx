@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import PageLayout from '../_components/(Layouts)/PageLayout';
 import SectionLayout from '../_components/(Layouts)/SectionLayout';
+import Footer from '../_components/Footer';
 import SponsorCard from '../_components/SponsorCard';
 import Link from 'next/link';
 
@@ -13,7 +15,7 @@ const page = () => {
         }
       >
         <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
-        <div className="z-10 flex h-svh flex-col items-center justify-center gap-16 pt-(--mobile-navbar-height) lg:pt-0">
+        <div className="z-10 flex h-svh flex-col items-center justify-center gap-16 lg:pt-0">
           <h3 className="text-center text-3xl font-semibold lg:text-5xl">GIGAWATT Szponzorok</h3>
           <div className="grid h-fit gap-4 lg:grid-cols-3 lg:gap-8">
             <SponsorCard
@@ -45,7 +47,7 @@ const page = () => {
         }
       >
         <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
-        <div className="z-10 flex w-screen flex-col gap-16 pt-(--mobile-navbar-height) lg:w-[70vw] lg:pt-(--navbar-height)">
+        <div className="z-10 flex w-screen flex-col gap-16 lg:w-[70vw]">
           <h3 className="text-center text-3xl font-semibold lg:text-5xl">MEGAWATT Szponzorok</h3>
           <div className="flex flex-wrap items-center justify-center gap-8 p-8">
             <SponsorCard
@@ -120,7 +122,7 @@ const page = () => {
         }
       >
         <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
-        <div className="z-10 flex w-screen flex-col gap-16 pt-(--mobile-navbar-height) lg:w-[70vw] lg:pt-(--navbar-height)">
+        <div className="z-10 flex w-screen flex-col gap-16 lg:w-[70vw]">
           <h3 className="text-center text-3xl font-semibold lg:text-5xl">KILOWATT Szponzorok</h3>
           <div className="flex flex-wrap items-center justify-center gap-8 p-8">
             <SponsorCard
@@ -206,7 +208,7 @@ const page = () => {
         }
       >
         <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
-        <div className="z-10 w-screen justify-center gap-16 pt-(--mobile-navbar-height) lg:w-[60vw] lg:pt-(--navbar-height)">
+        <div className="z-10 w-screen justify-center gap-16 lg:w-[60vw]">
           <div>
             <h3 className="p-4 text-center text-3xl font-semibold lg:p-0 lg:text-5xl">
               Budapesti Műszaki és Gazdaságtudományi Egyetem
@@ -260,9 +262,7 @@ const page = () => {
 
         {/* SCIENCE PARTNER */}
         <div className="z-15 mx-auto mt-(--navbar-height) flex flex-col items-center justify-center">
-          <h3 className="self-end text-center text-3xl font-semibold lg:text-5xl lg:text-nowrap">
-            Tudományos partnerünk
-          </h3>
+          <h3 className="self-end text-center text-3xl font-semibold lg:text-5xl">Tudományos partnerünk</h3>
           <div className="flex h-fit w-fit items-center justify-center p-8">
             <SponsorCard
               sponsorURL={'https://www.ek.hun-ren.hu/'}
@@ -277,20 +277,25 @@ const page = () => {
 
       {/* BME */}
       <div className="p- mt-16 flex items-center justify-center p-8 lg:p-0">
-        <Link
-          href="https://www.bme.hu/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-bme-dprimary/70 rounded-4xl p-12 shadow-xl transition-colors dark:bg-transparent dark:shadow-none"
-        >
-          <img src="/images/sponsors/bme.svg" className="" alt="Budapesti Műszaki és Gazdaságtudományi Egyetem (BME)" />
+        <Link href="https://www.bme.hu/" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="/images/sponsors/light_bme.svg"
+            width={350}
+            height={1}
+            className="hidden lg:w-[500px] dark:block"
+            alt="Budapesti Műszaki és Gazdaságtudományi Egyetem (BME)"
+          />
+          <Image
+            src="/images/sponsors/dark_bme.svg"
+            width={350}
+            height={1}
+            className="block lg:w-[500px] dark:hidden"
+            alt="Budapesti Műszaki és Gazdaságtudományi Egyetem (BME)"
+          />
         </Link>
       </div>
 
-      {/* Placeholder bc scrolling */}
-      <SectionLayout className={'h-[50vh]'} />
-
-      {/* FOOTER */}
+      <Footer />
     </PageLayout>
   );
 };

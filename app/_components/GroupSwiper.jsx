@@ -1,13 +1,13 @@
 'use client';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+import 'swiper/css';
 import { cn } from '~/lib/utils';
 import GroupCard from './GroupCard';
-import 'swiper/css';
-import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
 
 const GroupSwiper = ({ customArray, className, children, ...props }) => {
   return (
@@ -19,7 +19,7 @@ const GroupSwiper = ({ customArray, className, children, ...props }) => {
         loop={true}
         pagination={{
           el: '.swiper-custom-pagination',
-          renderBullet: (index, className) => {
+          renderBullet: (_index, className) => {
             return `<span class="${className} h-3 w-3 rounded-full bg-bme-black dark:bg-bme-white transition-opacity duration-300 swiper-pagination-bullet-inactive"></span>`;
           },
         }}

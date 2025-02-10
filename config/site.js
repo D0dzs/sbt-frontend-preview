@@ -16,11 +16,12 @@ export const siteConfig = {
   ogImage: '',
   description: '',
   links: {
-    isntagram: '',
-    tiktok: '',
-    facebook: '',
-    youtube: '',
-    linkedin: '',
+    isntagram: 'https://www.instagram.com/bme_solar_team/',
+    tiktok: 'https://www.tiktok.com/@bme_solar_boat_team',
+    facebook: 'https://www.facebook.com/BMEsolar/',
+    youtube: 'https://www.youtube.com/@bmesolarboat',
+    linkedin:
+      'https://hu.linkedin.com/company/solar-boat-team?trk=public_profile_experience-item_result-card_image-click',
   },
 };
 

@@ -6,6 +6,12 @@ import { useEffect, useState } from 'react';
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
+  if (!theme) {
+    const isWindowExist = typeof window !== 'undefined';
+
+    if (isWindowExist) localStorage.setItem('theme', 'dark');
+  }
+
   const [changeThemeValue, setChangeThemeValue] = useState();
 
   useEffect(() => {
