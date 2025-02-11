@@ -23,7 +23,7 @@ const page = () => {
       >
         <div className="h-full w-full items-center justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={'/placeholder.png'} className="h-fit w-fit lg:mx-auto lg:w-2/3" alt="Just a funny guy" />
+          <img src={'/placeholder.png'} className="size-fit lg:mx-auto lg:w-2/3" alt="Just a funny guy" />
         </div>
         <div className="flex h-fit w-full flex-col gap-8 self-start text-sm lg:h-full lg:justify-center lg:text-xl">
           <h3 className="flex items-center gap-4">
