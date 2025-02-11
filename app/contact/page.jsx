@@ -10,7 +10,7 @@ import Footer from '../_components/Footer';
 const page = () => {
   return (
     <PageLayout className={'grid items-center justify-center pt-(--navbar-height)'}>
-      <h3 className="py-12 text-center text-2xl lg:text-3xl">
+      <h3 className="py-12 text-center text-xl lg:text-3xl">
         Vedd fel velünk a{' '}
         <span className="bg-linear-to-r from-[#12C2E9] from-45% via-[#C471ED] via-80% to-[#F64F59] to-100% bg-clip-text font-semibold text-transparent">
           kapcsolatot
@@ -23,19 +23,23 @@ const page = () => {
       >
         <div className="h-full w-full items-center justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={'/placeholder.png'} className="lg:mx-auto lg:w-2/3" alt="Just a funny guy" />
+          <img src={'/placeholder.png'} className="h-fit w-fit lg:mx-auto lg:w-2/3" alt="Just a funny guy" />
         </div>
-        <div className="flex h-fit w-full flex-col gap-8 self-start lg:h-full lg:justify-center lg:text-xl">
+        <div className="flex h-fit w-full flex-col gap-8 self-start text-sm lg:h-full lg:justify-center lg:text-xl">
           <h3 className="flex items-center gap-4">
-            <GlobeIcon size={32} strokeWidth={1} className="stroke-bme-blue dark:stroke-bme-orange" />
+            <GlobeIcon size={20} strokeWidth={1} className="stroke-bme-blue dark:stroke-bme-orange lg:h-8 lg:w-8" />
             <span>www.solarboatteam.hu</span>
           </h3>
           <h3 className="flex items-center gap-4">
-            <MailIcon size={32} strokeWidth={1} className="stroke-bme-blue dark:stroke-bme-orange" />
+            <MailIcon size={20} strokeWidth={1} className="stroke-bme-blue dark:stroke-bme-orange lg:h-8 lg:w-8" />
             <span>info@solarboatteam.hu</span>
           </h3>
           <div className="flex items-center gap-4">
-            <PhoneIcon size={32} strokeWidth={1} className="stroke-bme-blue dark:stroke-bme-orange self-start" />
+            <PhoneIcon
+              size={20}
+              strokeWidth={1}
+              className="stroke-bme-blue dark:stroke-bme-orange self-start lg:h-8 lg:w-8"
+            />
             <div>
               <p>+36 70 608 7004</p>
               <p className="text-xs opacity-50">Gózcán László, csapatkapitány</p>
@@ -49,13 +53,13 @@ const page = () => {
       </div>
 
       <div className="grid items-center justify-center gap-4">
-        <h3 className="text-center text-2xl lg:text-3xl">Social média elérhetőségeink</h3>
-        <div className="mx-auto flex w-2/3 flex-wrap items-center justify-center gap-6 text-xl">
+        <h3 className="text-center text-xl lg:text-3xl">Social média elérhetőségeink</h3>
+        <div className="mx-auto flex w-2/3 flex-wrap items-center justify-center gap-6 text-base font-bold">
           <Link
             href={siteConfig.links.facebook}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-bme-lsecondary dark:bg-bme-dsecondary shadow-bme-black/15 dark:shadow-bme-black/50 dark:hover:bg-bme-dfront dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 min-w-60 rounded-full px-14 py-2 text-center text-[#0866FF] shadow-md outline-2 transition-colors duration-200 hover:bg-[#D9D9D9]"
+            className="bg-bme-lsecondary dark:bg-bme-dsecondary shadow-bme-black/15 dark:shadow-bme-black/50 dark:hover:bg-bme-dfront dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 font-comfortaa min-w-60 rounded-full px-14 py-2 text-center text-[#0866FF] shadow-md outline-2 transition-colors duration-200 hover:bg-[#D9D9D9]"
           >
             Facebook
           </Link>
@@ -63,7 +67,7 @@ const page = () => {
             href={siteConfig.links.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-bme-lsecondary dark:bg-bme-dsecondary shadow-bme-black/15 dark:shadow-bme-black/50 dark:hover:bg-bme-dfront dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 min-w-60 rounded-full px-14 py-2 text-center text-[#FF0000] shadow-md outline-2 transition-colors duration-200 hover:bg-[#D9D9D9]"
+            className="bg-bme-lsecondary dark:bg-bme-dsecondary shadow-bme-black/15 dark:shadow-bme-black/50 dark:hover:bg-bme-dfront dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 font-comfortaa min-w-60 rounded-full px-14 py-2 text-center text-[#FF0000] shadow-md outline-2 transition-colors duration-200 hover:bg-[#D9D9D9]"
           >
             YouTube
           </Link>
@@ -71,7 +75,7 @@ const page = () => {
             href={siteConfig.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-bme-lsecondary dark:bg-bme-dsecondary shadow-bme-black/15 dark:shadow-bme-black/50 dark:hover:bg-bme-dfront dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 min-w-60 rounded-full px-14 py-2 text-center text-[#0A66C2] shadow-md outline-2 transition-colors duration-200 hover:bg-[#D9D9D9]"
+            className="bg-bme-lsecondary dark:bg-bme-dsecondary shadow-bme-black/15 dark:shadow-bme-black/50 dark:hover:bg-bme-dfront dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 font-comfortaa min-w-60 rounded-full px-14 py-2 text-center text-[#0A66C2] shadow-md outline-2 transition-colors duration-200 hover:bg-[#D9D9D9]"
           >
             LinkedIn
           </Link>
@@ -81,7 +85,7 @@ const page = () => {
             rel="noopener noreferrer"
             className="bg-bme-lsecondary dark:bg-bme-dsecondary shadow-bme-black/15 dark:shadow-bme-black/50 dark:hover:bg-bme-dfront dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 min-w-60 rounded-full px-14 py-2 text-center shadow-md outline-2 transition-colors duration-200 hover:bg-[#D9D9D9]"
           >
-            <p className="bg-linear-to-r from-[#FEA316] via-[#DA2DA8] via-[#FB504D] via-[33%] via-[66%] to-[#7414EE] bg-clip-text text-transparent">
+            <p className="font-comfortaa bg-linear-to-r from-[#FEA316] via-[#DA2DA8] via-[#FB504D] via-[33%] via-[66%] to-[#7414EE] bg-clip-text text-transparent">
               Instagram
             </p>
           </Link>
@@ -91,7 +95,9 @@ const page = () => {
             rel="noopener noreferrer"
             className="bg-bme-lsecondary dark:bg-bme-dsecondary shadow-bme-black/15 dark:shadow-bme-black/50 dark:hover:bg-bme-dfront dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 min-w-60 rounded-full px-14 py-2 text-center shadow-md outline-2 transition-colors duration-200 hover:bg-[#D9D9D9]"
           >
-            <p className="bg-linear-to-r from-[#3DB9BD] to-[#E4004F] bg-clip-text text-transparent">TikTok</p>
+            <p className="font-comfortaa bg-linear-to-r from-[#3DB9BD] to-[#E4004F] bg-clip-text text-transparent">
+              TikTok
+            </p>
           </Link>
         </div>
       </div>
@@ -101,20 +107,20 @@ const page = () => {
       </div>
 
       <Container className={'mx-auto flex h-full w-[70vw] flex-col justify-between p-8 lg:w-[60vw] lg:p-12'}>
-        <h1 className="mb-4 text-center text-2xl font-semibold lg:text-3xl">Szervezeti adatok</h1>
+        <h1 className="mb-4 text-center text-xl font-semibold lg:text-3xl">Szervezeti adatok</h1>
         <div className="flex flex-col gap-4 lg:gap-1">
           <div className="flex flex-col lg:flex-row lg:gap-2">
             <p className="flex">
               Pályázó neve<span className="hidden lg:block">:</span>
             </p>
-            <p className="text-bme-blue dark:text-bme-orange font-semibold">BME Solar Boat Team</p>
+            <p className="text-bme-blue dark:text-bme-orange text-xs font-semibold lg:text-base">BME Solar Boat Team</p>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:gap-2">
             <p className="flex">
               Szervezet neve<span className="hidden lg:block">:</span>
             </p>
-            <p className="text-bme-blue dark:text-bme-orange font-semibold">
+            <p className="text-bme-blue dark:text-bme-orange text-xs font-semibold lg:text-base">
               Műszaki Egyetem Gépészmérnök Hallgatóiért Egyesület
             </p>
           </div>
@@ -123,28 +129,32 @@ const page = () => {
             <p className="flex">
               Nyilvántartási szám<span className="hidden lg:block">:</span>
             </p>
-            <p className="text-bme-blue dark:text-bme-orange font-semibold">01-02-0016312</p>
+            <p className="text-bme-blue dark:text-bme-orange text-xs font-semibold lg:text-base">01-02-0016312</p>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:gap-2">
             <p className="flex">
               Adószám<span className="hidden lg:block">:</span>
             </p>
-            <p className="text-bme-blue dark:text-bme-orange font-semibold">18846759-2-43</p>
+            <p className="text-bme-blue dark:text-bme-orange text-xs font-semibold lg:text-base">18846759-2-43</p>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:gap-2">
             <p className="flex">
               Székhely<span className="hidden lg:block">:</span>
             </p>
-            <p className="text-bme-blue dark:text-bme-orange font-semibold">1211 Budapest, Szérűraktár út 2/G.</p>
+            <p className="text-bme-blue dark:text-bme-orange text-xs font-semibold lg:text-base">
+              1211 Budapest, Szérűraktár út 2/G.
+            </p>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:gap-2">
             <p className="flex">
               Statisztikai számjel<span className="hidden lg:block">:</span>
             </p>
-            <p className="text-bme-blue dark:text-bme-orange font-semibold">18846759-9499-529-01</p>
+            <p className="text-bme-blue dark:text-bme-orange text-xs font-semibold lg:text-base">
+              18846759-9499-529-01
+            </p>
           </div>
 
           <iframe
