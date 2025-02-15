@@ -1,28 +1,19 @@
-import dynamic from 'next/dynamic';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
 import SectionLayout from './_components/(Layouts)/SectionLayout';
 import Container from './_components/Container';
-import HeroLoader from './_components/(Hero)/HeroLoader';
 import FilmStripElement from './_components/FilmStripElement';
 import FilmStripContainer from './_components/FilmStripContainer';
 import { InfiniteSlider } from '~/components/ui/infinite-slider';
 import GroupDisplay from './_components/GroupDisplay';
 import Footer from './_components/Footer';
-
-const HeroScreen = dynamic(() => import('./_components/(Hero)/HeroPage'), {
-  ssr: false,
-  loading: () => (
-    <HeroLoader>
-      <p className="font-comfortaa text-2xl font-bold">Loading...</p>
-    </HeroLoader>
-  ),
-});
+import HeroScreen from './_components/(Hero)/HeroPage';
+import PageLayout from './_components/(Layouts)/PageLayout';
 
 export default function Home() {
   return (
-    <div className="relative mx-auto grid items-center overflow-x-hidden">
+    <PageLayout className="relative mx-auto grid items-center overflow-x-hidden">
       <HeroScreen />
       <SectionLayout className={'p-8 pt-16 lg:pt-32'}>
         <Container
@@ -84,6 +75,6 @@ export default function Home() {
       <SectionLayout>
         <Footer />
       </SectionLayout>
-    </div>
+    </PageLayout>
   );
 }

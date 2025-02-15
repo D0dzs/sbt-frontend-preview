@@ -71,7 +71,7 @@ const Footer = () => {
           <Separator className="bg-bme-black/50 dark:bg-bme-white/50" />
         </div>
         <h2 className="z-10 mt-4 px-8 py-8 pt-0 text-center text-sm lg:mt-0 lg:px-16 lg:text-xl">
-          Copyright &copy; 2025 BME Solar Boat Team. All Rights Reserved.
+          Copyright &copy; {new Date().getFullYear()} BME Solar Boat Team. All Rights Reserved.
         </h2>
       </div>
 
@@ -79,7 +79,7 @@ const Footer = () => {
       <div className="bg-bme-orange shadow-bme-orange/50 !text-bme-black mx-auto grid h-full w-[55vw] items-center gap-3 rounded-b-xl p-4 py-6 shadow-xl lg:grid-cols-2 lg:p-8">
         <div className="flex justify-between lg:justify-normal lg:gap-6 lg:text-xl">
           <span className="self-center">Tagoknak</span>
-          <Link href={''} scroll className="bg-bme-black text-bme-white rounded-full px-8 py-2 lg:px-12">
+          <Link href={'/login'} scroll className="bg-bme-black text-bme-white rounded-full px-8 py-2 lg:px-12">
             Login
           </Link>
         </div>

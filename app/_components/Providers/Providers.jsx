@@ -2,12 +2,15 @@
 
 import { ThemeProvider } from './Theme-provider';
 import { MobileProvider } from './Screen-provider';
+import { UserProvider } from './User-provider';
 
 const Providers = ({ children }) => {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-      <MobileProvider>{children}</MobileProvider>
-    </ThemeProvider>
+    <UserProvider>
+      <ThemeProvider attribute="class" defaultTheme="system">
+        <MobileProvider>{children}</MobileProvider>
+      </ThemeProvider>
+    </UserProvider>
   );
 };
 

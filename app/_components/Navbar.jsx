@@ -1,25 +1,39 @@
 'use client';
 
-import { AlignJustifyIcon, XIcon } from 'lucide-react';
+import { AlignJustifyIcon, Command, CommandIcon, LogOutIcon, XIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~/components/ui/accordion';
-import { cn } from '~/lib/utils';
+import { cn, isAdmin } from '~/lib/utils';
 import { ModeToggle } from './ModeSwitch';
 import { MobileContext } from './Providers/Screen-provider';
+import { UserContext } from './Providers/User-provider';
+import { useRouter } from 'next/navigation';
 
 const Navbar = ({ className, ...props }) => {
+  const { user, logout } = useContext(UserContext);
+  const [privileged, setPrivileged] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useContext(MobileContext);
+  const router = useRouter();
 
-  const handleToggle = async () => {
+  const handleLogout = async () => {
+    await logout();
+    router.push('/', { scroll: false });
+  };
+
+  const handleToggle = () => {
     setIsOpen(!isOpen);
     document.body.classList.toggle('no-scroll');
   };
 
+  useEffect(() => {
+    setPrivileged(isAdmin(user));
+  }, [user]);
+
   return (
-    <nav className={`${cn('z-9999 flex justify-center', className)}`} {...props}>
+    <nav className={`${cn('z-200 flex justify-center', className)}`} {...props}>
       {isMobile ? (
         <div
           className={`bg-bme-lprimary dark:bg-bme-dprimary absolute top-0 left-0 z-50 mt-20 block min-w-screen -translate-y-20 transition-all duration-200 lg:hidden ${isOpen ? 'min-h-screen' : 'min-h-0'}`}
@@ -90,14 +104,40 @@ const Navbar = ({ className, ...props }) => {
                 >
                   KAPCSOLAT
                 </Link>
-                <Link
-                  scroll
-                  href={'/contact'}
-                  className="dark:bg-bme-white bg-bme-black text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-12 py-1 text-center text-2xl lg:mt-0 lg:text-xl"
-                  onClick={handleToggle}
-                >
-                  LOGIN
-                </Link>
+                {user ? (
+                  <div className="flex">
+                    <button
+                      scroll
+                      href={'/login'}
+                      className="dark:bg-bme-white bg-bme-black text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit cursor-pointer items-center justify-between gap-1 rounded-full px-12 py-1 text-center text-2xl lg:mt-0 lg:text-xl"
+                      onClick={() => {
+                        setIsOpen(false);
+                        handleLogout();
+                      }}
+                    >
+                      <LogOutIcon size={24} strokeWidth={2} className="stroke-bme-black" />
+                    </button>
+                    {privileged && (
+                      <Link
+                        scroll
+                        href={'/dashboard'}
+                        className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit cursor-pointer items-center justify-between gap-1 rounded-full px-12 py-1 text-center text-2xl lg:mt-0 lg:text-xl"
+                        onClick={handleToggle}
+                      >
+                        <CommandIcon size={24} strokeWidth={2} className="stroke-bme-black" />
+                      </Link>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    scroll
+                    href={'/login'}
+                    className="dark:bg-bme-white bg-bme-black text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-12 py-1 text-center text-2xl lg:mt-0 lg:text-xl"
+                    onClick={handleToggle}
+                  >
+                    LOGIN
+                  </Link>
+                )}
               </div>
             </div>
           )}
@@ -151,6 +191,16 @@ const Navbar = ({ className, ...props }) => {
               </div>
             </div>
             <div className="grid w-full grid-flow-col items-center gap-6">
+              {privileged && (
+                <Link href={'/dashboard'}>
+                  <CommandIcon size={32} strokeWidth={2} className="stroke-bme-black" />
+                </Link>
+              )}
+              {user && (
+                <button onClick={handleLogout} className="cursor-pointer">
+                  <LogOutIcon size={32} strokeWidth={2} className="stroke-bme-black" />
+                </button>
+              )}
               <ModeToggle />
               <Link
                 href={'/contact'}

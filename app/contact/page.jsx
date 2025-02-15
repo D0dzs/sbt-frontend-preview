@@ -7,7 +7,7 @@ import PageLayout from '../_components/(Layouts)/PageLayout';
 import Container from '../_components/Container';
 import Footer from '../_components/Footer';
 
-const page = () => {
+const Page = () => {
   return (
     <PageLayout className={'grid items-center justify-center pt-(--navbar-height)'}>
       <h3 className="py-12 text-center text-xl lg:text-3xl">
@@ -23,7 +23,11 @@ const page = () => {
       >
         <div className="h-full w-full items-center justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={'/placeholder.png'} className="h-fit w-fit lg:mx-auto lg:w-2/3" alt="Just a funny guy" />
+          <img
+            src={'/placeholder.png'}
+            className="aspect-square h-fit w-fit lg:mx-auto lg:w-2/3"
+            alt="Just a funny guy"
+          />
         </div>
         <div className="flex h-fit w-full flex-col gap-8 self-start text-sm lg:h-full lg:justify-center lg:text-xl">
           <h3 className="flex items-center gap-4">
@@ -173,4 +177,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

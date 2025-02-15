@@ -4,8 +4,9 @@ import SectionLayout from '../_components/(Layouts)/SectionLayout';
 import Footer from '../_components/Footer';
 import SponsorCard from '../_components/SponsorCard';
 import Link from 'next/link';
+import UploadSponsorForm from '../_components/(Forms)/UploadSponsorForm';
 
-const page = () => {
+const Page = () => {
   return (
     <PageLayout className={'overflow-x-clip'}>
       {/* GIGAWATT SPONSORS */}
@@ -15,7 +16,9 @@ const page = () => {
         }
       >
         <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
-        <div className="z-10 flex h-svh flex-col items-center justify-center gap-16 lg:pt-0">
+        <div className="z-10 flex flex-col items-center justify-center gap-16 lg:pt-0">
+          <UploadSponsorForm />
+
           <h3 className="text-center text-3xl font-semibold lg:text-5xl">GIGAWATT Szponzorok</h3>
           <div className="grid h-fit gap-4 lg:grid-cols-3 lg:gap-8">
             <SponsorCard
@@ -300,4 +303,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
