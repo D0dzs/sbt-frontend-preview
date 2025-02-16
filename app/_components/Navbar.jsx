@@ -33,7 +33,7 @@ const Navbar = ({ className, ...props }) => {
   }, [user]);
 
   return (
-    <nav className={`${cn('z-200 flex justify-center', className)}`} {...props}>
+    <nav className={`${cn('flex justify-center', className)}`} {...props}>
       {isMobile ? (
         <div
           className={`bg-bme-lprimary dark:bg-bme-dprimary absolute top-0 left-0 z-50 mt-20 block min-w-screen -translate-y-20 transition-all duration-200 lg:hidden ${isOpen ? 'min-h-screen' : 'min-h-0'}`}

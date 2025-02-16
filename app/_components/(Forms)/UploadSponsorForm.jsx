@@ -2,7 +2,7 @@
 
 import { useContext, useState } from 'react';
 import { UserContext } from '../Providers/User-provider';
-import { cn, isAdmin } from '~/lib/utils';
+import { isAdmin } from '~/lib/utils';
 import {
   Dialog,
   DialogContent,
@@ -17,11 +17,15 @@ import { Input } from '~/components/ui/input';
 import { toast } from 'sonner';
 import Cookies from 'js-cookie';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '~/components/ui/hover-card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select';
+
+const wait = () => new Promise((resolve) => setTimeout(resolve, 1000));
 
 const UploadSponsorForm = () => {
   const { user } = useContext(UserContext);
   const privileged = isAdmin(user);
   const token = Cookies.get('token');
+  const [open, setOpen] = useState(false);
 
   const [formState, setFormState] = useState({
     sName: '',
@@ -87,22 +91,28 @@ const UploadSponsorForm = () => {
 
   return privileged ? (
     <div className="z-9999">
-      <Dialog className="z-9999" onCloseAutoFocus={false}>
+      <Dialog className="z-9999" open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline" className="cursor-pointer" onClick={() => setImagePreview(null)}>
+          <Button variant="default" className="cursor-pointer" onClick={() => setImagePreview(null)}>
             Új Szponzor Hozzáadása
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <DialogContent className="sm:max-w-[500px]">
+          <form
+            onSubmit={(e) => {
+              wait().then(() => setOpen(false));
+              handleSubmit(e);
+            }}
+            encType="multipart/form-data"
+          >
             <DialogHeader>
               <DialogTitle>Szponzor Hozzáadása</DialogTitle>
             </DialogHeader>
-            <DialogDescription className="mb-4">Add meg a szponzor-nak az általános adatait.</DialogDescription>
+            <DialogDescription className="mb-4">Add meg a szponzornak az általános adatait.</DialogDescription>
 
             {/* Sponsor Name */}
-            <div className="flex w-full flex-col justify-center gap-4 p-4">
-              <label htmlFor="sName">Szponzor neve</label>
+            <div className="flex w-full flex-col justify-center gap-4">
+              <label htmlFor="sName">Szponzor megnevezése</label>
               <Input onChange={writeData} name="sName" required defaultValue="" />
 
               {/* Sponsor Website */}
@@ -112,14 +122,14 @@ const UploadSponsorForm = () => {
 
             {/* Logo Upload */}
             <div className="relative my-4">
-              <div class="flex w-full items-center justify-center">
+              <div className="hover:bg-bme-lfront hover:dark:bg-bme-dfront/20 flex w-full items-center justify-center rounded-lg transition-colors">
                 <label
-                  for="dropzone-file"
-                  class="flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed"
+                  htmlFor="dropzone-file"
+                  className="flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed"
                 >
-                  <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                  <div className="flex flex-col items-center justify-center pt-5 pb-6">
                     <svg
-                      class="mb-4 h-8 w-8 text-gray-500 dark:text-gray-400"
+                      className="mb-4 h-8 w-8 text-gray-500 dark:text-gray-400"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -133,15 +143,17 @@ const UploadSponsorForm = () => {
                         d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                       />
                     </svg>
-                    <p class="mb-px text-sm text-gray-500 dark:text-gray-400">
-                      <span class="font-semibold">Click to upload</span>
+                    <p className="mb-px text-sm text-gray-500 dark:text-gray-400">
+                      <span className="font-semibold">Click to upload</span>
                     </p>
-                    <code class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF only (max 5MB)</code>
+                    <code className="text-xs text-gray-500 dark:text-gray-400">
+                      PNG, JPG, SVG and WEBP only (max 5MB)
+                    </code>
                   </div>
                   <input
                     id="dropzone-file"
                     type="file"
-                    class="hidden"
+                    className="hidden"
                     name="sLogo"
                     accept="image/png, image/webp, image/jpeg, image/svg"
                     onChange={handleLogoChange}
@@ -166,24 +178,20 @@ const UploadSponsorForm = () => {
               <label className="text-bme-black dark:text-bme-white mb-2 block text-sm font-medium">
                 Melyik kategóriába szeretnéd hozzáadni?
               </label>
-              <select
-                name="sCategory"
-                id="sCategory"
-                className="form-select text-bme-black dark:text-bme-white bg-bme-lsecondary dark:bg-bme-dsecondary px-2 py-1"
-                onChange={writeData}
-                required
-              >
-                <option value="gigawatt" selected>
-                  Gigawatt
-                </option>
-                <option value="megawatt">Megawatt</option>
-                <option value="kilowatt">Kilowatt</option>
-                <option value="bme">BME</option>
-                <option value="science">Tudományos partner</option>
-              </select>
+              <Select required>
+                <SelectTrigger>
+                  <SelectValue placeholder="Válassz kategóriát" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="gigawatt">Gigawatt</SelectItem>
+                  <SelectItem value="megawatt">Megawatt</SelectItem>
+                  <SelectItem value="kilowatt">Kilowatt</SelectItem>
+                  <SelectItem value="bme">Budapesti Műszaki és Gazdaságtudományi Egyetem</SelectItem>
+                  <SelectItem value="science">Tudományos partnerünk</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
-
-            <DialogFooter>
+            <DialogFooter className={'mt-4'}>
               <Button type="submit" className="cursor-pointer">
                 Hozzáadás
               </Button>

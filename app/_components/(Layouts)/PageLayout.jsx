@@ -4,7 +4,7 @@ import Navbar from '../Navbar';
 const PageLayout = ({ children, className, ...props }) => {
   return (
     <>
-      <Navbar className={'fixed mt-0 w-full lg:mt-6'} />
+      <Navbar className={'fixed z-20 mt-0 w-full lg:mt-6'} />
       <div className={className} {...props}>
         {children}
       </div>

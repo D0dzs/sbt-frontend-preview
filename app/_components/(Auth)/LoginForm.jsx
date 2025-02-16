@@ -8,7 +8,6 @@ import { UserContext } from '../Providers/User-provider';
 
 const LoginForm = () => {
   const { setRefresh } = useContext(UserContext);
-
   const router = useRouter();
 
   let formObj = {
@@ -34,7 +33,7 @@ const LoginForm = () => {
         },
         body: JSON.stringify(formState),
       });
-  
+
       const ctx = await res.json();
       if (res.status !== 200) {
         const message = ctx.message ?? ctx.errors[0] ?? 'Unknown error';
@@ -57,7 +56,7 @@ const LoginForm = () => {
         <h1 className="text-center text-3xl lg:text-4xl">Bejelentkezés</h1>
         <p className="text-center text-base text-[#ff0000] lg:text-xl">Csak belsős tagok számára!</p>
       </div>
-      <div className="text-bme-black dark:text-bme-white">
+      <form className="text-bme-black dark:text-bme-white">
         <div>
           <p>Email</p>
           <input
@@ -83,13 +82,14 @@ const LoginForm = () => {
             className="bg-bme-lsecondary dark:bg-bme-dsecondary dark:border-bme-lsecondary/25 border-bme-dsecondary/10 inset-shadow-bme-dsecondary w-full rounded-lg border px-4 py-3 shadow-inner dark:inset-shadow-red-500"
           />
         </div>
-      </div>
-      <button
-        onClick={handleSubmit}
-        className="bg-bme-dsecondary dark:bg-bme-lsecondary text-bme-white dark:text-bme-black w-full cursor-pointer rounded-lg px-4 py-4 text-lg"
-      >
-        Login
-      </button>
+        <br />
+        <button
+          onClick={handleSubmit}
+          className="bg-bme-dfront hover:bg-bme-dprimary dark:bg-bme-lprimary hover:dark:bg-bme-lsecondary text-bme-white dark:text-bme-black w-full cursor-pointer rounded-lg px-4 py-4 text-lg transition-colors"
+        >
+          Login
+        </button>
+      </form>
     </>
   );
 };
