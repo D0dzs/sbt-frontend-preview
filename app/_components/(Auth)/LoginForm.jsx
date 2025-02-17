@@ -58,7 +58,7 @@ const LoginForm = () => {
       </div>
       <form className="text-bme-black dark:text-bme-white">
         <div>
-          <p>Email</p>
+          <p className="ml-2">Email</p>
           <input
             id="email"
             type="text"
@@ -71,7 +71,7 @@ const LoginForm = () => {
         </div>
         <br />
         <div>
-          <p>Jelszó</p>
+          <p className="ml-2">Jelszó</p>
           <input
             id="password"
             type="password"
@@ -85,7 +85,7 @@ const LoginForm = () => {
         <br />
         <button
           onClick={handleSubmit}
-          className="bg-bme-dfront hover:bg-bme-dprimary dark:bg-bme-lprimary hover:dark:bg-bme-lsecondary text-bme-white dark:text-bme-black w-full cursor-pointer rounded-lg px-4 py-4 text-lg transition-colors"
+          className="bg-bme-dfront hover:bg-bme-dprimary dark:bg-bme-lprimary hover:dark:bg-bme-lsecondary text-bme-white dark:text-bme-black w-full cursor-pointer rounded-lg px-4 py-4 text-lg font-semibold transition-colors"
         >
           Login
         </button>

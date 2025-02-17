@@ -69,7 +69,7 @@ const Page = () => {
         </svg>
       </div>
       <div className="bg-bme-lprimary dark:bg-bme-dprimary z-50 flex h-screen items-center justify-center">
-        <div className="flex w-2/4 flex-col gap-12">
+        <div className="flex w-3/4 flex-col gap-12 lg:w-1/2">
           <LoginForm />
         </div>
       </div>
