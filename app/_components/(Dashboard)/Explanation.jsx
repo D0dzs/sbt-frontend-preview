@@ -1,9 +1,8 @@
 'use client';
 
 import { BadgeInfoIcon, ShieldAlertIcon, TriangleAlertIcon } from 'lucide-react';
-import Container from '../Container';
 import { useContext } from 'react';
-import { MobileContext } from '../Providers/Screen-provider';
+import { Button } from '~/components/ui/button';
 import {
   Dialog,
   DialogClose,
@@ -15,7 +14,8 @@ import {
   DialogTrigger,
 } from '~/components/ui/dialog';
 import { Separator } from '~/components/ui/separator';
-import { Button } from '~/components/ui/button';
+import Container from '../Container';
+import { MobileContext } from '../Providers/Screen-provider';
 
 const Explanation = () => {
   const isMobile = useContext(MobileContext);
@@ -24,8 +24,8 @@ const Explanation = () => {
     <div className="flex w-full flex-col items-center gap-12">
       <Dialog>
         <DialogTrigger>
-          <Container className={'flex min-w-[80vw] gap-3 px-8 py-4'}>
-            <BadgeInfoIcon size={24} className="stroke-bme-blue dark:stroke-bme-orange" />
+          <Container className={'flex min-w-[70vw] gap-3 px-8 py-4'}>
+            <BadgeInfoIcon size={32} className="stroke-bme-blue dark:stroke-bme-orange" />
             <p className="self-center text-sm">Magyarázatért kattints ide!</p>
           </Container>
         </DialogTrigger>
@@ -85,9 +85,9 @@ const Explanation = () => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-      <Container className={'flex max-w-[80vw] gap-3 px-8 py-4 !outline-1 !outline-[#FF0000]'}>
+      <Container className={'flex max-w-[70vw] gap-3 px-8 py-4 !outline-1 !outline-[#FF0000]'}>
         <TriangleAlertIcon size={32} className="self-center stroke-[#FF0000]" />
-        <p className="w-full text-justify text-sm">
+        <p className="w-full self-center text-justify text-sm">
           A teljes felhasználói élmény érdekében asztali verzión ajánlott használni!
         </p>
       </Container>

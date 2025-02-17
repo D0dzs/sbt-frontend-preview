@@ -70,11 +70,6 @@ export default function Home() {
 
       {/* Placeholder for scrolling... */}
       <SectionLayout className={'h-screen'} />
-
-      {/* Footer */}
-      <SectionLayout>
-        <Footer />
-      </SectionLayout>
     </PageLayout>
   );
 }
