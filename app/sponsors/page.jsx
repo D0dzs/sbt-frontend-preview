@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import PageLayout from '../_components/(Layouts)/PageLayout';
 import SectionLayout from '../_components/(Layouts)/SectionLayout';
-import Footer from '../_components/Footer';
 import SponsorCard from '../_components/SponsorCard';
 import Link from 'next/link';
 import UploadSponsorForm from '../_components/(Forms)/UploadSponsorForm';
@@ -297,8 +296,6 @@ const Page = () => {
           />
         </Link>
       </div>
-
-      <Footer />
     </PageLayout>
   );
 };

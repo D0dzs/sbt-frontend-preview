@@ -109,22 +109,22 @@ const Navbar = ({ className, ...props }) => {
                     <button
                       scroll
                       href={'/login'}
-                      className="dark:bg-bme-white bg-bme-black text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit cursor-pointer items-center justify-between gap-1 rounded-full px-12 py-1 text-center text-2xl lg:mt-0 lg:text-xl"
+                      className="dark:bg-bme-white bg-bme-black text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit cursor-pointer items-center justify-between gap-1 rounded-full px-12 py-2 text-center text-2xl lg:mt-0 lg:text-xl"
                       onClick={() => {
                         setIsOpen(false);
                         handleLogout();
                       }}
                     >
-                      <LogOutIcon size={24} strokeWidth={2} className="stroke-bme-black" />
+                      <LogOutIcon size={24} strokeWidth={2} className="dark:stroke-bme-black stroke-bme-white" />
                     </button>
                     {privileged && (
                       <Link
                         scroll
                         href={'/dashboard'}
-                        className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit cursor-pointer items-center justify-between gap-1 rounded-full px-12 py-1 text-center text-2xl lg:mt-0 lg:text-xl"
+                        className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit cursor-pointer items-center justify-between gap-1 rounded-full px-12 py-2 text-center text-2xl lg:mt-0 lg:text-xl"
                         onClick={handleToggle}
                       >
-                        <CommandIcon size={24} strokeWidth={2} className="stroke-bme-black" />
+                        <CommandIcon size={24} strokeWidth={2} className="dark:stroke-bme-black stroke-bme-white" />
                       </Link>
                     )}
                   </div>

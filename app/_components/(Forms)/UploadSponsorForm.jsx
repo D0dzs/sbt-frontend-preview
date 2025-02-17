@@ -165,7 +165,11 @@ const UploadSponsorForm = () => {
             {imagePreview && (
               <HoverCard>
                 <HoverCardTrigger className="cursor-pointer text-center text-xs italic opacity-50">
-                  <p>Kép megtekintése (hover)</p>
+                  <p>
+                    Kép megtekintése (hover)
+                    <br />
+                    <i className="opacity-50">Telefonos nézet nem elérhető!</i>
+                  </p>
                 </HoverCardTrigger>
                 <HoverCardContent>
                   <img src={imagePreview} alt="Logo Preview" className="mx-auto w-auto rounded" />

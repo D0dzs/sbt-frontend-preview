@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../Navbar';
+import Footer from '../Footer';
 
 const PageLayout = ({ children, className, ...props }) => {
   return (
@@ -8,6 +9,7 @@ const PageLayout = ({ children, className, ...props }) => {
       <div className={className} {...props}>
         {children}
       </div>
+      <Footer />
     </>
   );
 };
