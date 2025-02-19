@@ -19,14 +19,13 @@ export const UserProvider = ({ children }) => {
     try {
       const userResponse = await fetch('http://localhost:8080/api/auth/me', {
         method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        credentials: 'include',
       });
       if (userResponse.ok) {
         const parsed = await userResponse.json();
         setUser(parsed.user);
       } else {
+        console.log(userResponse.headers.getSetCookie());
         setUser(null);
       }
     } catch (error) {
@@ -37,6 +36,7 @@ export const UserProvider = ({ children }) => {
 
   const logout = useCallback(() => {
     Cookies.remove('token');
+    Cookies.remove('refreshToken');
     setUser(null);
     setRefresh((prev) => !prev);
   }, []);

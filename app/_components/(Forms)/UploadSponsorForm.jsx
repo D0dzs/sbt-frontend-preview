@@ -60,9 +60,7 @@ const UploadSponsorForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formState.sLogo) {
-      return toast.error('Please select an image file.');
-    }
+    if (!formState.sLogo) return toast.error('Please select an image file.');
 
     const formData = new FormData();
     formData.append('sName', formState.sName);
@@ -73,15 +71,11 @@ const UploadSponsorForm = () => {
     try {
       const res = await fetch('http://localhost:8080/api/sponsor/upload', {
         method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        credentials: 'include',
         body: formData,
       });
 
-      if (!res.ok) {
-        return toast.error(`Upload failed: ${res.statusText}`);
-      }
+      if (!res.ok) return toast.error(`Upload failed: ${res.statusText}`);
 
       toast.success('Sponsor uploaded successfully!');
     } catch (error) {

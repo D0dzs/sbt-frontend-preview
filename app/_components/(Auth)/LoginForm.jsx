@@ -28,6 +28,7 @@ const LoginForm = () => {
     try {
       const res = await fetch('http://localhost:8080/api/auth/login', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -40,12 +41,15 @@ const LoginForm = () => {
         toast.error(message);
       } else {
         const token = ctx.token;
-        Cookies.set('token', token, { expires: 45 * 60 * 1000, secure: true, sameSite: 'strict' });
+        const refreshToken = ctx.refreshToken;
+        Cookies.set('token', token, { secure: true, sameSite: 'strict' });
+        Cookies.set('refreshToken', refreshToken, { secure: true, sameSite: 'strict' });
         toast.success(ctx.message);
         router.push('/');
         setRefresh((prev) => !prev);
       }
     } catch (error) {
+      console.log(error);
       toast.error('Hiba történt a bejelentkezés során!');
     }
   };

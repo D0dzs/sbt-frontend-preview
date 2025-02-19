@@ -1,6 +1,6 @@
 'use client';
 
-import { BadgeInfoIcon, ShieldAlertIcon, TriangleAlertIcon } from 'lucide-react';
+import { BadgeInfoIcon, TriangleAlertIcon } from 'lucide-react';
 import { useContext } from 'react';
 import { Button } from '~/components/ui/button';
 import {
@@ -95,8 +95,9 @@ const Explanation = () => {
   ) : (
     <Container className={'w-[60vw] p-4 select-none'}>
       <div className="mx-auto mb-4 flex w-fit justify-center gap-3">
-        <ShieldAlertIcon size={20} className="stroke-bme-blue dark:stroke-bme-orange lg:h-10 lg:w-10" />
+        <TriangleAlertIcon size={20} className="stroke-bme-blue dark:stroke-bme-orange lg:h-10 lg:w-10" />
         <p className="text-xl lg:text-3xl">Magyarázat</p>
+        <TriangleAlertIcon size={20} className="stroke-bme-blue dark:stroke-bme-orange lg:h-10 lg:w-10" />
       </div>
       <div className="flex justify-center">
         <div className="flex justify-center">

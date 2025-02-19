@@ -10,9 +10,7 @@ const Page = () => {
 
     const response = await fetch('http://localhost:8080/api/auth/verify-token', {
       method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      credentials: 'include',
     });
 
     if (!response.ok) return { redirect: '/' };

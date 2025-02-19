@@ -55,7 +55,7 @@ export default function Home() {
       {/* Film strip (aka separator) */}
       <FilmStripContainer className={'my-12 w-screen lg:my-24'}>
         <InfiniteSlider gap={0} duration={60}>
-          <div className="flex w-fit shrink-0 lg:h-64">
+          <div className="flex w-fit shrink-0">
             {Array.from({ length: 12 }, (_, i) => i).map((i) => (
               <FilmStripElement key={i} imageURL={`/images/carousel/${i + 1}kep.webp`} />
             ))}
