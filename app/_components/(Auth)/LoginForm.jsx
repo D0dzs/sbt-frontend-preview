@@ -1,6 +1,5 @@
 'use client';
 
-import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import { useContext, useState } from 'react';
 import { toast } from 'sonner';
@@ -40,16 +39,11 @@ const LoginForm = () => {
         const message = ctx.message ?? ctx.errors[0] ?? 'Unknown error';
         toast.error(message);
       } else {
-        const token = ctx.token;
-        const refreshToken = ctx.refreshToken;
-        Cookies.set('token', token, { secure: true, sameSite: 'strict' });
-        Cookies.set('refreshToken', refreshToken, { secure: true, sameSite: 'strict' });
         toast.success(ctx.message);
         router.push('/');
         setRefresh((prev) => !prev);
       }
     } catch (error) {
-      console.log(error);
       toast.error('Hiba történt a bejelentkezés során!');
     }
   };
