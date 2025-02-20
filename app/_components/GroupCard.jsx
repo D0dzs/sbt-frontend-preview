@@ -5,7 +5,7 @@ import { cn } from '~/lib/utils';
 const GroupCard = ({ className, imageSource, nameOfTheGroup, descriptionOfTheGroup, ...props }) => {
   return (
     <div
-      className={`${cn('bg-bme-lfront dark:bg-bme-dfront flex max-w-80 min-w-56 min-h-48 max-h-full flex-col gap-4 overflow-clip rounded-2xl shadow-lg select-none', className)}`}
+      className={`${cn('bg-bme-lfront dark:bg-bme-dfront flex max-h-full min-h-48 max-w-80 min-w-fit flex-col gap-4 overflow-clip rounded-2xl shadow-lg select-none', className)}`}
       {...props}
     >
       <div className="relative h-64">

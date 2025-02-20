@@ -7,7 +7,6 @@ import FilmStripElement from './_components/FilmStripElement';
 import FilmStripContainer from './_components/FilmStripContainer';
 import { InfiniteSlider } from '~/components/ui/infinite-slider';
 import GroupDisplay from './_components/GroupDisplay';
-import Footer from './_components/Footer';
 import HeroScreen from './_components/(Hero)/HeroPage';
 import PageLayout from './_components/(Layouts)/PageLayout';
 
@@ -23,12 +22,12 @@ export default function Home() {
             <img
               src={'/images/this_is_us.webp'}
               alt="CSAPAT (front)"
-              className="absolute top-1/2 left-1/2 z-1 w-60 -translate-x-1/2 -translate-y-1/2 self-center rounded-2xl lg:h-fit lg:w-96 lg:max-w-96"
+              className="absolute top-1/2 left-1/2 z-1 aspect-16/9 w-60 -translate-x-1/2 -translate-y-1/2 self-center rounded-2xl lg:w-96 lg:max-w-96"
             />
             <img
               src={'/images/this_is_us.webp'}
               alt="CSAPAT (back)"
-              className="mx-auto w-60 rounded-2xl blur-xl lg:h-fit lg:w-96 lg:max-w-96"
+              className="mx-auto aspect-16/9 w-60 rounded-2xl blur-xl lg:h-fit lg:w-96 lg:max-w-96"
             />
           </div>
           <div className="flex h-full flex-col items-center justify-center gap-3 pt-0 lg:p-0 lg:px-8">
@@ -64,7 +63,7 @@ export default function Home() {
       </FilmStripContainer>
 
       {/* Main Groups Container */}
-      <SectionLayout>
+      <SectionLayout className={'p-8 pt-16 lg:pt-32'}>
         <GroupDisplay />
       </SectionLayout>
 

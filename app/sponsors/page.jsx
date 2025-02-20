@@ -15,11 +15,11 @@ const Page = () => {
         }
       >
         <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
-        <div className="z-10 flex flex-col items-center justify-center gap-16 lg:pt-0">
+        <div className="z-10 flex flex-col items-center justify-center lg:gap-16 lg:pt-0">
           <UploadSponsorForm />
 
-          <h3 className="text-center text-3xl font-semibold lg:text-5xl">GIGAWATT Szponzorok</h3>
-          <div className="grid h-fit gap-4 lg:grid-cols-3 lg:gap-8">
+          <h3 className="text-center text-2xl font-semibold lg:text-5xl">GIGAWATT Szponzorok</h3>
+          <div className="grid h-fit gap-4 p-8 lg:grid-cols-3 lg:gap-8">
             <SponsorCard
               sponsorURL={'https://mvm.hu/'}
               sponsorName={'MVM'}
@@ -49,8 +49,8 @@ const Page = () => {
         }
       >
         <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
-        <div className="z-10 flex w-screen flex-col gap-16 lg:w-[70vw]">
-          <h3 className="text-center text-3xl font-semibold lg:text-5xl">MEGAWATT Szponzorok</h3>
+        <div className="z-10 flex w-screen flex-col lg:my-auto lg:w-[70vw] lg:gap-16">
+          <h3 className="text-center text-2xl font-semibold lg:text-5xl">MEGAWATT Szponzorok</h3>
           <div className="flex flex-wrap items-center justify-center gap-8 p-8">
             <SponsorCard
               sponsorURL={'https://www.foxconn.hu/'}
@@ -120,12 +120,12 @@ const Page = () => {
       {/* KILOWATT SPONSORS */}
       <SectionLayout
         className={
-          'relative min-h-screen bg-[url(/images/sponsors/kilowatt_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
+          'relative mt-24 min-h-screen bg-[url(/images/sponsors/kilowatt_background.webp)] bg-cover bg-center bg-no-repeat lg:mt-0 lg:bg-[length:100%_100%]'
         }
       >
         <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
-        <div className="z-10 flex w-screen flex-col gap-16 lg:w-[70vw]">
-          <h3 className="text-center text-3xl font-semibold lg:text-5xl">KILOWATT Szponzorok</h3>
+        <div className="z-10 flex w-screen flex-col lg:w-[70vw] lg:gap-16">
+          <h3 className="text-center text-2xl font-semibold lg:text-5xl">KILOWATT Szponzorok</h3>
           <div className="flex flex-wrap items-center justify-center gap-8 p-8">
             <SponsorCard
               sponsorURL={'https://www.wago.com/global/'}
@@ -212,7 +212,7 @@ const Page = () => {
         <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
         <div className="z-10 w-screen justify-center gap-16 lg:w-[60vw]">
           <div>
-            <h3 className="p-4 text-center text-3xl font-semibold lg:p-0 lg:text-5xl">
+            <h3 className="mt-24 p-4 text-center text-2xl font-semibold lg:mt-0 lg:p-0 lg:text-5xl">
               Budapesti Műszaki és Gazdaságtudományi Egyetem
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-8 p-8">
@@ -263,8 +263,8 @@ const Page = () => {
         </div>
 
         {/* SCIENCE PARTNER */}
-        <div className="z-15 mx-auto mt-(--navbar-height) flex flex-col items-center justify-center">
-          <h3 className="self-end text-center text-3xl font-semibold lg:text-5xl">Tudományos partnerünk</h3>
+        <div className="z-15 mx-auto flex flex-col items-center justify-center">
+          <h3 className="self-end text-center text-2xl font-semibold lg:text-5xl">Tudományos partnerünk</h3>
           <div className="flex h-fit w-fit items-center justify-center p-8">
             <SponsorCard
               sponsorURL={'https://www.ek.hun-ren.hu/'}
@@ -278,7 +278,7 @@ const Page = () => {
       </SectionLayout>
 
       {/* BME */}
-      <div className="p- mt-16 flex items-center justify-center p-8 lg:p-0">
+      <div className="mt-16 flex items-center justify-center p-8 lg:p-0">
         <Link href="https://www.bme.hu/" target="_blank" rel="noopener noreferrer">
           <Image
             src="/images/sponsors/light_bme.svg"

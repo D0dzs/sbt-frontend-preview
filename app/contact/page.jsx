@@ -5,7 +5,6 @@ import { Separator } from '~/components/ui/separator';
 import { siteConfig } from '~/config/site';
 import PageLayout from '../_components/(Layouts)/PageLayout';
 import Container from '../_components/Container';
-import Footer from '../_components/Footer';
 
 const Page = () => {
   return (
@@ -21,15 +20,15 @@ const Page = () => {
       <Container
         className={'mx-auto flex h-full w-[70vw] flex-col justify-between p-8 lg:w-[60vw] lg:flex-row lg:p-12'}
       >
-        <div className="h-full w-full items-center justify-center">
+        <div className="items-center justify-center lg:h-full lg:w-full">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={'/placeholder.png'}
-            className="aspect-square h-fit w-fit lg:mx-auto lg:w-2/3"
+            className="mx-auto aspect-square h-fit max-h-48 w-fit max-w-48 lg:mx-auto lg:max-h-80 lg:w-2/3 lg:max-w-80"
             alt="Just a funny guy"
           />
         </div>
-        <div className="flex h-fit w-full flex-col gap-8 self-start text-sm lg:h-full lg:justify-center lg:text-xl">
+        <div className="flex h-fit w-fit flex-col gap-8 self-start text-sm lg:h-full lg:w-full lg:justify-center lg:text-xl">
           <h3 className="flex items-center gap-4">
             <GlobeIcon size={20} strokeWidth={1} className="stroke-bme-blue dark:stroke-bme-orange lg:h-8 lg:w-8" />
             <span>www.solarboatteam.hu</span>
@@ -171,8 +170,6 @@ const Page = () => {
           ></iframe>
         </div>
       </Container>
-
-      <Footer />
     </PageLayout>
   );
 };

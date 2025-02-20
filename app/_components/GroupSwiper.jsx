@@ -23,12 +23,12 @@ const GroupSwiper = ({ customArray, className, children, ...props }) => {
             return `<span class="${className} h-3 w-3 rounded-full bg-bme-black dark:bg-bme-white transition-opacity duration-300 swiper-pagination-bullet-inactive"></span>`;
           },
         }}
-        className={`${cn('my-4 max-w-80 min-w-56 grid-rows-2 gap-4 overflow-clip rounded-2xl bg-transparent', className)}`}
+        className={`${cn('my-4 max-w-80 min-w-full grid-rows-2 gap-4 overflow-clip rounded-2xl bg-transparent', className)}`}
         {...props}
       >
         {customArray.map((el, idx) => {
           return (
-            <SwiperSlide key={idx} className="">
+            <SwiperSlide key={idx}>
               <GroupCard
                 key={idx}
                 descriptionOfTheGroup={el.descriptionOfTheGroup}

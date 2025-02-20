@@ -76,17 +76,21 @@ const Footer = () => {
       </div>
 
       {/* BOTTOM BLOCK */}
-      <div className="bg-bme-orange shadow-bme-orange/50 !text-bme-black mx-auto grid h-full w-[55vw] items-center gap-3 rounded-b-xl p-4 py-6 shadow-xl lg:grid-cols-2 lg:p-8">
-        <div className="flex justify-between lg:justify-normal lg:gap-6 lg:text-xl">
+      <div className="bg-bme-orange shadow-bme-orange/50 !text-bme-black mx-auto grid h-full w-[60vw] items-center gap-3 rounded-b-xl p-4 py-6 shadow-xl lg:grid-cols-2 lg:p-8">
+        <div className="mx-auto flex items-center gap-2 lg:mx-0 lg:justify-normal lg:gap-6 lg:text-xl">
           <span className="self-center">Tagoknak</span>
-          <Link href={'/login'} scroll className="bg-bme-black text-bme-white rounded-full px-8 py-2 lg:px-12">
+          <Link
+            href={'/login'}
+            scroll
+            className="bg-bme-black text-bme-white rounded-full px-4 py-1 lg:px-8 lg:px-12 lg:py-2"
+          >
             Login
           </Link>
         </div>
-        <div className="flex justify-around lg:justify-end lg:gap-6">
+        <div className="mx-auto flex gap-1 lg:mx-0 lg:justify-end lg:gap-2 xl:gap-4 2xl:gap-6">
           <Link href={siteConfig.links.isntagram} target={'_blank'}>
             <svg
-              className="bg-bme-black h-10 w-10 rounded-lg p-2"
+              className="bg-bme-black h-8 w-8 rounded-lg p-2 lg:h-10 lg:w-10"
               role="img"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +104,7 @@ const Footer = () => {
           </Link>
           <Link href={siteConfig.links.tiktok} target={'_blank'}>
             <svg
-              className="bg-bme-black h-10 w-10 rounded-lg p-2"
+              className="bg-bme-black h-8 w-8 rounded-lg p-2 lg:h-10 lg:w-10"
               role="img"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +118,7 @@ const Footer = () => {
           </Link>
           <Link href={siteConfig.links.facebook} target={'_blank'}>
             <svg
-              className="bg-bme-black h-10 w-10 rounded-lg p-2"
+              className="bg-bme-black h-8 w-8 rounded-lg p-2 lg:h-10 lg:w-10"
               role="img"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +132,7 @@ const Footer = () => {
           </Link>
           <Link href={siteConfig.links.youtube} target={'_blank'}>
             <svg
-              className="bg-bme-black h-10 w-10 rounded-lg p-2"
+              className="bg-bme-black h-8 w-8 rounded-lg p-2 lg:h-10 lg:w-10"
               role="img"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -142,7 +146,7 @@ const Footer = () => {
           </Link>
           <Link href={siteConfig.links.linkedin} target={'_blank'}>
             <svg
-              className="bg-bme-black h-10 w-10 rounded-lg p-2"
+              className="bg-bme-black h-8 w-8 rounded-lg p-2 lg:h-10 lg:w-10"
               xmlns="http://www.w3.org/2000/svg"
               role="img"
               viewBox="0 0 26 26"
