@@ -1,15 +1,15 @@
 'use client';
 
-import { AlignJustifyIcon, Command, CommandIcon, LogOutIcon, XIcon } from 'lucide-react';
+import { AlignJustifyIcon, CommandIcon, LogOutIcon, XIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~/components/ui/accordion';
 import { cn, isAdmin } from '~/lib/utils';
-import { ModeToggle } from './ModeSwitch';
+import { ModeToggle } from './Providers/ModeSwitch';
 import { MobileContext } from './Providers/Screen-provider';
 import { UserContext } from './Providers/User-provider';
-import { useRouter } from 'next/navigation';
 
 const Navbar = ({ className, ...props }) => {
   const { user, logout } = useContext(UserContext);
@@ -33,7 +33,7 @@ const Navbar = ({ className, ...props }) => {
   }, [user]);
 
   return (
-    <nav className={`${cn('flex justify-center', className)}`} {...props}>
+    <nav className={`${cn('sticky top-0 flex w-full justify-center', className)}`} {...props}>
       {isMobile ? (
         <div
           className={`bg-bme-lprimary dark:bg-bme-dprimary absolute top-0 left-0 z-50 mt-20 block min-w-screen -translate-y-20 transition-all duration-200 lg:hidden ${isOpen ? 'min-h-screen' : 'min-h-0'}`}

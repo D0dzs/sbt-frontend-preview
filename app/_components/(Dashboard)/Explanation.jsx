@@ -14,8 +14,8 @@ import {
   DialogTrigger,
 } from '~/components/ui/dialog';
 import { Separator } from '~/components/ui/separator';
-import Container from '../Container';
 import { MobileContext } from '../Providers/Screen-provider';
+import Container from '../(Layouts)/Container';
 
 const Explanation = () => {
   const isMobile = useContext(MobileContext);

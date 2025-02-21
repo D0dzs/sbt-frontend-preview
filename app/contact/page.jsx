@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Separator } from '~/components/ui/separator';
 import { siteConfig } from '~/config/site';
 import PageLayout from '../_components/(Layouts)/PageLayout';
-import Container from '../_components/Container';
+import Container from '../_components/(Layouts)/Container';
 
 const Page = () => {
   return (

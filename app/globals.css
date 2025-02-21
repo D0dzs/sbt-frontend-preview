@@ -91,6 +91,8 @@
 * {
   scrollbar-width: none;
   -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  scroll-margin-top: 10rem;
 }
 
 *::-webkit-scrollbar {

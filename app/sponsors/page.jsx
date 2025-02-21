@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import PageLayout from '../_components/(Layouts)/PageLayout';
 import SectionLayout from '../_components/(Layouts)/SectionLayout';
-import SponsorCard from '../_components/SponsorCard';
+import SponsorCard from '../_components/(Sponsor)/SponsorCard';
 import Link from 'next/link';
 import UploadSponsorForm from '../_components/(Forms)/UploadSponsorForm';
 
@@ -123,7 +123,6 @@ const Page = () => {
           'relative mt-24 min-h-screen bg-[url(/images/sponsors/kilowatt_background.webp)] bg-cover bg-center bg-no-repeat lg:mt-0 lg:bg-[length:100%_100%]'
         }
       >
-        <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
         <div className="z-10 flex w-screen flex-col lg:w-[70vw] lg:gap-16">
           <h3 className="text-center text-2xl font-semibold lg:text-5xl">KILOWATT Szponzorok</h3>
           <div className="flex flex-wrap items-center justify-center gap-8 p-8">
@@ -281,14 +280,14 @@ const Page = () => {
       <div className="mt-16 flex items-center justify-center p-8 lg:p-0">
         <Link href="https://www.bme.hu/" target="_blank" rel="noopener noreferrer">
           <Image
-            src="/images/sponsors/light_bme.svg"
+            src="/images/sponsors/bme_logo_light.svg"
             width={350}
             height={1}
             className="hidden lg:w-[500px] dark:block"
             alt="Budapesti Műszaki és Gazdaságtudományi Egyetem (BME)"
           />
           <Image
-            src="/images/sponsors/dark_bme.svg"
+            src="/images/sponsors/bme_logo_dark.svg"
             width={350}
             height={1}
             className="block lg:w-[500px] dark:hidden"

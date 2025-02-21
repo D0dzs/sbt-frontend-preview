@@ -7,8 +7,8 @@ import { siteConfig } from '~/config/site';
 
 const Footer = () => {
   return (
-    <footer className="mx-auto w-[70vw] py-8 pt-32">
-      <div className="bg-bme-lsecondary text-bme-black dark:text-bme-white dark:bg-bme-dsecondary relative grid overflow-clip rounded-2xl shadow-xl">
+    <footer className="bg-bme-lprimary dark:bg-bme-dprimary relative z-1 mx-auto h-full w-full py-8 pt-32">
+      <div className="bg-bme-lsecondary text-bme-black dark:text-bme-white dark:bg-bme-dsecondary relative mx-auto grid w-[70vw] overflow-clip rounded-2xl shadow-xl">
         <div className="from-bme-orange/30 lg:from-bme-orange/60 absolute top-3/2 left-1/2 z-5 h-[1000px] w-[3000px] -translate-x-1/2 -translate-y-full bg-radial to-transparent to-60% lg:-translate-y-1/2" />
         <div className="z-10 grid h-fit w-full grid-cols-1 p-0 lg:grid-flow-col lg:grid-cols-2 lg:px-16 lg:pt-8">
           <div className="grid h-fit w-full grid-cols-1 gap-6 p-8 lg:w-fit lg:p-0">
@@ -76,14 +76,10 @@ const Footer = () => {
       </div>
 
       {/* BOTTOM BLOCK */}
-      <div className="bg-bme-orange shadow-bme-orange/50 !text-bme-black mx-auto grid h-full w-[60vw] items-center gap-3 rounded-b-xl p-4 py-6 shadow-xl lg:grid-cols-2 lg:p-8">
+      <div className="bg-bme-orange shadow-bme-orange/50 !text-bme-black z-50 mx-auto grid h-full w-[60vw] items-center gap-3 rounded-b-xl p-4 py-6 shadow-lg lg:grid-cols-2 lg:p-8">
         <div className="mx-auto flex items-center gap-2 lg:mx-0 lg:justify-normal lg:gap-6 lg:text-xl">
           <span className="self-center">Tagoknak</span>
-          <Link
-            href={'/login'}
-            scroll
-            className="bg-bme-black text-bme-white rounded-full px-4 py-1 lg:px-8 lg:px-12 lg:py-2"
-          >
+          <Link href={'/login'} scroll className="bg-bme-black text-bme-white rounded-full px-4 py-1 lg:px-12 lg:py-2">
             Login
           </Link>
         </div>
