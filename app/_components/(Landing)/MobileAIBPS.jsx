@@ -83,7 +83,7 @@ const MobileAIBPS = () => {
           <Separator orientation="vertical" className="bg-bme-black/50 dark:bg-bme-white/50 h-full" />
           <div className="w-full">
             <div className="bg-bme-blue dark:bg-bme-orange text-bme-white dark:text-bme-black mb-2 rounded-lg py-2 text-center">
-              <h1 className="px-2 text-xl">SolarBoat Projekt</h1>
+              <h1 className="px-2 text-xl">AI - Boat Projekt</h1>
             </div>
             <p className="line-clamp-15 overflow-hidden text-justify text-sm">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel aliquam aliquet, nisl nisl

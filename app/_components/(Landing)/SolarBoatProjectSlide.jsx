@@ -8,7 +8,7 @@ const SolarBoatProjectSlide = () => {
     <div className="relative grid h-fit w-full gap-8 p-4">
       <div className="z-5 m-4 flex h-full flex-col items-center">
         <div className="bg-bme-blue dark:bg-bme-orange dark:shadow-bme-orange shadow-bme-blue mx-auto flex h-10 w-fit items-center rounded-t-lg px-12 py-8 shadow-[0px_0px_6px_2px]">
-          <h1 className="text-bme-white dark:text-bme-black text-4xl">SolarBoat Project</h1>
+          <h1 className="text-bme-white dark:text-bme-black text-4xl">SolarBoat Projekt</h1>
         </div>
         <img src="/projekt_solar_21_9.webp" alt="Image" className="aspect-21/9 max-h-56 rounded-4xl shadow-xl" />
       </div>
