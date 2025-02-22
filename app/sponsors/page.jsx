@@ -11,11 +11,11 @@ const Page = () => {
       {/* GIGAWATT SPONSORS */}
       <SectionLayout
         className={
-          'relative min-h-screen bg-[url(/images/sponsors/gigawatt_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
+          'relative grid min-h-screen items-start bg-[url(/images/sponsors/gigawatt_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
         }
       >
         <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
-        <div className="z-10 flex flex-col items-center justify-center lg:gap-16 lg:pt-0">
+        <div className="z-10 flex h-svh flex-col items-center justify-center lg:gap-16 lg:pt-0">
           <UploadSponsorForm />
 
           <h3 className="text-center text-2xl font-semibold lg:text-5xl">GIGAWATT Szponzorok</h3>
@@ -45,11 +45,10 @@ const Page = () => {
       {/* MEGAWATT SPONSORS */}
       <SectionLayout
         className={
-          'relative grid min-h-screen items-start bg-[url(/images/sponsors/megawatt_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
+          'relative mt-24 grid min-h-screen items-start bg-[url(/images/sponsors/megawatt_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
         }
       >
-        <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
-        <div className="z-10 flex w-screen flex-col lg:my-auto lg:w-[70vw] lg:gap-16">
+        <div className="z-10 mx-auto flex w-full flex-col lg:my-auto lg:w-[70vw] lg:gap-16">
           <h3 className="text-center text-2xl font-semibold lg:text-5xl">MEGAWATT Szponzorok</h3>
           <div className="flex flex-wrap items-center justify-center gap-8 p-8">
             <SponsorCard
@@ -120,10 +119,10 @@ const Page = () => {
       {/* KILOWATT SPONSORS */}
       <SectionLayout
         className={
-          'relative mt-24 min-h-screen bg-[url(/images/sponsors/kilowatt_background.webp)] bg-cover bg-center bg-no-repeat lg:mt-0 lg:bg-[length:100%_100%]'
+          'relative mt-24 grid min-h-screen items-start bg-[url(/images/sponsors/kilowatt_background.webp)] bg-cover bg-center bg-no-repeat lg:bg-[length:100%_100%]'
         }
       >
-        <div className="z-10 flex w-screen flex-col lg:w-[70vw] lg:gap-16">
+        <div className="z-10 mx-auto flex w-full flex-col lg:my-auto lg:w-[70vw] lg:gap-16">
           <h3 className="text-center text-2xl font-semibold lg:text-5xl">KILOWATT Szponzorok</h3>
           <div className="flex flex-wrap items-center justify-center gap-8 p-8">
             <SponsorCard
@@ -209,7 +208,7 @@ const Page = () => {
         }
       >
         <div className="to-bme-lprimary dark:to-bme-dprimary absolute z-5 h-full w-full translate-y-px rotate-180 bg-gradient-to-t from-70% to-90%" />
-        <div className="z-10 w-screen justify-center gap-16 lg:w-[60vw]">
+        <div className="z-10 mx-auto w-screen justify-center gap-16 lg:w-[60vw]">
           <div>
             <h3 className="mt-24 p-4 text-center text-2xl font-semibold lg:mt-0 lg:p-0 lg:text-5xl">
               Budapesti Műszaki és Gazdaságtudományi Egyetem

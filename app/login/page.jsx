@@ -1,25 +1,12 @@
 import Link from 'next/link';
 import LoginForm from '../_components/(Auth)/LoginForm';
 import { redirect } from 'next/navigation';
-import Cookies from 'js-cookie';
+import { cookies } from 'next/headers';
 
-const Page = () => {
-  const token = Cookies.get('token');
-  const verifyToken = async (token) => {
-    if (!token) return;
-
-    const response = await fetch('http://localhost:8080/api/auth/verify-token', {
-      method: 'GET',
-      credentials: 'include',
-    });
-
-    if (!response.ok) return { redirect: '/' };
-  };
-
-  const tokenVerificationResult = verifyToken(token);
-  if (tokenVerificationResult && tokenVerificationResult.redirect) {
-    redirect(tokenVerificationResult.redirect);
-  }
+const Page = async () => {
+  const cookieStore = cookies();
+  const token = cookieStore.has('token');
+  if (token) redirect('/');
 
   return (
     <div className={'text-bme-black dark:text-bme-white relative grid grid-flow-col overflow-hidden lg:grid-cols-2'}>
@@ -33,7 +20,7 @@ const Page = () => {
           />
         </svg>
       </div>
-      <div className="bg-bme-lprimary dark:bg-bme-dprimary z-50 flex h-screen items-center justify-center">
+      <div className="bg-bme-lprimary dark:bg-bme-dprimary z-50 flex h-svh items-center justify-center lg:h-screen">
         <div className="flex w-3/4 flex-col gap-12 lg:w-1/2">
           <LoginForm />
         </div>

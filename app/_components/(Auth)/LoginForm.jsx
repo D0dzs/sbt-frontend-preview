@@ -35,13 +35,12 @@ const LoginForm = () => {
       });
 
       const ctx = await res.json();
-      if (res.status !== 200) {
-        const message = ctx.message ?? ctx.errors[0] ?? 'Unknown error';
-        toast.error(message);
-      } else {
+      if (res.ok) {
         toast.success(ctx.message);
-        router.push('/');
-        setRefresh((prev) => !prev);
+        setRefresh((ctx) => !ctx);
+        router.replace(ctx.redirect, { scroll: true });
+      } else {
+        toast.error(ctx.errors[0]);
       }
     } catch (error) {
       toast.error('Hiba történt a bejelentkezés során!');

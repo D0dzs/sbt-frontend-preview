@@ -15,7 +15,6 @@ import {
 import { Button } from '~/components/ui/button';
 import { Input } from '~/components/ui/input';
 import { toast } from 'sonner';
-import Cookies from 'js-cookie';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '~/components/ui/hover-card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select';
 
@@ -24,7 +23,6 @@ const wait = () => new Promise((resolve) => setTimeout(resolve, 1000));
 const UploadSponsorForm = () => {
   const { user } = useContext(UserContext);
   const privileged = isAdmin(user);
-  const token = Cookies.get('token');
   const [open, setOpen] = useState(false);
 
   const [formState, setFormState] = useState({
@@ -72,6 +70,9 @@ const UploadSponsorForm = () => {
       const res = await fetch('http://localhost:8080/api/sponsor/upload', {
         method: 'POST',
         credentials: 'include',
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
         body: formData,
       });
 

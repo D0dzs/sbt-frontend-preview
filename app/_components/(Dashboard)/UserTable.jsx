@@ -8,7 +8,7 @@ const UserTable = ({ dataArray }) => {
   const isMobile = useContext(MobileContext);
 
   return isMobile ? (
-    <div className="dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 w-full overflow-clip rounded-3xl shadow-xl outline-2 *:p-4">
+    <div className="dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 mx-auto h-fit w-full max-w-[70vw] overflow-clip rounded-3xl shadow-xl outline-2 *:p-4">
       <div className="bg-bme-blue dark:bg-bme-orange text-bme-white dark:text-bme-black grid p-3">
         <p className="text-center text-xl">Név</p>
       </div>
@@ -44,7 +44,7 @@ const UserTable = ({ dataArray }) => {
       })}
     </div>
   ) : (
-    <div className="dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 w-full overflow-clip rounded-3xl shadow-xl outline-2 *:p-4 *:px-6">
+    <div className="dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 mx-auto w-[60vw] overflow-clip rounded-3xl shadow-xl outline-2 *:p-4 *:px-6">
       <div className="bg-bme-blue dark:bg-bme-orange text-bme-white dark:text-bme-black grid grid-cols-4 p-3">
         <p className="text-left text-xl">Név</p>
         <p className="text-center text-xl">Role</p>
@@ -56,7 +56,7 @@ const UserTable = ({ dataArray }) => {
           return (
             <div
               key={i}
-              className={`${i % 2 === 0 ? 'bg-bme-lsecondary dark:bg-bme-dsecondary' : 'bg-bme-lprimary dark:bg-bme-dprimary'}`}
+              className={`h-fit ${i % 2 === 0 ? 'bg-bme-lsecondary dark:bg-bme-dsecondary' : 'bg-bme-lprimary dark:bg-bme-dprimary'}`}
             >
               <p className="text-bme-blue dark:text-bme-orange mx-auto w-fit cursor-pointer font-semibold">
                 + új tag hozzáadása

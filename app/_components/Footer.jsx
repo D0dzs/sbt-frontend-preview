@@ -7,7 +7,7 @@ import { siteConfig } from '~/config/site';
 
 const Footer = () => {
   return (
-    <footer className="bg-bme-lprimary dark:bg-bme-dprimary relative z-1 mx-auto h-full w-full py-8 pt-32">
+    <footer className="bg-bme-lprimary dark:bg-bme-dprimary relative mx-auto h-full w-full py-8 pt-32">
       <div className="bg-bme-lsecondary text-bme-black dark:text-bme-white dark:bg-bme-dsecondary relative mx-auto grid w-[70vw] overflow-clip rounded-2xl shadow-xl">
         <div className="from-bme-orange/30 lg:from-bme-orange/60 absolute top-3/2 left-1/2 z-5 h-[1000px] w-[3000px] -translate-x-1/2 -translate-y-full bg-radial to-transparent to-60% lg:-translate-y-1/2" />
         <div className="z-10 grid h-fit w-full grid-cols-1 p-0 lg:grid-flow-col lg:grid-cols-2 lg:px-16 lg:pt-8">

@@ -15,7 +15,7 @@ const GroupDisplay = () => {
   return (
     <>
       {isMobile ? (
-        <Container className={'w-[70vw] justify-center gap-8 p-8'}>
+        <Container className={'w-[70vw] justify-center gap-8 px-4 py-8'}>
           <h1 className="text-center text-xl lg:text-3xl">Csapatunk felépítése</h1>
           <GroupSwiper customArray={groupData} />
         </Container>

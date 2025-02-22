@@ -1,7 +1,5 @@
 import { ReactLenis } from 'lenis/dist/lenis-react';
-
 import { siteConfig } from '~/config/site';
-
 import Providers from './_components/Providers/Providers';
 
 import './globals.css';
@@ -17,8 +15,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ReactLenis root>
-      <html lang="hu" className={`${poppins.variable} ${comfortaa.variable}`} suppressHydrationWarning>
-        <body className="!bg-bme-lprimary dark:!bg-bme-dprimary font-poppins">
+      <html lang="hu" className={`${poppins.variable} ${comfortaa.variable} overflow-x-clip`} suppressHydrationWarning>
+        <body className="font-poppins !bg-bme-lprimary dark:!bg-bme-dprimary">
           <Providers>
             <main className="!text-bme-black dark:!text-bme-white">{children}</main>
             <Toaster />

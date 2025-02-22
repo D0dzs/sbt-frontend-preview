@@ -16,7 +16,7 @@ const ProjectContainer = () => {
   const isMobile = useContext(MobileContext);
 
   return (
-    <div className="relative z-55 h-screen lg:h-[125vh]">
+    <div className="relative h-screen lg:h-[125vh]">
       <div className="absolute top-0 left-0 h-full w-full bg-[url(/radial_background.svg)] bg-center bg-no-repeat opacity-50 lg:bg-fixed" />
       <svg width="1920" viewBox="0 0 1920 133" className="absolute w-screen -translate-y-px rotate-180">
         <path
@@ -85,7 +85,7 @@ const ProjectContainer = () => {
         )}
       </div>
 
-      <div className="absolute bottom-0 z-55 w-screen translate-y-px">
+      <div className="after:bg-bme-lprimary dark:after:bg-bme-dprimary absolute bottom-0 w-screen translate-y-px after:absolute after:bottom-0 after:h-px after:w-full">
         <svg width="1920" viewBox="0 0 1920 133" className="w-screen">
           <path
             fillRule="inherit"

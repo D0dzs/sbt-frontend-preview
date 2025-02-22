@@ -4,11 +4,10 @@ import { ChevronDown } from 'lucide-react';
 
 const HeroScreen = () => {
   return (
-    <div className="relative -z-5 grid h-[85vh] w-screen items-center justify-center lg:h-screen">
-      <div className="absolute top-0 left-0 h-full w-full">
-        {/* TODO: Fix the attachment because we need to keep it at a fix position */}
+    <div id='hero-wrapper' className="relative z-0 grid h-[85vh] w-screen items-center justify-center lg:h-screen">
+      <div className="absolute top-0 left-0 h-fit w-fit">
         <video
-          className="h-full w-full object-cover lg:fixed"
+          className="fixed z-0 h-full w-full object-cover"
           src="/hero/hero_video.mp4"
           loop
           autoPlay
@@ -18,12 +17,16 @@ const HeroScreen = () => {
         />
       </div>
 
-      <ChevronDown size={48} className="lg:bottom-18mx-auto absolute bottom-9 w-full animate-bounce" stroke="white" />
+      <ChevronDown
+        size={48}
+        className="lg:bottom-18mx-auto absolute bottom-9 w-full animate-bounce lg:bottom-20"
+        stroke="white"
+      />
 
-      <div className="absolute -bottom-px left-0 flex w-screen self-end lg:-bottom-0">
-        <svg id="a" width="2000" height="95" viewBox="0 0 2000 95" className="h-full w-screen lg:h-auto lg:w-auto">
+      <div className="px absolute -bottom-px left-0 flex w-screen self-end lg:-bottom-0">
+        <svg id="a" width="2000" height="152" viewBox="0 0 2000 152" className="h-full w-screen lg:h-auto lg:w-auto">
           <path
-            d="M0,95V48.5923c270.6392,38.3916,489.394,45.5522,633.7826,45.5743,331.3779.0506,493.6659-37.4654,872.5576-38.0624,214.403-.3378,387.6009,11.3203,493.6598,20.2999v43.5959H0Z"
+            d="M 2082 93.5 L 1961.9 84.5833 C 1843.6 75.6667 1603.4 57.8333 1365 66.75 C 1126.6 75.6667 886.402 111.333 648 111.333 C 409.598 111.333 169.402 75.6667 51.0974 57.8333 L -69 40 L -69 155 L 191 155 C 169.402 155 409.598 155 648 155 C 886.402 155 1126.6 155 1365 155 C 1603.4 155 1843.6 155 1961.9 155 L 2082 155 L 2082 93.5 Z"
             fillRule="evenodd"
             className="fill-bme-lprimary dark:fill-bme-dprimary"
           />
