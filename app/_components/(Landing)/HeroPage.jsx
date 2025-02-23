@@ -4,10 +4,10 @@ import { ChevronDown } from 'lucide-react';
 
 const HeroScreen = () => {
   return (
-    <div id='hero-wrapper' className="relative z-0 grid h-[85vh] w-screen items-center justify-center lg:h-screen">
-      <div className="absolute top-0 left-0 h-fit w-fit">
+    <div id="hero-wrapper" className="relative grid h-[85vh] w-screen items-center justify-center lg:h-screen">
+      <div className="fixed top-0 left-0 h-fit w-fit">
         <video
-          className="fixed z-0 h-full w-full object-cover"
+          className="fixed h-full w-full object-cover"
           src="/hero/hero_video.mp4"
           loop
           autoPlay

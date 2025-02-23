@@ -27,34 +27,40 @@ export const UserProvider = ({ children }) => {
 
   const getUserInfo = useCallback(async () => {
     setLoading(true);
-    const response = await fetch('http://localhost:8080/api/auth/me', {
-      method: 'GET',
-      credentials: 'include',
-    });
 
-    if (response.status === 401) {
-      const refreshResponse = await fetch('http://localhost:8080/api/auth/refresh', {
-        method: 'POST',
+    try {
+      const response = await fetch('http://localhost:8080/api/auth/me', {
+        method: 'GET',
         credentials: 'include',
+      }).catch((error) => {
+        throw error;
       });
 
-      if (refreshResponse.ok) {
-        const retryResponse = await fetch('http://localhost:8080/api/auth/me', {
-          method: 'GET',
+      if (response.status === 401) {
+        const refreshResponse = await fetch('http://localhost:8080/api/auth/refresh', {
+          method: 'POST',
           credentials: 'include',
         });
 
-        if (retryResponse.ok) {
-          const { user } = await retryResponse.json();
-          setUser(user);
-        }
-      }
-    } else {
-      const { user } = await response.json();
-      setUser(user);
-    }
+        if (refreshResponse.ok) {
+          const retryResponse = await fetch('http://localhost:8080/api/auth/me', {
+            method: 'GET',
+            credentials: 'include',
+          });
 
-    setLoading(false);
+          if (retryResponse.ok) {
+            const { user } = await retryResponse.json();
+            setUser(user);
+          }
+        }
+      } else {
+        const { user } = await response.json();
+        setUser(user);
+      }
+    } catch (error) {
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => {
