@@ -11,6 +11,9 @@ const nextConfig = {
     ],
     formats: ['image/webp'],
   },
+  env: {
+    API_URL: 'http://localhost:8080/api',
+  },
 };
 
 export default nextConfig;

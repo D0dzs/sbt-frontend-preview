@@ -13,7 +13,7 @@ export const UserProvider = ({ children }) => {
   const router = useRouter();
 
   const logout = useCallback(async () => {
-    const res = await fetch('http://localhost:8080/api/auth/logout', {
+    const res = await fetch(`${process.env.API_URL}/auth/logout`, {
       method: 'POST',
       credentials: 'include',
     });
@@ -29,7 +29,7 @@ export const UserProvider = ({ children }) => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8080/api/auth/me', {
+      const response = await fetch(`${process.env.API_URL}/auth/me`, {
         method: 'GET',
         credentials: 'include',
       }).catch((error) => {
@@ -37,13 +37,13 @@ export const UserProvider = ({ children }) => {
       });
 
       if (response.status === 401) {
-        const refreshResponse = await fetch('http://localhost:8080/api/auth/refresh', {
+        const refreshResponse = await fetch(`${process.env.API_URL}/auth/refresh`, {
           method: 'POST',
           credentials: 'include',
         });
 
         if (refreshResponse.ok) {
-          const retryResponse = await fetch('http://localhost:8080/api/auth/me', {
+          const retryResponse = await fetch(`${process.env.API_URL}/auth/me`, {
             method: 'GET',
             credentials: 'include',
           });
