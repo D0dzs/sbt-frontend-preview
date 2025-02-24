@@ -1,8 +1,8 @@
 'use client';
 
 import { useContext, useState } from 'react';
-import { UserContext } from '../Providers/User-provider';
-import { isAdmin } from '~/lib/utils';
+import { toast } from 'sonner';
+import { Button } from '~/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -12,13 +12,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '~/components/ui/dialog';
-import { Button } from '~/components/ui/button';
-import { Input } from '~/components/ui/input';
-import { toast } from 'sonner';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '~/components/ui/hover-card';
+import { Input } from '~/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select';
-
-const wait = () => new Promise((resolve) => setTimeout(resolve, 1000));
+import { isAdmin, wait } from '~/lib/utils';
+import { UserContext } from '../Providers/User-provider';
 
 const UploadSponsorForm = () => {
   const { user } = useContext(UserContext);
@@ -76,7 +74,7 @@ const UploadSponsorForm = () => {
         body: formData,
       });
 
-      if (!res.ok) return toast.error(`Upload failed: ${res.statusText}`);
+      if (!res.ok) return toast.error(`Upload failed: ${res.statusText ?? 'Unknown error'}`);
 
       toast.success('Sponsor uploaded successfully!');
     } catch (error) {
@@ -157,7 +155,7 @@ const UploadSponsorForm = () => {
                 </label>
               </div>
             </div>
-            {imagePreview && (
+            {imagePreview ? (
               <HoverCard>
                 <HoverCardTrigger className="cursor-pointer text-center text-xs italic opacity-50">
                   <p>
@@ -167,10 +165,11 @@ const UploadSponsorForm = () => {
                   </p>
                 </HoverCardTrigger>
                 <HoverCardContent>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={imagePreview} alt="Logo Preview" className="mx-auto w-auto rounded" />
                 </HoverCardContent>
               </HoverCard>
-            )}
+            ) : null}
 
             {/* Category Selection */}
             <div className="mt-4">

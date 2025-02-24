@@ -31,16 +31,16 @@ const DesktopNavbar = ({ handleLogout, privileged, user }) => {
         </div>
       </div>
       <div className="grid w-full grid-flow-col items-center gap-6">
-        {privileged && (
+        {privileged ? (
           <Link href={'/dashboard'}>
             <CommandIcon size={32} strokeWidth={2} className="stroke-bme-black" />
           </Link>
-        )}
-        {user && (
+        ) : null}
+        {user ? (
           <button onClick={handleLogout} className="cursor-pointer">
             <LogOutIcon size={32} strokeWidth={2} className="stroke-bme-black" />
           </button>
-        )}
+        ) : null}
         <ModeToggle />
         <Link
           href={'/contact'}

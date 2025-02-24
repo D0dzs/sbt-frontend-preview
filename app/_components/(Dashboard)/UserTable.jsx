@@ -1,11 +1,23 @@
 'use client';
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { MobileContext } from '../Providers/Screen-provider';
 import { CheckIcon, XIcon } from 'lucide-react';
+import ResetPasswordForm from '../(Forms)/ResetPasswordForm';
+import ChangeRoleForm from '../(Forms)/ChangeRoleForm';
+import RegisterNewUserForm from '../(Forms)/RegisterNewUserForm';
 
 const UserTable = ({ dataArray }) => {
   const isMobile = useContext(MobileContext);
+  const [selectedUser, setSelectedUser] = useState(null);
+
+  const handleOpenChange = (isOpen, user = null) => {
+    if (isOpen) {
+      setSelectedUser(user);
+    } else {
+      setSelectedUser(null);
+    }
+  };
 
   return isMobile ? (
     <div className="dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 mx-auto h-fit w-full max-w-[70vw] overflow-clip rounded-3xl shadow-xl outline-2 *:p-4">
@@ -53,35 +65,30 @@ const UserTable = ({ dataArray }) => {
       </div>
       {[...dataArray, 'newUserField'].map((user, i) => {
         if (user === 'newUserField') {
-          return (
-            <div
-              key={i}
-              className={`h-fit ${i % 2 === 0 ? 'bg-bme-lsecondary dark:bg-bme-dsecondary' : 'bg-bme-lprimary dark:bg-bme-dprimary'}`}
-            >
-              <p className="text-bme-blue dark:text-bme-orange mx-auto w-fit cursor-pointer font-semibold">
-                + új tag hozzáadása
-              </p>
-            </div>
-          );
+          return <RegisterNewUserForm key={i} currentIndex={i} />;
         } else {
           return !user.state ? (
             <div
               key={i}
-              className={`grid grid-cols-4 items-center ${i % 2 === 0 ? 'bg-bme-lsecondary dark:bg-bme-dsecondary' : 'bg-bme-lprimary dark:bg-bme-dprimary'}`}
+              className={`grid grid-cols-4 place-items-center items-center ${i % 2 === 0 ? 'bg-bme-lsecondary dark:bg-bme-dsecondary' : 'bg-bme-lprimary dark:bg-bme-dprimary'}`}
             >
-              <p className="text-left">{user.name}</p>
-              <p className="text-center">{user.role.toUpperCase()}</p>
-              <p className="cursor-pointer text-center text-blue-500 underline">Módosítás</p>
+              <p className="mr-auto w-fit text-left">{user.name}</p>
+              <ChangeRoleForm className="cursor-pointer" role={user.role} />
+              <ResetPasswordForm
+                user={user}
+                isOpen={selectedUser === user}
+                onOpenChange={(open) => handleOpenChange(open, user)}
+              />
               <CheckIcon size={28} className="ml-auto" />
             </div>
           ) : (
             <div
               key={i}
-              className={`striketrough grid grid-cols-4 items-center *:opacity-50 ${i % 2 === 0 ? 'bg-bme-lsecondary dark:bg-bme-dsecondary' : 'bg-bme-lprimary dark:bg-bme-dprimary'}`}
+              className={`striketrough grid cursor-not-allowed grid-cols-4 items-center *:opacity-50 ${i % 2 === 0 ? 'bg-bme-lsecondary dark:bg-bme-dsecondary' : 'bg-bme-lprimary dark:bg-bme-dprimary'}`}
             >
               <p className="text-left">{user.name}</p>
               <p className="text-center">{user.role.toUpperCase()}</p>
-              <p className="text-center">Módosítás</p>
+              <p className="mx-auto w-fit text-center">Módosítás</p>
               <XIcon size={28} className="ml-auto" />
             </div>
           );
