@@ -14,7 +14,7 @@ const NewsDisplay = () => {
       <NewsSwiper customArray={mockUpNews} />
     </div>
   ) : (
-    <div className="flex justify-around">
+    <div className="grid grid-cols-3 place-items-center gap-4">
       {mockUpNews.map((news, idx) => (
         <NewsCard key={idx} title={news.title} date={news.date} imageURL={news.imageURL} />
       ))}
