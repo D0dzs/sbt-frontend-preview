@@ -57,9 +57,6 @@ const Explanation = () => {
                   -<b> neve</b> <i className="opacity-50">(nem lehet módosítani)</i>
                 </li>
                 <li>
-                  -<b> e-mail címe</b> <i className="opacity-50">(nem lehet módosítani)</i>
-                </li>
-                <li>
                   -<b> két mező, ahol az új jelszót kell megadni.</b>
                 </li>
               </ul>
@@ -118,9 +115,6 @@ const Explanation = () => {
             <ul className="list-inside">
               <li>
                 -<b> neve</b> <i className="opacity-50">(nem lehet módosítani)</i>
-              </li>
-              <li>
-                -<b> e-mail címe</b> <i className="opacity-50">(nem lehet módosítani)</i>
               </li>
               <li>
                 -<b> két mező, ahol az új jelszót kell megadni.</b>

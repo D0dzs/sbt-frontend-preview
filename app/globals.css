@@ -91,6 +91,8 @@
 * {
   scrollbar-width: none;
   scroll-behavior: smooth;
+
+  transition: background-color, color, border-color, box-shadow;
 }
 
 *::-webkit-scrollbar {

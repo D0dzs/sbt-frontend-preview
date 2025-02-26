@@ -15,7 +15,7 @@ const ExploreFlagLink = ({ href = '/', imgSrc, imgAlt, text, outerClassName, inn
           src={imgSrc}
           alt={imgAlt}
           className="object-cover"
-          loading="eager"
+          loading="lazy"
           width={500}
           height={500}
           quality={75}

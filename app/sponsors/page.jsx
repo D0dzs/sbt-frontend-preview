@@ -5,6 +5,10 @@ import SponsorCard from '../_components/(Sponsor)/SponsorCard';
 import Link from 'next/link';
 import UploadSponsorForm from '../_components/(Forms)/UploadSponsorForm';
 
+export const metadata = {
+  title: 'Szponzorok',
+};
+
 const Page = () => {
   return (
     <PageLayout className={'overflow-x-clip'}>

@@ -6,6 +6,10 @@ import { siteConfig } from '~/config/site';
 import PageLayout from '../_components/(Layouts)/PageLayout';
 import Container from '../_components/(Layouts)/Container';
 
+export const metadata = {
+  title: 'Kapcsolat',
+};
+
 const Page = () => {
   return (
     <PageLayout className={'grid items-center justify-center pt-(--navbar-height)'}>

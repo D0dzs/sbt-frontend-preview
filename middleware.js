@@ -15,10 +15,9 @@ export async function middleware(request) {
     const { user } = await response.json();
     if (!user) return NextResponse.redirect(new URL('/', request.url));
 
-    const isAdministrator = user.UserRole[0].role.name.toLowerCase() === 'admin';
+    const isAdministrator = user.role.toLowerCase() === 'admin';
     if (!isAdministrator) return NextResponse.redirect(new URL('/', request.url));
   } catch (error) {
-    // console.error('Authentication error:', error);
     return NextResponse.redirect(new URL('/', request.url));
   }
 

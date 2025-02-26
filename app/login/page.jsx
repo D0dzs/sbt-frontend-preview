@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import LoginForm from '../_components/(Auth)/LoginForm';
-import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+
+export const metadata = {
+  title: 'Login',
+};
 
 const Page = async () => {
   const cookieStore = cookies();

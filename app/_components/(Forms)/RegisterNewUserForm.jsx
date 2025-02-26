@@ -16,12 +16,13 @@ import { Input } from '~/components/ui/input';
 import { wait } from '~/lib/utils';
 import { EyeClosedIcon, EyeIcon } from 'lucide-react';
 
-const RegisterNewUserForm = ({ currentIndex }) => {
+const RegisterNewUserForm = ({ currentIndex, fetchUsers }) => {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const [formState, setFormState] = useState({
     email: '',
     firstName: '',
+    role: 'writer',
     lastName: '',
     password: '',
     passwordConfirm: '',
@@ -34,26 +35,41 @@ const RegisterNewUserForm = ({ currentIndex }) => {
     }));
   };
 
-  const handleSubmission = (e) => {
-    e.preventDefault();
-
+  const handleSubmission = async (event) => {
+    event.preventDefault();
     const { passwordConfirm, ...submissionData } = formState;
 
-    if (formState.password !== formState.passwordConfirm) {
-      return toast.error('A jelszavak nem egyeznek!');
-    } else {
-      toast.success('Sikeres regisztráció!');
-      console.log(submissionData);
-      // TODO: Implement POST request towards the backend
+    try {
+      const response = await fetch(`${process.env.API_URL}/users/register`, {
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify(submissionData),
+      });
+
+      if (!response.ok) {
+        toast.error('Hiba történt a regisztráció során!');
+      } else {
+        const ctx = await response.json();
+        toast.success(ctx.message);
+        wait().then(async () => {
+          if (fetchUsers) await fetchUsers();
+          setOpen(!open);
+        });
+      }
+    } catch (error) {
+      throw error;
     }
   };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger className="w-full">
-        <div
-          className={`h-fit ${currentIndex % 2 === 0 ? 'bg-bme-lsecondary dark:bg-bme-dsecondary' : 'bg-bme-lprimary dark:bg-bme-dprimary'}`}
-        >
+      <DialogTrigger
+        className={`w-full ${currentIndex % 2 === 0 ? 'bg-bme-lsecondary dark:bg-bme-dsecondary' : 'bg-bme-lprimary dark:bg-bme-dprimary'}`}
+      >
+        <div className={`h-fit`}>
           <p className="text-bme-blue dark:text-bme-orange mx-auto w-fit cursor-pointer font-semibold">
             + új tag hozzáadása
           </p>
@@ -61,18 +77,19 @@ const RegisterNewUserForm = ({ currentIndex }) => {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Új felhasználó regisztrálása</DialogTitle>
-          <DialogDescription>Rizsa szoveg...</DialogDescription>
+          <DialogTitle className={'lg:text-2xl'}>Új felhasználó regisztrálása</DialogTitle>
+          <DialogDescription>
+            A <b>&quot;role&quot;</b> automatikusan beállításra kerül a <b>&quot;writer&quot;</b> értékre!
+          </DialogDescription>
         </DialogHeader>
         <form
           onSubmit={(e) => {
-            wait().then(() => setOpen(!open));
             handleSubmission(e);
           }}
           className="select-none"
         >
-          <div className="grid gap-4">
-            <div className="grid grid-flow-col gap-4">
+          <div className="grid gap-6">
+            <div className="grid gap-4 lg:grid-flow-col">
               <div>
                 <label htmlFor="lastName">Vezetéknév</label>
                 <Input type="text" id="lastName" onChange={writeData} required defaultValue={''} placeholder="Jhon" />
@@ -146,9 +163,9 @@ const RegisterNewUserForm = ({ currentIndex }) => {
               </div>
             </div>
           </div>
-          <DialogFooter className={'mt-3'}>
-            <Button type="submit" className="cursor-pointer">
-              Regisztráció
+          <DialogFooter className={'mt-4 w-full'}>
+            <Button className="w-full cursor-pointer" onClick={handleSubmission}>
+              Tag Regisztrálása
             </Button>
           </DialogFooter>
         </form>

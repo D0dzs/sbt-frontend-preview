@@ -40,7 +40,7 @@ const LoginForm = () => {
         setRefresh((ctx) => !ctx);
         router.replace(ctx.redirect, { scroll: true });
       } else {
-        toast.error(ctx.errors[0]);
+        toast.error(ctx.message);
       }
     } catch (error) {
       toast.error('Hiba történt a bejelentkezés során!');

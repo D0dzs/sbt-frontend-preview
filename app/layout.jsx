@@ -7,7 +7,10 @@ import { comfortaa, poppins } from './styles/fonts';
 import { Toaster } from '~/components/ui/sonner';
 
 export const metadata = {
-  title: siteConfig.name,
+  title: {
+    template: `%s | Solar Boat Team`,
+    default: siteConfig.name,
+  },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
 };
