@@ -16,7 +16,7 @@ export const siteConfig = {
   ogImage: '',
   description: '',
   links: {
-    isntagram: 'https://www.instagram.com/bme_solar_team/',
+    instagram: 'https://www.instagram.com/bme_solar_team/',
     tiktok: 'https://www.tiktok.com/@bme_solar_boat_team',
     facebook: 'https://www.facebook.com/BMEsolar/',
     youtube: 'https://www.youtube.com/@bmesolarboat',

@@ -15,8 +15,8 @@ const nextConfig = {
     API_URL: 'http://localhost:8080/api',
   },
   eslint: {
-    ignoreDuringBuilds: true
-  }
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;

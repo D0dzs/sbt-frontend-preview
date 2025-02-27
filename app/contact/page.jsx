@@ -22,7 +22,7 @@ const Page = () => {
       </h3>
 
       <Container
-        className={'mx-auto flex h-full w-[70vw] flex-col justify-between p-8 lg:w-[60vw] lg:flex-row lg:p-12'}
+        className={'mx-auto flex h-full w-[85vw] flex-col justify-between p-8 lg:w-[60vw] lg:flex-row lg:p-12'}
       >
         <div className="items-center justify-center lg:h-full lg:w-full">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -87,7 +87,7 @@ const Page = () => {
             LinkedIn
           </Link>
           <Link
-            href={siteConfig.links.isntagram}
+            href={siteConfig.links.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-bme-lsecondary dark:bg-bme-dsecondary shadow-bme-black/15 dark:shadow-bme-black/50 dark:hover:bg-bme-dfront dark:outline-bme-lsecondary/10 outline-bme-dsecondary/10 min-w-60 rounded-full px-14 py-2 text-center shadow-md outline-2 transition-colors duration-200 hover:bg-[#D9D9D9]"
@@ -113,7 +113,7 @@ const Page = () => {
         <Separator className="bg-bme-black/50 dark:bg-bme-white/25" />
       </div>
 
-      <Container className={'mx-auto flex h-full w-[70vw] flex-col justify-between p-8 lg:w-[60vw] lg:p-12'}>
+      <Container className={'mx-auto mb-8 flex h-full w-[85vw] flex-col justify-between p-4 lg:w-[60vw] lg:p-12'}>
         <h1 className="mb-4 text-center text-xl font-semibold lg:text-3xl">Szervezeti adatok</h1>
         <div className="flex flex-col gap-4 lg:gap-1">
           <div className="flex flex-col lg:flex-row lg:gap-2">

@@ -105,11 +105,15 @@ const UploadSponsorForm = () => {
 
             {/* Sponsor Name */}
             <div className="flex w-full flex-col justify-center gap-4">
-              <label htmlFor="sName">Szponzor megnevezése</label>
+              <label htmlFor="sName" className="text-sm lg:text-base">
+                Szponzor megnevezése
+              </label>
               <Input onChange={writeData} name="sName" required defaultValue="" />
 
               {/* Sponsor Website */}
-              <label htmlFor="sWebUrl">Szponzor weboldalának elérési útja</label>
+              <label htmlFor="sWebUrl" className="text-sm lg:text-base">
+                Szponzor weboldalának elérési útja
+              </label>
               <Input onChange={writeData} name="sWebUrl" required defaultValue="" />
             </div>
 
@@ -173,7 +177,7 @@ const UploadSponsorForm = () => {
 
             {/* Category Selection */}
             <div className="mt-4">
-              <label className="text-bme-black dark:text-bme-white mb-2 block text-sm font-medium">
+              <label className="text-bme-black dark:text-bme-white mb-2 block text-sm font-medium lg:text-base">
                 Melyik kategóriába szeretnéd hozzáadni?
               </label>
               <Select required>

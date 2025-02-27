@@ -4,8 +4,10 @@ import { useRouter } from 'next/navigation';
 import { useContext, useState } from 'react';
 import { toast } from 'sonner';
 import { UserContext } from '../Providers/User-provider';
+import { EyeIcon, EyeClosedIcon } from 'lucide-react';
 
 const LoginForm = () => {
+  const [visible, setVisible] = useState(false);
   const { setRefresh } = useContext(UserContext);
   const router = useRouter();
 
@@ -69,15 +71,30 @@ const LoginForm = () => {
         <br />
         <div>
           <p className="ml-2">Jelszó</p>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            placeholder="password"
-            onChange={writeData}
-            required
-            className="bg-bme-lsecondary dark:bg-bme-dsecondary dark:border-bme-lsecondary/25 border-bme-dsecondary/10 inset-shadow-bme-dsecondary w-full rounded-lg border px-4 py-3 shadow-inner dark:inset-shadow-red-500"
-          />
+          <div className="relative">
+            <input
+              id="password"
+              type={visible ? 'text' : 'password'}
+              name="password"
+              placeholder="password"
+              onChange={writeData}
+              required
+              className="bg-bme-lsecondary dark:bg-bme-dsecondary dark:border-bme-lsecondary/25 border-bme-dsecondary/10 inset-shadow-bme-dsecondary w-full rounded-lg border px-4 py-3 shadow-inner dark:inset-shadow-red-500"
+            />
+            {visible ? (
+              <EyeClosedIcon
+                size={26}
+                onClick={() => setVisible(!visible)}
+                className="absolute top-3 right-3 cursor-pointer opacity-50"
+              />
+            ) : (
+              <EyeIcon
+                size={26}
+                onClick={() => setVisible(!visible)}
+                className="absolute top-3 right-3 cursor-pointer opacity-50"
+              />
+            )}
+          </div>
         </div>
         <br />
         <button

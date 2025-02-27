@@ -7,7 +7,7 @@ import { siteConfig } from '~/config/site';
 
 const Footer = () => {
   return (
-    <footer className="bg-bme-lprimary dark:bg-bme-dprimary before:bg-bme-lprimary dark:before:bg-bme-dprimary relative grid h-full w-full justify-center pt-24 pb-8 before:absolute before:-top-5 before:h-10 before:w-screen before:overflow-clip before:text-transparent before:content-[''] lg:before:hidden">
+    <footer className="bg-bme-lprimary dark:bg-bme-dprimary relative grid h-full w-full justify-center pt-24 pb-8">
       <div className="bg-bme-lsecondary text-bme-black dark:text-bme-white dark:bg-bme-dsecondary relative grid w-[85vw] overflow-clip rounded-2xl shadow-xl lg:w-[70vw]">
         <div className="from-bme-orange/30 lg:from-bme-orange/60 absolute top-3/2 left-1/2 z-5 h-[1000px] w-[3000px] -translate-x-1/2 -translate-y-full bg-radial to-transparent to-60% lg:-translate-y-1/2" />
         <div className="z-10 grid h-full w-full grid-cols-1 p-0 lg:grid-flow-col lg:grid-cols-2 lg:px-16 lg:pt-8">
@@ -88,7 +88,7 @@ const Footer = () => {
       </div>
 
       {/* BOTTOM BLOCK */}
-      <div className="bg-bme-orange shadow-bme-orange/50 !text-bme-black z-50 mx-auto grid h-full w-[60vw] items-center gap-3 self-center rounded-b-xl p-4 py-6 shadow-lg lg:grid-cols-2 lg:p-8">
+      <div className="bg-bme-orange shadow-bme-orange/50 !text-bme-black z-1 mx-auto grid h-full w-[60vw] items-center gap-3 self-center rounded-b-xl p-4 py-6 shadow-lg lg:grid-cols-2 lg:p-8">
         <div className="mx-auto flex items-center gap-2 lg:mx-0 lg:justify-normal lg:gap-6 lg:text-xl">
           <span className="self-center">Tagoknak</span>
           <Link href={'/login'} scroll className="bg-bme-black text-bme-white rounded-full px-4 py-1 lg:px-12 lg:py-2">
@@ -96,7 +96,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="mx-auto flex gap-1 lg:mx-0 lg:justify-end lg:gap-2 xl:gap-4 2xl:gap-6">
-          <Link href={siteConfig.links.isntagram} target={'_blank'}>
+          <Link href={siteConfig.links.instagram} target={'_blank'}>
             <svg
               className="bg-bme-black h-8 w-8 rounded-lg p-2 lg:h-10 lg:w-10"
               role="img"
