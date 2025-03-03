@@ -39,7 +39,7 @@ export default function Home() {
             <Image
               src="/images/this_is_us.webp"
               alt="CSAPAT (back)"
-              className="mx-auto aspect-16/11 rounded-2xl blur-xl lg:h-fit lg:w-96 lg:max-w-96"
+              className="mx-auto aspect-16/11 rounded-2xl blur-lg lg:h-fit lg:w-96 lg:max-w-96"
               width={384}
               height={264}
               priority={false}
@@ -57,7 +57,7 @@ export default function Home() {
             </p>
             <Link
               href={''}
-              className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-4 py-1 text-center text-sm lg:mt-0 lg:text-xl"
+              className="hover:bg-hovered-bme-blue dark:bg-bme-orange hover:dark:bg-hovered-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-4 py-1 text-center text-sm lg:mt-0 lg:text-xl"
             >
               Tudj meg többet rólunk
               <ChevronRight size={16} className="block lg:hidden" />
@@ -107,7 +107,7 @@ export default function Home() {
             <NewsDisplay />
             <Link
               href={'/news'}
-              className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-4 py-1 text-center text-sm lg:mt-0 lg:text-xl"
+              className="hover:bg-hovered-bme-blue dark:bg-bme-orange hover:dark:bg-hovered-bme-orange bg-bme-blue text-bme-white dark:text-bme-black mx-auto mt-6 flex w-fit items-center justify-between gap-1 rounded-full px-4 py-1 text-center text-sm lg:mt-0 lg:text-xl"
             >
               Tovább az összes hírhez
               <ChevronRight size={16} className="block lg:hidden" />

@@ -15,6 +15,12 @@
   --color-bme-black: oklch(21.78% 0 0);
   --color-bme-white: oklch(96.12% 0 0);
 
+  --color-hovered-bme-orange: oklch(83.89% 0.163 75.45);
+  --color-hovered-bme-blue: oklch(45.41% 0.14 277.4);
+  --color-hovered-bme-purple: oklch(58.77% 0.132 321.03);
+  --color-hovered-bme-black: oklch(25.78% 0 0);
+  --color-hovered-bme-white: oklch(100% 0 0);
+
   --color-bme-dprimary: oklch(21.78% 0 0);
   --color-bme-dsecondary: oklch(26.86% 0 0);
   --color-bme-dfront: oklch(32.11% 0 0);

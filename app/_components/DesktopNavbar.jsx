@@ -16,7 +16,7 @@ const DesktopNavbar = ({ handleLogout, privileged, user }) => {
           <Image priority src={'/navbar/logo.svg'} width={64} height={64} alt="Logo" />
         </Link>
         <div className="flex gap-4">
-          <Link href={''} scroll>
+          <Link href={'/team'} scroll>
             Rólunk
           </Link>
           <Link href={''} scroll>
@@ -44,7 +44,7 @@ const DesktopNavbar = ({ handleLogout, privileged, user }) => {
         <ModeToggle />
         <Link
           href={'/contact'}
-          className="dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black rounded-full px-4 py-1 text-center"
+          className="hover:bg-hovered-bme-blue dark:hover:bg-hovered-bme-orange dark:bg-bme-orange bg-bme-blue text-bme-white dark:text-bme-black rounded-full px-4 py-1 text-center"
           scroll
         >
           Kapcsolat

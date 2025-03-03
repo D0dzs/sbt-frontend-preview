@@ -12,7 +12,7 @@ export const metadata = {
 
 const Page = () => {
   return (
-    <PageLayout className={'grid items-center justify-center pt-(--navbar-height)'}>
+    <PageLayout className={'grid items-center justify-center'}>
       <h3 className="py-12 text-center text-xl lg:text-3xl">
         Vedd fel velünk a{' '}
         <span className="bg-linear-to-r from-[#12C2E9] from-45% via-[#C471ED] via-80% to-[#F64F59] to-100% bg-clip-text font-semibold text-transparent">

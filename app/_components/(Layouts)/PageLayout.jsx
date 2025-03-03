@@ -6,7 +6,7 @@ const PageLayout = ({ children, className, ...props }) => {
   return (
     <>
       <Navbar className={'fixed z-20 mt-0 w-full lg:mt-6'} />
-      <div className={`${cn('', className)}`} {...props}>
+      <div className={`${cn('pt-(--navbar-height)', className)}`} {...props}>
         {children}
         <Footer />
       </div>

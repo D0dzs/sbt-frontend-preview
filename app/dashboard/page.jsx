@@ -9,7 +9,7 @@ export const metadata = {
 
 const Page = () => {
   return (
-    <PageLayout className={'grid pt-(--navbar-height)'}>
+    <PageLayout className={'grid'}>
       <SectionLayout className={'grid h-full gap-12 py-8 !select-none'}>
         <Explanation />
         <UserTable />

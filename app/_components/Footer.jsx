@@ -36,13 +36,11 @@ const Footer = () => {
           </div>
           <div className="flex flex-col justify-between gap-8 px-8 lg:flex-row lg:px-0">
             <div className="grid h-fit gap-2">
-              <p className="font-bold" href={''}>
-                Rólunk
-              </p>
-              <Link href={''} scroll>
+              <p className="font-bold">Rólunk</p>
+              <Link href={'/team'} scroll>
                 Csapattagok
               </Link>
-              <Link href={''} scroll>
+              <Link href={'/team'} scroll>
                 Rólunk+
               </Link>
               <Link href={''} scroll>
@@ -51,9 +49,7 @@ const Footer = () => {
               <Separator className="bg-bme-black/50 dark:bg-bme-white/50 my-2 lg:hidden" />
             </div>
             <div className="grid h-fit gap-2">
-              <p className="font-bold" href={''}>
-                Hírek
-              </p>
+              <p className="font-bold">Hírek</p>
               <Link href={''} scroll>
                 Sajtó
               </Link>
@@ -66,7 +62,7 @@ const Footer = () => {
               <p className="font-bold" href={''}>
                 Egyéb
               </p>
-              <Link href={''} scroll>
+              <Link href={'/gallery'} scroll>
                 Galéria
               </Link>
               <Link href={'/sponsors'} scroll>

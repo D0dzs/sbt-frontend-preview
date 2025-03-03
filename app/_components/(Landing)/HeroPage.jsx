@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react';
 
 const HeroScreen = () => {
   return (
-    <div id="hero-wrapper" className="relative grid h-[85vh] w-screen items-center justify-center lg:h-screen">
+    <div id="hero-wrapper" className="relative grid h-[80vh] w-screen items-center justify-center lg:h-[90vh]">
       <div className="fixed top-0 left-0 h-fit w-fit">
         <video
           className="fixed h-full w-full object-cover"
@@ -19,7 +19,7 @@ const HeroScreen = () => {
 
       <ChevronDown
         size={48}
-        className="lg:bottom-18mx-auto absolute bottom-9 w-full animate-bounce lg:bottom-20"
+        className="lg:bottom-18mx-auto absolute bottom-9 w-full animate-bounce lg:bottom-28"
         stroke="white"
       />
 

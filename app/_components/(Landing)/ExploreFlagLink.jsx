@@ -11,15 +11,7 @@ const ExploreFlagLink = ({ href = '/', imgSrc, imgAlt, text, outerClassName, inn
         className={`${cn('relative w-full max-w-[500px] overflow-clip rounded-lg shadow transition-all lg:grayscale-100 lg:hover:grayscale-0', innerClassName)}`}
         {...props}
       >
-        <Image
-          src={imgSrc}
-          alt={imgAlt}
-          className="object-cover"
-          loading="lazy"
-          width={500}
-          height={500}
-          quality={75}
-        />
+        <Image src={imgSrc} alt={imgAlt} className="object-cover" width={500} height={500} quality={75} />
         <p className="bg-bme-blue dark:bg-bme-orange text-bme-white dark:text-bme-black absolute bottom-0 w-full px-2 text-xs lg:text-sm">
           {text}
         </p>

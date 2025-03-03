@@ -21,7 +21,7 @@ const NewsCard = ({ imageURL, date, title }) => {
           <h3 className="line-clamp-2 text-lg lg:text-xl">{title}</h3>
           <Link
             href={'/'}
-            className="text-bme-blue dark:text-bme-orange mx-auto flex w-fit items-center gap-1 text-center text-sm lg:text-base"
+            className="text-bme-blue hover:text-hovered-bme-blue hover:dark:text-hovered-bme-orange dark:text-bme-orange mx-auto flex w-fit items-center gap-1 text-center text-sm lg:text-base"
           >
             Hír megtekintése
             <ChevronRight size={16} className="block lg:hidden" />

@@ -8,7 +8,7 @@ export const MobileProvider = ({ children }) => {
   const [isMobile, setIsMobile] = useState(null);
 
   useEffect(() => {
-    const mql = window.matchMedia('(max-width: 1200px)');
+    const mql = window.matchMedia('(max-width: 1024px)');
     setIsMobile(mql.matches);
 
     const listener = () => setIsMobile(mql.matches);
