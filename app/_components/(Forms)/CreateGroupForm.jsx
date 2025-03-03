@@ -74,13 +74,7 @@ const CreateGroupForm = ({ users, refresh, setRefresh }) => {
               <label htmlFor="description" className="text-sm lg:text-base">
                 Leírás
               </label>
-              <Textarea
-                id="description"
-                className="max-h-80 min-h-32"
-                name="description"
-                onChange={writeData}
-                required
-              />
+              <Textarea id="description" className="max-h-80 min-h-32" name="description" onChange={writeData} />
             </div>
             <div>
               <Select onValueChange={(value) => setFormState({ ...formState, leaderName: value })}>

@@ -45,7 +45,7 @@ const LoginForm = () => {
         toast.error(ctx.message);
       }
     } catch (error) {
-      toast.error('Hiba történt a bejelentkezés során!');
+      throw error;
     }
   };
 

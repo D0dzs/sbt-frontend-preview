@@ -5,12 +5,12 @@ import { toast } from 'sonner';
 import { Button } from '~/components/ui/button';
 
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '~/components/ui/dialog';
+import { Input } from '~/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select';
 import { wait } from '~/lib/utils';
 
-const AssignUserToSubGroupForm = ({ users, sGroups, sGroupRoles, refresh, setRefresh }) => {
+const AssignUserToSubGroupForm = ({ users, sGroups, refresh, setRefresh }) => {
   const [open, setOpen] = useState(false);
-  const [filteredRoles, setFilteredRoles] = useState([]);
   const [formState, setFormState] = useState({
     username: '',
     subgroupname: '',
@@ -42,16 +42,13 @@ const AssignUserToSubGroupForm = ({ users, sGroups, sGroupRoles, refresh, setRef
       });
     }
   };
-  
-  useEffect(() => {
-    if (formState.subgroupname) {
-      const rolesForSelectedGroup = sGroupRoles.filter((role) => role.subGroup.name === formState.subgroupname);
-      console.log(rolesForSelectedGroup);
-      setFilteredRoles(rolesForSelectedGroup);
-    } else {
-      setFilteredRoles([]);
-    }
-  }, [formState.subgroupname, sGroupRoles]);
+
+  const writeData = (e) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
+  };
 
   useEffect(() => {
     if (!open) {
@@ -60,20 +57,15 @@ const AssignUserToSubGroupForm = ({ users, sGroups, sGroupRoles, refresh, setRef
         subgroupname: '',
         rolename: '',
       });
-      setFilteredRoles([]);
     }
   }, [open]);
 
   const handleUserChange = (value) => {
-    setFormState({ username: value, subgroupname: '', rolename: '' });
+    setFormState({ ...formState, username: value });
   };
 
   const handleGroupChange = (value) => {
-    setFormState({ ...formState, subgroupname: value, rolename: '' });
-  };
-
-  const handleRoleChange = (value) => {
-    setFormState({ ...formState, rolename: value });
+    setFormState({ ...formState, subgroupname: value });
   };
 
   return (
@@ -115,11 +107,11 @@ const AssignUserToSubGroupForm = ({ users, sGroups, sGroupRoles, refresh, setRef
           </div>
           <div className="mb-4">
             <label htmlFor="subgroupname" className="mb-1 block text-sm lg:text-base">
-              Csoport
+              Al-Csoport
             </label>
             <Select onValueChange={handleGroupChange} disabled={!formState.username}>
               <SelectTrigger>
-                <SelectValue placeholder="Csoport kiválasztása" />
+                <SelectValue placeholder="Al-csoport kiválasztása" />
               </SelectTrigger>
               <SelectContent>
                 {sGroups.length > 0 ? (
@@ -133,8 +125,8 @@ const AssignUserToSubGroupForm = ({ users, sGroups, sGroupRoles, refresh, setRef
                     </SelectItem>
                   ))
                 ) : (
-                  <SelectItem value="No groups found" key="no-groups" disabled>
-                    No groups found
+                  <SelectItem value="No sub-groups found" key="no-sub-groups" disabled>
+                    No sub-groups found
                   </SelectItem>
                 )}
               </SelectContent>
@@ -144,28 +136,7 @@ const AssignUserToSubGroupForm = ({ users, sGroups, sGroupRoles, refresh, setRef
             <label htmlFor="rolename" className="mb-1 block text-sm lg:text-base">
               Szerepkör
             </label>
-            <Select onValueChange={handleRoleChange} disabled={!formState.subgroupname}>
-              <SelectTrigger>
-                <SelectValue placeholder="Szeperkör kiválasztása" />
-              </SelectTrigger>
-              <SelectContent>
-                {filteredRoles.length > 0 ? (
-                  filteredRoles.map((role, idx) => (
-                    <SelectItem
-                      value={role.name}
-                      key={idx}
-                      className="cursor-pointer lg:not-hover:opacity-50 lg:hover:opacity-100"
-                    >
-                      {role.name}
-                    </SelectItem>
-                  ))
-                ) : (
-                  <SelectItem value="No roles found" key="no-roles" disabled>
-                    {formState.subgroupname ? 'No roles found for this group' : 'Please select a group first'}
-                  </SelectItem>
-                )}
-              </SelectContent>
-            </Select>
+            <Input onChange={writeData} id="rolename" disabled={!formState.subgroupname} required />
           </div>
         </form>
         <DialogFooter>

@@ -23,7 +23,7 @@ export const UserProvider = ({ children }) => {
     router.replace(ctx.redirect, { scroll: true });
     setUser(null);
     setRefresh((prev) => !prev);
-  }, [router]);
+  }, []);
 
   const getUserInfo = useCallback(async () => {
     setLoading(true);

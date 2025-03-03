@@ -94,7 +94,7 @@ const Footer = () => {
         <div className="mx-auto flex gap-1 lg:mx-0 lg:justify-end lg:gap-2 xl:gap-4 2xl:gap-6">
           <Link href={siteConfig.links.instagram} target={'_blank'}>
             <svg
-              className="bg-bme-black h-8 w-8 rounded-lg p-2 lg:h-10 lg:w-10"
+              className="bg-bme-black hover:bg-hovered-bme-black h-8 w-8 rounded-lg p-2 lg:h-10 lg:w-10"
               role="img"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"

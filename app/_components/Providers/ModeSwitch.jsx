@@ -22,7 +22,7 @@ export function ModeToggle() {
     const checkDarkTheme = window.matchMedia('(prefers-color-scheme: dark)');
     const newValue = theme === 'dark' ? 'light' : theme === 'light' ? 'dark' : checkDarkTheme ? 'light' : 'dark';
     setChangeThemeValue(newValue);
-  }, []);
+  }, [theme]);
 
   return (
     <div className="h-8 w-8 cursor-pointer" onClick={() => setTheme(changeThemeValue ?? 'dark')}>

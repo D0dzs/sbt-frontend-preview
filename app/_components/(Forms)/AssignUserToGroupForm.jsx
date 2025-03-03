@@ -5,12 +5,12 @@ import { toast } from 'sonner';
 import { Button } from '~/components/ui/button';
 
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '~/components/ui/dialog';
+import { Input } from '~/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select';
 import { wait } from '~/lib/utils';
 
-const AssignUserToGroupForm = ({ users, groups, groupRoles, refresh, setRefresh }) => {
+const AssignUserToGroupForm = ({ users, groups, refresh, setRefresh }) => {
   const [open, setOpen] = useState(false);
-  const [filteredRoles, setFilteredRoles] = useState([]);
   const [formState, setFormState] = useState({
     username: '',
     groupname: '',
@@ -44,24 +44,21 @@ const AssignUserToGroupForm = ({ users, groups, groupRoles, refresh, setRefresh 
   };
 
   useEffect(() => {
-    if (formState.groupname) {
-      const rolesForSelectedGroup = groupRoles.filter((role) => role.group.name === formState.groupname);
-      setFilteredRoles(rolesForSelectedGroup);
-    } else {
-      setFilteredRoles([]);
-    }
-  }, [formState.groupname, groupRoles]);
-
-  useEffect(() => {
     if (!open) {
       setFormState({
         username: '',
         groupname: '',
         rolename: '',
       });
-      setFilteredRoles([]);
     }
   }, [open]);
+
+  const writeData = (e) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
+  };
 
   const handleUserChange = (value) => {
     setFormState({ username: value, groupname: '', rolename: '' });
@@ -69,10 +66,6 @@ const AssignUserToGroupForm = ({ users, groups, groupRoles, refresh, setRefresh 
 
   const handleGroupChange = (value) => {
     setFormState({ ...formState, groupname: value, rolename: '' });
-  };
-
-  const handleRoleChange = (value) => {
-    setFormState({ ...formState, rolename: value });
   };
 
   return (
@@ -143,28 +136,7 @@ const AssignUserToGroupForm = ({ users, groups, groupRoles, refresh, setRefresh 
             <label htmlFor="rolename" className="mb-1 block text-sm lg:text-base">
               Szerepkör
             </label>
-            <Select onValueChange={handleRoleChange} disabled={!formState.groupname}>
-              <SelectTrigger>
-                <SelectValue placeholder="Szeperkör kiválasztása" />
-              </SelectTrigger>
-              <SelectContent>
-                {filteredRoles.length > 0 ? (
-                  filteredRoles.map((role, idx) => (
-                    <SelectItem
-                      value={role.name}
-                      key={idx}
-                      className="cursor-pointer lg:not-hover:opacity-50 lg:hover:opacity-100"
-                    >
-                      {role.name}
-                    </SelectItem>
-                  ))
-                ) : (
-                  <SelectItem value="No roles found" key="no-roles" disabled>
-                    {formState.groupname ? 'No roles found for this group' : 'Please select a group first'}
-                  </SelectItem>
-                )}
-              </SelectContent>
-            </Select>
+            <Input onChange={writeData} id="rolename" disabled={!formState.groupname} required />
           </div>
         </form>
         <DialogFooter>
