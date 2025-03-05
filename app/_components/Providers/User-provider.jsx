@@ -2,7 +2,6 @@
 
 import { createContext, useCallback, useEffect, useState } from 'react';
 import { toast } from 'sonner';
-import { useRouter } from 'next/navigation';
 
 export const UserContext = createContext();
 
@@ -10,7 +9,6 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [refresh, setRefresh] = useState(false);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
 
   const logout = useCallback(async () => {
     const res = await fetch(`${process.env.API_URL}/auth/logout`, {
@@ -20,7 +18,6 @@ export const UserProvider = ({ children }) => {
 
     const ctx = await res.json();
     toast.success(ctx.message);
-    router.replace(ctx.redirect, { scroll: true });
     setUser(null);
     setRefresh((prev) => !prev);
   }, []);

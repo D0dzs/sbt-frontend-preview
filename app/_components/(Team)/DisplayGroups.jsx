@@ -7,6 +7,7 @@ import TeamContainer from './TeamContainer';
 const DisplayGroups = () => {
   const [groups, setGroups] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [refresh, setRefresh] = useState(false);
 
   const [_error, setError] = useState(null);
 
@@ -24,16 +25,18 @@ const DisplayGroups = () => {
 
   useEffect(() => {
     loadGroups();
-  }, []);
+  }, [refresh]);
 
   return loading ? (
     <p className="w-full text-center">Loading...</p>
-  ) : (
+  ) : groups.length > 0 ? (
     groups.map((group, idx) => (
       <Container key={idx} className={'p-5'}>
-        <TeamContainer group={group} />
+        <TeamContainer setRefresh={setRefresh} group={group} />
       </Container>
     ))
+  ) : (
+    <p className="w-full text-center">No groups found.</p>
   );
 };
 

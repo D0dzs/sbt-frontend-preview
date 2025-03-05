@@ -9,7 +9,7 @@ import { Textarea } from '~/components/ui/textarea';
 import { wait } from '~/lib/utils';
 import { toast } from 'sonner';
 
-const CreateGroupForm = ({ users, refresh, setRefresh }) => {
+const CreateGroupForm = ({ users, setRefresh }) => {
   const [open, setOpen] = useState(false);
 
   const [formState, setFormState] = useState({
@@ -43,10 +43,8 @@ const CreateGroupForm = ({ users, refresh, setRefresh }) => {
       } else {
         const ctx = await response.json();
         toast.success(ctx.message);
-        wait().then(() => {
-          setRefresh(!refresh);
-          setOpen(false);
-        });
+        setRefresh((ctx) => !ctx);
+        wait().then(() => setOpen(false));
       }
     } catch (error) {
       throw error;

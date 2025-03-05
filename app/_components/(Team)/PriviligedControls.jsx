@@ -62,19 +62,22 @@ const PriviligedControls = () => {
 
   return privileged ? (
     <div className="mx-auto w-[85vw] lg:w-[60vw]">
+      <p className="lg:text- mb-4 w-full text-center opacity-75">
+        Adott tag eltávolításához, szimplán katt az emberre!
+      </p>
       <div className="flex w-full flex-wrap place-items-center justify-center gap-8 lg:gap-12">
         <div>
           <h3 className="mb-3 text-center lg:text-2xl">Csoporttal kapcsolatos adatrogzites</h3>
           <div className="mx-auto flex max-w-96 flex-wrap place-items-center gap-4 *:w-full lg:flex-col">
-            <CreateGroupForm users={users} refresh={refresh} setRefresh={setRefresh} />
-            <AssignUserToGroupForm users={users} groups={groups} refresh={refresh} setRefresh={setRefresh} />
+            <CreateGroupForm users={users} setRefresh={setRefresh} />
+            <AssignUserToGroupForm users={users} groups={groups} setRefresh={setRefresh} />
           </div>
         </div>
         <div>
-          <h3 className="mb-3 text-center lg:text-2xl">Al-csoporttal kapcsolatos adatrogzites</h3>
+          <h3 className="mb-3 text-center lg:text-2xl">Alcsoporttal kapcsolatos adatrogzites</h3>
           <div className="mx-auto flex max-w-96 flex-wrap place-items-center gap-4 *:w-full lg:flex-col">
-            <CreateSubGroupForm users={users} groups={groups} refresh={refresh} setRefresh={setRefresh} />
-            <AssignUserToSubGroupForm users={users} sGroups={sGroups} refresh={refresh} setRefresh={setRefresh} />
+            <CreateSubGroupForm users={users} groups={groups} setRefresh={setRefresh} />
+            <AssignUserToSubGroupForm users={users} sGroups={sGroups} setRefresh={setRefresh} />
           </div>
         </div>
       </div>

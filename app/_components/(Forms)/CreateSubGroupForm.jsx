@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~
 import { Textarea } from '~/components/ui/textarea';
 import { wait } from '~/lib/utils';
 
-const CreateSubGroupForm = ({ users, groups, refresh, setRefresh }) => {
+const CreateSubGroupForm = ({ users, groups, setRefresh }) => {
   const [open, setOpen] = useState(false);
 
   const [formState, setFormState] = useState({
@@ -44,10 +44,9 @@ const CreateSubGroupForm = ({ users, groups, refresh, setRefresh }) => {
     } else {
       const ctx = await response.json();
       toast.success(ctx.message);
-      wait().then(() => {
-        setRefresh(!refresh);
-        setOpen(false);
-      });
+      setRefresh((ctx) => !ctx);
+
+      wait().then(() => setOpen(false));
     }
   };
 

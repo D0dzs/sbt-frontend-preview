@@ -9,7 +9,7 @@ import { Input } from '~/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select';
 import { wait } from '~/lib/utils';
 
-const AssignUserToSubGroupForm = ({ users, sGroups, refresh, setRefresh }) => {
+const AssignUserToSubGroupForm = ({ users, sGroups, setRefresh }) => {
   const [open, setOpen] = useState(false);
   const [formState, setFormState] = useState({
     username: '',
@@ -36,10 +36,8 @@ const AssignUserToSubGroupForm = ({ users, sGroups, refresh, setRefresh }) => {
     } else {
       const ctx = await response.json();
       toast.success(ctx.message);
-      wait().then(() => {
-        setRefresh(!refresh);
-        setOpen(false);
-      });
+      setRefresh((ctx) => !ctx);
+      wait().then(() => setOpen(false));
     }
   };
 
@@ -71,7 +69,7 @@ const AssignUserToSubGroupForm = ({ users, sGroups, refresh, setRefresh }) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="cursor-pointer">Tag hozzáadása (al-csoport)</Button>
+        <Button className="cursor-pointer">Tag hozzáadása (alcsoport)</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

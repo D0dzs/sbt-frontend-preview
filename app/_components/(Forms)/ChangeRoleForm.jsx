@@ -39,7 +39,6 @@ const ChangeRoleForm = ({ user, fetchUsers }) => {
       }
     } catch (error) {
       toast.error('An error occurred while changing role');
-      console.error(error);
     } finally {
       setIsSubmitting(false);
     }

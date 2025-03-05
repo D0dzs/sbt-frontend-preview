@@ -24,5 +24,3 @@ export const siteConfig = {
       'https://hu.linkedin.com/company/solar-boat-team?trk=public_profile_experience-item_result-card_image-click',
   },
 };
-
-// TODO: Add more configuration options

@@ -6,9 +6,9 @@ import TeamLeader from './TeamLeader';
 import TeamMember from './TeamMember';
 import { Separator } from '~/components/ui/separator';
 
-const TeamContainer = ({ group }) => {
+const TeamContainer = ({ group, setRefresh }) => {
   return (
-    <div className="flex flex-col">
+    <div className="relative flex flex-col">
       <Accordion className="**:p-0" type="single" collapsible defaultValue="item-1">
         <AccordionItem value="item-1">
           <AccordionTrigger
@@ -24,10 +24,25 @@ const TeamContainer = ({ group }) => {
       <div className="py-4 pl-4">
         {!group.SubGroup ? (
           <div className="flex gap-8">
-            <TeamLeader leader={group.leader} position={group.leader.GroupRole[0].position ?? null} />
-            {group.GroupRole.map(({ user, position }, idx) => (
-              <TeamMember key={idx} user={user} position={position ?? null} />
-            ))}
+            <TeamLeader
+              setRefresh={setRefresh}
+              group={group.name}
+              leader={group.leader}
+              position={group.leader?.GroupRole?.[0]?.position ?? null}
+              isItSubGroup={false}
+            />
+            {group.GroupRole
+              ? group.GroupRole.map(({ user, position }, idx) => (
+                  <TeamMember
+                    setRefresh={setRefresh}
+                    group={group.name}
+                    key={idx}
+                    user={user}
+                    position={position ?? null}
+                    isItSubGroup={false}
+                  />
+                ))
+              : null}
           </div>
         ) : (
           group.SubGroup.map((group, idx) => {
@@ -48,10 +63,23 @@ const TeamContainer = ({ group }) => {
                   </Accordion>
 
                   <div className="mt-4 flex place-items-center gap-8">
-                    <TeamLeader leader={group.leader} position={group.leader.SubGroupRole ?? null} />
+                    <TeamLeader
+                      setRefresh={setRefresh}
+                      group={group.name}
+                      leader={group.leader}
+                      position={group.leader.SubGroupRole ?? null}
+                      isItSubGroup={true}
+                    />
                     {group.SubGroupRole
                       ? group.SubGroupRole.map(({ User, position }, idx) => (
-                          <TeamMember key={idx} user={User} position={position ?? null} />
+                          <TeamMember
+                            setRefresh={setRefresh}
+                            group={group.name}
+                            key={idx}
+                            user={User}
+                            position={null}
+                            isItSubGroup={true}
+                          />
                         ))
                       : null}
                   </div>

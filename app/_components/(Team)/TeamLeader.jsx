@@ -1,9 +1,12 @@
 'use client';
 
-const TeamLeader = ({ leader, position }) => {
+const TeamLeader = ({ leader, position, group, refresh, setRefresh }) => {
+  const { firstName, lastName } = leader;
+
   return (
     <div className="mb-2 flex flex-col items-center justify-center gap-2">
       <div className="relative p-2">
+        {/* eslint-disable-next-line */}
         <img
           src={leader.avatarURL ?? '/images/team/Leader 1.jpg'}
           alt="Leader 1"
@@ -12,7 +15,7 @@ const TeamLeader = ({ leader, position }) => {
         <div className="dark:outline-bme-orange outline-bme-blue absolute top-0 left-0 h-full w-full rounded-full bg-transparent outline-2" />
       </div>
       <h2 className="text-lg font-bold">
-        {leader.firstName} {leader.lastName}
+        {firstName} {lastName}
       </h2>
       {position ? <p className="text-sm opacity-50">{position}</p> : null}
     </div>

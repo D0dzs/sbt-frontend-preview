@@ -9,7 +9,7 @@ import { Input } from '~/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select';
 import { wait } from '~/lib/utils';
 
-const AssignUserToGroupForm = ({ users, groups, refresh, setRefresh }) => {
+const AssignUserToGroupForm = ({ users, groups, setRefresh }) => {
   const [open, setOpen] = useState(false);
   const [formState, setFormState] = useState({
     username: '',
@@ -36,10 +36,8 @@ const AssignUserToGroupForm = ({ users, groups, refresh, setRefresh }) => {
     } else {
       const ctx = await response.json();
       toast.success(ctx.message);
-      wait().then(() => {
-        setRefresh(!refresh);
-        setOpen(false);
-      });
+      setRefresh((ctx) => !ctx);
+      wait().then(() => setOpen(false));
     }
   };
 
