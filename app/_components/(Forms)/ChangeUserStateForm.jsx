@@ -22,7 +22,7 @@ const ChangeUserStateForm = ({ user, fetchUsers }) => {
     event.preventDefault();
 
     try {
-      const requestBody = { email: user.email, state: user.state };
+      const requestBody = { id: user.id, firstName: user.firstName, lastName: user.lastName };
       const response = await fetch(`${process.env.API_URL}/users/change-state`, {
         credentials: 'include',
         headers: {

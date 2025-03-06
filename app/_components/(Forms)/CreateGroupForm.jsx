@@ -15,7 +15,8 @@ const CreateGroupForm = ({ users, setRefresh }) => {
   const [formState, setFormState] = useState({
     name: '',
     description: '',
-    leaderName: '',
+    firstName: '',
+    lastName: '',
   });
 
   const writeData = (e) => {
@@ -27,7 +28,10 @@ const CreateGroupForm = ({ users, setRefresh }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formState.leaderName === '') return toast.error('Vezető megadása kötelező!');
+    if (!formState.firstName && !formState.lastName) {
+      toast.error('Vezető megadása kötelező!');
+      return;
+    }
 
     try {
       const response = await fetch(`${process.env.API_URL}/group/create`, {
@@ -39,11 +43,12 @@ const CreateGroupForm = ({ users, setRefresh }) => {
         body: JSON.stringify(formState),
       });
       if (!response.ok) {
-        console.log(response);
+        const ctx = await response.json();
+        toast.error(ctx.message);
       } else {
         const ctx = await response.json();
         toast.success(ctx.message);
-        setRefresh((ctx) => !ctx);
+        setRefresh((prev) => !prev);
         wait().then(() => setOpen(false));
       }
     } catch (error) {
@@ -75,7 +80,13 @@ const CreateGroupForm = ({ users, setRefresh }) => {
               <Textarea id="description" className="max-h-80 min-h-32" name="description" onChange={writeData} />
             </div>
             <div>
-              <Select onValueChange={(value) => setFormState({ ...formState, leaderName: value })}>
+              <Select
+                onValueChange={(value) => {
+                  const [firstName, lastName] = value.split('-');
+                  setFormState({ ...formState, firstName, lastName });
+                }}
+                disabled={!formState.name}
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Vezető kiválasztása" />
                 </SelectTrigger>
@@ -83,7 +94,7 @@ const CreateGroupForm = ({ users, setRefresh }) => {
                   {users.length > 0 ? (
                     users.map((user, idx) => (
                       <SelectItem
-                        value={`${user.firstName} ${user.lastName}`}
+                        value={`${user.firstName}-${user.lastName}`}
                         key={idx}
                         className="cursor-pointer lg:not-hover:opacity-50 lg:hover:opacity-100"
                       >
@@ -100,7 +111,7 @@ const CreateGroupForm = ({ users, setRefresh }) => {
             </div>
 
             <DialogFooter className={'mt-4'}>
-              <Button className="w-full cursor-pointer" disabled={formState.leaderName === ''}>
+              <Button className="w-full cursor-pointer" disabled={!formState.firstName && !formState.lastName}>
                 Létrehozása
               </Button>
             </DialogFooter>

@@ -12,7 +12,7 @@ import { wait } from '~/lib/utils';
 const AssignUserToGroupForm = ({ users, groups, setRefresh }) => {
   const [open, setOpen] = useState(false);
   const [formState, setFormState] = useState({
-    username: '',
+    id: '',
     groupname: '',
     rolename: '',
   });
@@ -35,8 +35,8 @@ const AssignUserToGroupForm = ({ users, groups, setRefresh }) => {
       return;
     } else {
       const ctx = await response.json();
+      setRefresh((prev) => !prev);
       toast.success(ctx.message);
-      setRefresh((ctx) => !ctx);
       wait().then(() => setOpen(false));
     }
   };
@@ -44,7 +44,7 @@ const AssignUserToGroupForm = ({ users, groups, setRefresh }) => {
   useEffect(() => {
     if (!open) {
       setFormState({
-        username: '',
+        id: '',
         groupname: '',
         rolename: '',
       });
@@ -59,11 +59,11 @@ const AssignUserToGroupForm = ({ users, groups, setRefresh }) => {
   };
 
   const handleUserChange = (value) => {
-    setFormState({ username: value, groupname: '', rolename: '' });
+    setFormState({ ...formState, id: value });
   };
 
   const handleGroupChange = (value) => {
-    setFormState({ ...formState, groupname: value, rolename: '' });
+    setFormState({ ...formState, groupname: value });
   };
 
   return (
@@ -77,37 +77,10 @@ const AssignUserToGroupForm = ({ users, groups, setRefresh }) => {
         </DialogHeader>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="mb-4">
-            <label htmlFor="user" className="mb-1 block text-sm lg:text-base">
-              Felhasználó
-            </label>
-            <Select onValueChange={handleUserChange}>
-              <SelectTrigger>
-                <SelectValue placeholder="Tag kiválasztása" />
-              </SelectTrigger>
-              <SelectContent>
-                {users.length > 0 ? (
-                  users.map((user, idx) => (
-                    <SelectItem
-                      value={`${user.firstName} ${user.lastName}`}
-                      key={idx}
-                      className="cursor-pointer lg:not-hover:opacity-50 lg:hover:opacity-100"
-                    >
-                      {user.firstName} {user.lastName}
-                    </SelectItem>
-                  ))
-                ) : (
-                  <SelectItem value="No users found" key="no-users" disabled>
-                    No users found
-                  </SelectItem>
-                )}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="mb-4">
             <label htmlFor="groupname" className="mb-1 block text-sm lg:text-base">
               Csoport
             </label>
-            <Select onValueChange={handleGroupChange} disabled={!formState.username}>
+            <Select onValueChange={handleGroupChange}>
               <SelectTrigger>
                 <SelectValue placeholder="Csoport kiválasztása" />
               </SelectTrigger>
@@ -131,10 +104,37 @@ const AssignUserToGroupForm = ({ users, groups, setRefresh }) => {
             </Select>
           </div>
           <div className="mb-4">
+            <label htmlFor="user" className="mb-1 block text-sm lg:text-base">
+              Felhasználó
+            </label>
+            <Select onValueChange={handleUserChange} disabled={!formState.groupname}>
+              <SelectTrigger>
+                <SelectValue placeholder="Tag kiválasztása" />
+              </SelectTrigger>
+              <SelectContent>
+                {users.length > 0 ? (
+                  users.map((user, idx) => (
+                    <SelectItem
+                      value={user.id}
+                      key={idx}
+                      className="cursor-pointer lg:not-hover:opacity-50 lg:hover:opacity-100"
+                    >
+                      {user.firstName} {user.lastName}
+                    </SelectItem>
+                  ))
+                ) : (
+                  <SelectItem value="No users found" key="no-users" disabled>
+                    No users found
+                  </SelectItem>
+                )}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="mb-4">
             <label htmlFor="rolename" className="mb-1 block text-sm lg:text-base">
               Szerepkör
             </label>
-            <Input onChange={writeData} id="rolename" disabled={!formState.groupname} required />
+            <Input onChange={writeData} id="rolename" disabled={!formState.id} required />
           </div>
         </form>
         <DialogFooter>
@@ -142,7 +142,7 @@ const AssignUserToGroupForm = ({ users, groups, setRefresh }) => {
             type="submit"
             className="w-full cursor-pointer"
             onClick={(e) => handleSubmit(e)}
-            disabled={!formState.username || !formState.groupname || !formState.rolename}
+            disabled={!formState.id || !formState.groupname || !formState.rolename}
           >
             Hozzáadás
           </Button>

@@ -9,10 +9,11 @@ import { Input } from '~/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select';
 import { wait } from '~/lib/utils';
 
-const AssignUserToSubGroupForm = ({ users, sGroups, setRefresh }) => {
+const AssignUserToSubGroupForm = ({ users, sGroups }) => {
   const [open, setOpen] = useState(false);
   const [formState, setFormState] = useState({
-    username: '',
+    firstName: '',
+    lastName: '',
     subgroupname: '',
     rolename: '',
   });
@@ -36,7 +37,6 @@ const AssignUserToSubGroupForm = ({ users, sGroups, setRefresh }) => {
     } else {
       const ctx = await response.json();
       toast.success(ctx.message);
-      setRefresh((ctx) => !ctx);
       wait().then(() => setOpen(false));
     }
   };
@@ -51,7 +51,8 @@ const AssignUserToSubGroupForm = ({ users, sGroups, setRefresh }) => {
   useEffect(() => {
     if (!open) {
       setFormState({
-        username: '',
+        firstName: '',
+        lastName: '',
         subgroupname: '',
         rolename: '',
       });
@@ -59,7 +60,8 @@ const AssignUserToSubGroupForm = ({ users, sGroups, setRefresh }) => {
   }, [open]);
 
   const handleUserChange = (value) => {
-    setFormState({ ...formState, username: value });
+    const [firstName, lastName] = value.split('-');
+    setFormState({ ...formState, firstName, lastName });
   };
 
   const handleGroupChange = (value) => {
@@ -88,7 +90,7 @@ const AssignUserToSubGroupForm = ({ users, sGroups, setRefresh }) => {
                 {users.length > 0 ? (
                   users.map((user, idx) => (
                     <SelectItem
-                      value={`${user.firstName} ${user.lastName}`}
+                      value={`${user.firstName}-${user.lastName}`}
                       key={idx}
                       className="cursor-pointer lg:not-hover:opacity-50 lg:hover:opacity-100"
                     >
@@ -107,7 +109,7 @@ const AssignUserToSubGroupForm = ({ users, sGroups, setRefresh }) => {
             <label htmlFor="subgroupname" className="mb-1 block text-sm lg:text-base">
               Al-Csoport
             </label>
-            <Select onValueChange={handleGroupChange} disabled={!formState.username}>
+            <Select onValueChange={handleGroupChange} disabled={!formState.firstName && !formState.lastName}>
               <SelectTrigger>
                 <SelectValue placeholder="Al-csoport kiválasztása" />
               </SelectTrigger>
@@ -142,7 +144,7 @@ const AssignUserToSubGroupForm = ({ users, sGroups, setRefresh }) => {
             type="submit"
             className="w-full cursor-pointer"
             onClick={(e) => handleSubmit(e)}
-            disabled={!formState.username || !formState.subgroupname || !formState.rolename}
+            disabled={(!formState.firstName && !formState.lastName) || !formState.subgroupname || !formState.rolename}
           >
             Hozzáadás
           </Button>

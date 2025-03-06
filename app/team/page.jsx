@@ -1,6 +1,5 @@
 import PageLayout from '../_components/(Layouts)/PageLayout';
-import DisplayGroups from '../_components/(Team)/DisplayGroups';
-import PriviligedControls from '../_components/(Team)/PriviligedControls';
+import TeamPageContent from '../_components/(Team)/TeamPageContent';
 
 export const metadata = {
   title: 'Csapatunk',
@@ -18,8 +17,7 @@ const Page = () => {
         .
       </h1>
 
-      <PriviligedControls />
-      <DisplayGroups />
+      <TeamPageContent />
     </PageLayout>
   );
 };

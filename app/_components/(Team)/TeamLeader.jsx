@@ -1,6 +1,6 @@
 'use client';
 
-const TeamLeader = ({ leader, position, group, refresh, setRefresh }) => {
+const TeamLeader = ({ leader, position }) => {
   const { firstName, lastName } = leader;
 
   return (

@@ -4,10 +4,9 @@ import { useEffect, useState } from 'react';
 import Container from '../(Layouts)/Container';
 import TeamContainer from './TeamContainer';
 
-const DisplayGroups = () => {
+const DisplayGroups = ({ setRefresh, refresh }) => {
   const [groups, setGroups] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [refresh, setRefresh] = useState(false);
 
   const [_error, setError] = useState(null);
 
@@ -29,7 +28,7 @@ const DisplayGroups = () => {
 
   return loading ? (
     <p className="w-full text-center">Loading...</p>
-  ) : groups.length > 0 ? (
+  ) : groups && groups.length > 0 ? (
     groups.map((group, idx) => (
       <Container key={idx} className={'p-5'}>
         <TeamContainer setRefresh={setRefresh} group={group} />

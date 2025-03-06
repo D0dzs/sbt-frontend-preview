@@ -13,7 +13,7 @@ const ChangeRoleForm = ({ user, fetchUsers }) => {
     if (newRole === role) return;
 
     setIsSubmitting(true);
-    const requestBody = { email: user.email, newRole };
+    const requestBody = { id: user.id, newRole };
 
     try {
       const response = await fetch(`${process.env.API_URL}/users/change-role`, {
@@ -38,7 +38,6 @@ const ChangeRoleForm = ({ user, fetchUsers }) => {
         });
       }
     } catch (error) {
-      toast.error('An error occurred while changing role');
     } finally {
       setIsSubmitting(false);
     }

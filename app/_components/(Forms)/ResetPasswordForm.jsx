@@ -21,14 +21,14 @@ import { EyeClosedIcon, EyeIcon } from 'lucide-react';
 const ResetPasswordForm = ({ user, isOpen, onOpenChange }) => {
   const [visible, setVisible] = useState(false);
   const [formState, setFormState] = useState({
-    email: user?.email || '',
+    id: user?.id || '',
     password: '',
     passwordConfirm: '',
   });
 
   const resetFormState = () => {
     setFormState({
-      email: user?.email || '',
+      id: user?.id || '',
       password: '',
       passwordConfirm: '',
     });

@@ -6,57 +6,11 @@ import CreateGroupForm from '../(Forms)/CreateGroupForm';
 import CreateSubGroupForm from '../(Forms)/CreateSubGroupForm';
 import AssignUserToGroupForm from '../(Forms)/AssignUserToGroupForm';
 import AssignUserToSubGroupForm from '../(Forms)/AssignUserToSubGroupForm';
-import { useEffect, useState, useContext } from 'react';
+import { useContext } from 'react';
 
-const PriviligedControls = () => {
+const PriviligedControls = ({ users, groups, sGroups, error, setRefresh }) => {
   const { user } = useContext(UserContext);
   const privileged = isAdmin(user);
-
-  const [refresh, setRefresh] = useState(false);
-  const [error, setError] = useState(null);
-
-  const [sGroups, setSGroups] = useState([]);
-  const [groups, setGroups] = useState([]);
-  const [users, setUsers] = useState([]);
-
-  const fetchUsers = async () => {
-    try {
-      const res = await fetch(`${process.env.API_URL}/users/all`, { credentials: 'include' });
-      const ctx = await res.json();
-      const { users } = ctx;
-      setUsers(users);
-    } catch (error) {
-      setError('Hiba történt az adatok lekérdezése közben.');
-    }
-  };
-
-  const fetchGroups = async () => {
-    try {
-      const res = await fetch(`${process.env.API_URL}/group/all`, { credentials: 'include' });
-      const ctx = await res.json();
-      const { groups } = ctx;
-      setGroups(groups);
-    } catch (error) {
-      setError('Hiba történt az adatok lekérdezése közben.');
-    }
-  };
-
-  const fetchSGroups = async () => {
-    try {
-      const res = await fetch(`${process.env.API_URL}/subgroup/all`, { credentials: 'include' });
-      const ctx = await res.json();
-      const { groups } = ctx;
-      setSGroups(groups);
-    } catch (error) {
-      setError('Hiba történt az adatok lekérdezése közben.');
-    }
-  };
-
-  useEffect(() => {
-    fetchUsers();
-    fetchGroups();
-    fetchSGroups();
-  }, [refresh]);
 
   if (error) return <div className="p-4 text-center text-2xl text-red-500">{error}</div>;
 
@@ -76,8 +30,8 @@ const PriviligedControls = () => {
         <div>
           <h3 className="mb-3 text-center lg:text-2xl">Alcsoporttal kapcsolatos adatrogzites</h3>
           <div className="mx-auto flex max-w-96 flex-wrap place-items-center gap-4 *:w-full lg:flex-col">
-            <CreateSubGroupForm users={users} groups={groups} setRefresh={setRefresh} />
-            <AssignUserToSubGroupForm users={users} sGroups={sGroups} setRefresh={setRefresh} />
+            <CreateSubGroupForm users={users} groups={groups} />
+            <AssignUserToSubGroupForm users={users} sGroups={sGroups} />
           </div>
         </div>
       </div>

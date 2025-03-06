@@ -9,13 +9,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~
 import { Textarea } from '~/components/ui/textarea';
 import { wait } from '~/lib/utils';
 
-const CreateSubGroupForm = ({ users, groups, setRefresh }) => {
+const CreateSubGroupForm = ({ users, groups }) => {
   const [open, setOpen] = useState(false);
 
   const [formState, setFormState] = useState({
     name: '',
     description: '',
-    leaderName: '',
+    firstName: '',
+    lastName: '',
     groupName: '',
   });
 
@@ -44,8 +45,6 @@ const CreateSubGroupForm = ({ users, groups, setRefresh }) => {
     } else {
       const ctx = await response.json();
       toast.success(ctx.message);
-      setRefresh((ctx) => !ctx);
-
       wait().then(() => setOpen(false));
     }
   };
@@ -55,7 +54,8 @@ const CreateSubGroupForm = ({ users, groups, setRefresh }) => {
       setFormState({
         name: '',
         description: '',
-        leaderName: '',
+        firstName: '',
+        lastName: '',
         groupName: '',
       });
     }
@@ -110,7 +110,10 @@ const CreateSubGroupForm = ({ users, groups, setRefresh }) => {
             </div>
             <div>
               <Select
-                onValueChange={(value) => setFormState({ ...formState, leaderName: value })}
+                onValueChange={(value) => {
+                  const [firstName, lastName] = value.split('-');
+                  setFormState({ ...formState, firstName, lastName });
+                }}
                 disabled={!formState.groupName}
               >
                 <SelectTrigger>
@@ -120,7 +123,7 @@ const CreateSubGroupForm = ({ users, groups, setRefresh }) => {
                   {users.length > 0 ? (
                     users.map((user, idx) => (
                       <SelectItem
-                        value={`${user.firstName} ${user.lastName}`}
+                        value={`${user.firstName}-${user.lastName}`}
                         key={idx}
                         className="cursor-pointer lg:not-hover:opacity-50 lg:hover:opacity-100"
                       >
@@ -136,7 +139,10 @@ const CreateSubGroupForm = ({ users, groups, setRefresh }) => {
               </Select>
             </div>
             <DialogFooter className={'mt-4'}>
-              <Button className="w-full cursor-pointer" disabled={!formState.leaderName || !formState.groupName}>
+              <Button
+                className="w-full cursor-pointer"
+                disabled={(!formState.firstName && !formState.lastName) || !formState.groupName}
+              >
                 Létrehozása
               </Button>
             </DialogFooter>

@@ -77,7 +77,7 @@ const TeamContainer = ({ group, setRefresh }) => {
                             group={group.name}
                             key={idx}
                             user={User}
-                            position={null}
+                            position={position}
                             isItSubGroup={true}
                           />
                         ))

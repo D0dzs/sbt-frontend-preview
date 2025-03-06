@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { createContext, useCallback, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
@@ -9,6 +10,7 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [refresh, setRefresh] = useState(false);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   const logout = useCallback(async () => {
     const res = await fetch(`${process.env.API_URL}/auth/logout`, {
@@ -20,7 +22,8 @@ export const UserProvider = ({ children }) => {
     toast.success(ctx.message);
     setUser(null);
     setRefresh((prev) => !prev);
-  }, []);
+    router.push('/');
+  }, [router]);
 
   const getUserInfo = useCallback(async () => {
     setLoading(true);
