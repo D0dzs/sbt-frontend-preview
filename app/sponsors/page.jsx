@@ -7,6 +7,7 @@ import UploadSponsorForm from '../_components/(Forms)/UploadSponsorForm';
 
 export const metadata = {
   title: 'Szponzorok',
+  description: 'Jelenlegi szponzorok akik munkánkat segítik.',
 };
 
 const Page = () => {

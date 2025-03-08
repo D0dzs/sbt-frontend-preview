@@ -83,7 +83,7 @@ export default function Home() {
           <h1 className="mb-4 text-center text-xl lg:text-3xl">Fedezd fel</h1>
           <div className="mx-auto flex w-full flex-wrap justify-center gap-4 lg:gap-6">
             <ExploreFlagLink text={'További versenyeink >'} imgAlt={'Versenyeink'} imgSrc={'/more/button1.webp'} />
-            <ExploreFlagLink text={'További tagjaink >'} imgAlt={'Tagjaink'} imgSrc={'/more/button2.webp'} />
+            <ExploreFlagLink href='/team' text={'További tagjaink >'} imgAlt={'Tagjaink'} imgSrc={'/more/button2.webp'} />
             <ExploreFlagLink
               text={'További megorokitett képeink >'}
               imgAlt={'Versenyeink'}

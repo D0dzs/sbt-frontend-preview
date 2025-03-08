@@ -8,6 +8,7 @@ import Container from '../_components/(Layouts)/Container';
 
 export const metadata = {
   title: 'Kapcsolat',
+  description: 'Vedd fel a kapcsolatot a szervezettel.',
 };
 
 const Page = () => {

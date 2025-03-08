@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation';
 
 export const metadata = {
   title: 'Login',
+  description: 'Jelentkezz be a szervezet használatához.',
 };
 
 const Page = async () => {

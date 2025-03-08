@@ -3,6 +3,7 @@ import TeamPageContent from '../_components/(Team)/TeamPageContent';
 
 export const metadata = {
   title: 'Csapatunk',
+  description: 'Ismerd meg a csapatunkat.',
 };
 
 const Page = () => {

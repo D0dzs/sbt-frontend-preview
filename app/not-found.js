@@ -1,6 +1,11 @@
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'Not Found',
+  description: 'Sajnos a keresett oldal nem található!',
+};
+
 export default function NotFound() {
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center gap-4">
