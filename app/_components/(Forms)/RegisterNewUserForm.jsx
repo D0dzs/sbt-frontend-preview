@@ -54,12 +54,14 @@ const RegisterNewUserForm = ({ currentIndex, fetchUsers }) => {
       setImagePreview(null);
     }
   };
-  
+
   const handleSubmission = async (e) => {
     e.preventDefault();
     const { passwordConfirm, ...submissionData } = formState;
 
     try {
+      if (formState.password !== formState.passwordConfirm) return toast.error('A jelszó nem egyezik!');
+
       const formData = new FormData();
       formData.append('email', submissionData.email);
       formData.append('firstName', submissionData.firstName);
@@ -75,7 +77,8 @@ const RegisterNewUserForm = ({ currentIndex, fetchUsers }) => {
       });
 
       if (!response.ok) {
-        toast.error('Hiba történt a regisztráció során!');
+        const ctx = await response.json();
+        toast.error(ctx.errors[0] ?? ctx.message ?? 'Unknown error');
       } else {
         const ctx = await response.json();
         toast.success(ctx.message);
@@ -187,6 +190,8 @@ const RegisterNewUserForm = ({ currentIndex, fetchUsers }) => {
                   />
                 )}
               </div>
+
+              <div className="w-full bg-red-500"></div>
             </div>
             <div>
               <label htmlFor="avatar">Kép feltöltése</label>
