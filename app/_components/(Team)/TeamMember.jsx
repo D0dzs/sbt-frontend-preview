@@ -84,8 +84,8 @@ const TeamMember = ({ user, position, group, setRefresh, isItSubGroup }) => {
       </Dialog>
       {/* eslint-disable-next-line */}
       <img
-        src={user.avatarURL ?? '/navbar/logo.svg'}
-        alt={firstName + ' ' + lastName}
+        src={user.avatarURL ? `${process.env.CDN_URL}/${user.avatarURL}` : '/navbar/logo.svg'}
+        alt={`${firstName} ${lastName}`}
         className="h-20 w-20 rounded-full object-cover lg:h-28 lg:w-28"
       />
       <h2 className="text-lg font-bold">
@@ -97,8 +97,8 @@ const TeamMember = ({ user, position, group, setRefresh, isItSubGroup }) => {
     <div className="mb-2 flex flex-col items-center justify-center gap-2">
       {/* eslint-disable-next-line */}
       <img
-        src={user.avatarURL ?? '/navbar/logo.svg'}
-        alt={firstName + ' ' + lastName}
+        src={user.avatarURL ? `${process.env.CDN_URL}/${user.avatarURL}` : '/navbar/logo.svg'}
+        alt={`${firstName} ${lastName}`}
         className="h-20 w-20 rounded-full object-cover lg:h-28 lg:w-28"
       />
       <h2 className="text-lg font-bold">
