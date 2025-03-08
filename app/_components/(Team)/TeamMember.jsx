@@ -19,7 +19,7 @@ import { toast } from 'sonner';
 const TeamMember = ({ user, position, group, setRefresh, isItSubGroup }) => {
   const { user: currentUser } = useContext(UserContext);
   const privileged = isAdmin(currentUser);
-  const { firstName, lastName } = user;
+  const { firstName, lastName, avatarURL } = user;
   const [open, setOpen] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -31,7 +31,7 @@ const TeamMember = ({ user, position, group, setRefresh, isItSubGroup }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ firstName, lastName, group, isItSubGroup }),
+      body: JSON.stringify({ firstName, lastName, avatarURL, group, isItSubGroup }),
     });
 
     const ctx = await response.json();
@@ -85,11 +85,11 @@ const TeamMember = ({ user, position, group, setRefresh, isItSubGroup }) => {
       {/* eslint-disable-next-line */}
       <img
         src={user.avatarURL ? `${process.env.CDN_URL}/${user.avatarURL}` : '/navbar/logo.svg'}
-        alt={`${firstName} ${lastName}`}
+        alt={`${lastName} ${firstName}`}
         className="h-20 w-20 rounded-full object-cover lg:h-28 lg:w-28"
       />
       <h2 className="text-lg font-bold">
-        {firstName} {lastName}
+        {lastName} {firstName}
       </h2>
       {position ? <p className="text-sm opacity-50">{position}</p> : null}
     </div>
@@ -98,11 +98,11 @@ const TeamMember = ({ user, position, group, setRefresh, isItSubGroup }) => {
       {/* eslint-disable-next-line */}
       <img
         src={user.avatarURL ? `${process.env.CDN_URL}/${user.avatarURL}` : '/navbar/logo.svg'}
-        alt={`${firstName} ${lastName}`}
+        alt={`${lastName} ${firstName}`}
         className="h-20 w-20 rounded-full object-cover lg:h-28 lg:w-28"
       />
       <h2 className="text-lg font-bold">
-        {firstName} {lastName}
+        {lastName} {firstName}
       </h2>
       {position ? <p className="text-sm opacity-50">{position}</p> : null}
     </div>

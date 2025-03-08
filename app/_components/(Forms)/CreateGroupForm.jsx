@@ -15,8 +15,7 @@ const CreateGroupForm = ({ users, setRefresh }) => {
   const [formState, setFormState] = useState({
     name: '',
     description: '',
-    firstName: '',
-    lastName: '',
+    id: '',
   });
 
   const writeData = (e) => {
@@ -28,11 +27,6 @@ const CreateGroupForm = ({ users, setRefresh }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formState.firstName && !formState.lastName) {
-      toast.error('Vezető megadása kötelező!');
-      return;
-    }
-
     try {
       const response = await fetch(`${process.env.API_URL}/group/create`, {
         credentials: 'include',
@@ -80,13 +74,7 @@ const CreateGroupForm = ({ users, setRefresh }) => {
               <Textarea id="description" className="max-h-80 min-h-32" name="description" onChange={writeData} />
             </div>
             <div>
-              <Select
-                onValueChange={(value) => {
-                  const [firstName, lastName] = value.split('-');
-                  setFormState({ ...formState, firstName, lastName });
-                }}
-                disabled={!formState.name}
-              >
+              <Select onValueChange={(value) => setFormState({ ...formState, id: value })} disabled={!formState.name}>
                 <SelectTrigger>
                   <SelectValue placeholder="Vezető kiválasztása" />
                 </SelectTrigger>
@@ -94,11 +82,11 @@ const CreateGroupForm = ({ users, setRefresh }) => {
                   {users.length > 0 ? (
                     users.map((user, idx) => (
                       <SelectItem
-                        value={`${user.firstName}-${user.lastName}`}
+                        value={user.id}
                         key={idx}
                         className="cursor-pointer lg:not-hover:opacity-50 lg:hover:opacity-100"
                       >
-                        {user.firstName} {user.lastName}
+                        {user.lastName} {user.firstName}
                       </SelectItem>
                     ))
                   ) : (
@@ -111,7 +99,7 @@ const CreateGroupForm = ({ users, setRefresh }) => {
             </div>
 
             <DialogFooter className={'mt-4'}>
-              <Button className="w-full cursor-pointer" disabled={!formState.firstName && !formState.lastName}>
+              <Button className="w-full cursor-pointer" disabled={!formState.id}>
                 Létrehozása
               </Button>
             </DialogFooter>

@@ -119,7 +119,7 @@ const AssignUserToGroupForm = ({ users, groups, setRefresh }) => {
                       key={idx}
                       className="cursor-pointer lg:not-hover:opacity-50 lg:hover:opacity-100"
                     >
-                      {user.firstName} {user.lastName}
+                      {user.lastName} {user.firstName}
                     </SelectItem>
                   ))
                 ) : (

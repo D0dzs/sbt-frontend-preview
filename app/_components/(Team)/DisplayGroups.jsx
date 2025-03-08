@@ -30,7 +30,7 @@ const DisplayGroups = ({ setRefresh, refresh }) => {
     <p className="w-full text-center">Loading...</p>
   ) : groups && groups.length > 0 ? (
     groups.map((group, idx) => (
-      <Container key={idx} className={'p-5'}>
+      <Container key={idx} className={'relative p-5'}>
         <TeamContainer setRefresh={setRefresh} group={group} />
       </Container>
     ))

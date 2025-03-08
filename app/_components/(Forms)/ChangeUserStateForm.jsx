@@ -99,10 +99,10 @@ const ChangeUserStateForm = ({ user, fetchUsers }) => {
             </DialogDescription>
             <DialogFooter>
               <Button className="cursor-pointer" variant="outline" onClick={() => setOpen((prev) => !prev)}>
-                Cancel
+                Megsem
               </Button>
               <Button className="cursor-pointer" variant="destructive" onClick={handleSubmission}>
-                Confirm
+                Megerosites
               </Button>
             </DialogFooter>
           </DialogHeader>

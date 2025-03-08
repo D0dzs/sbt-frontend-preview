@@ -9,11 +9,10 @@ import { Input } from '~/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select';
 import { wait } from '~/lib/utils';
 
-const AssignUserToSubGroupForm = ({ users, sGroups }) => {
+const AssignUserToSubGroupForm = ({ users, sGroups, setRefresh }) => {
   const [open, setOpen] = useState(false);
   const [formState, setFormState] = useState({
-    firstName: '',
-    lastName: '',
+    id: '',
     subgroupname: '',
     rolename: '',
   });
@@ -37,6 +36,7 @@ const AssignUserToSubGroupForm = ({ users, sGroups }) => {
     } else {
       const ctx = await response.json();
       toast.success(ctx.message);
+      setRefresh((prev) => !prev);
       wait().then(() => setOpen(false));
     }
   };
@@ -51,18 +51,12 @@ const AssignUserToSubGroupForm = ({ users, sGroups }) => {
   useEffect(() => {
     if (!open) {
       setFormState({
-        firstName: '',
-        lastName: '',
+        id: '',
         subgroupname: '',
         rolename: '',
       });
     }
   }, [open]);
-
-  const handleUserChange = (value) => {
-    const [firstName, lastName] = value.split('-');
-    setFormState({ ...formState, firstName, lastName });
-  };
 
   const handleGroupChange = (value) => {
     setFormState({ ...formState, subgroupname: value });
@@ -82,7 +76,7 @@ const AssignUserToSubGroupForm = ({ users, sGroups }) => {
             <label htmlFor="user" className="mb-1 block text-sm lg:text-base">
               Felhasználó
             </label>
-            <Select onValueChange={handleUserChange}>
+            <Select onValueChange={(value) => setFormState({ ...formState, id: value })}>
               <SelectTrigger>
                 <SelectValue placeholder="Tag kiválasztása" />
               </SelectTrigger>
@@ -90,11 +84,11 @@ const AssignUserToSubGroupForm = ({ users, sGroups }) => {
                 {users.length > 0 ? (
                   users.map((user, idx) => (
                     <SelectItem
-                      value={`${user.firstName}-${user.lastName}`}
+                      value={user.id}
                       key={idx}
                       className="cursor-pointer lg:not-hover:opacity-50 lg:hover:opacity-100"
                     >
-                      {user.firstName} {user.lastName}
+                      {user.lastName} {user.firstName}
                     </SelectItem>
                   ))
                 ) : (
@@ -109,7 +103,7 @@ const AssignUserToSubGroupForm = ({ users, sGroups }) => {
             <label htmlFor="subgroupname" className="mb-1 block text-sm lg:text-base">
               Al-Csoport
             </label>
-            <Select onValueChange={handleGroupChange} disabled={!formState.firstName && !formState.lastName}>
+            <Select onValueChange={handleGroupChange} disabled={!formState.id}>
               <SelectTrigger>
                 <SelectValue placeholder="Al-csoport kiválasztása" />
               </SelectTrigger>
@@ -144,7 +138,7 @@ const AssignUserToSubGroupForm = ({ users, sGroups }) => {
             type="submit"
             className="w-full cursor-pointer"
             onClick={(e) => handleSubmit(e)}
-            disabled={(!formState.firstName && !formState.lastName) || !formState.subgroupname || !formState.rolename}
+            disabled={!formState.id || !formState.subgroupname || !formState.rolename}
           >
             Hozzáadás
           </Button>

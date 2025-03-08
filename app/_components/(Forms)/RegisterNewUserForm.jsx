@@ -78,7 +78,7 @@ const RegisterNewUserForm = ({ currentIndex, fetchUsers }) => {
 
       if (!response.ok) {
         const ctx = await response.json();
-        toast.error(ctx.errors[0] ?? ctx.message ?? 'Unknown error');
+        toast.error(ctx.message ?? 'Unknown error');
       } else {
         const ctx = await response.json();
         toast.success(ctx.message);
@@ -194,7 +194,7 @@ const RegisterNewUserForm = ({ currentIndex, fetchUsers }) => {
               <div className="w-full bg-red-500"></div>
             </div>
             <div>
-              <label htmlFor="avatar">Kép feltöltése</label>
+              <label htmlFor="avatar">Avatár feltöltése</label>
               <div className="relative my-4">
                 <div className="hover:bg-bme-lfront hover:dark:bg-bme-dfront/20 flex w-full items-center justify-center rounded-lg transition-colors">
                   <label

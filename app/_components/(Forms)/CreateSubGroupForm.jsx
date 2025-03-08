@@ -9,14 +9,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~
 import { Textarea } from '~/components/ui/textarea';
 import { wait } from '~/lib/utils';
 
-const CreateSubGroupForm = ({ users, groups }) => {
+const CreateSubGroupForm = ({ users, groups, setRefresh }) => {
   const [open, setOpen] = useState(false);
 
   const [formState, setFormState] = useState({
     name: '',
     description: '',
-    firstName: '',
-    lastName: '',
+    id: '',
     groupName: '',
   });
 
@@ -45,6 +44,7 @@ const CreateSubGroupForm = ({ users, groups }) => {
     } else {
       const ctx = await response.json();
       toast.success(ctx.message);
+      setRefresh((prev) => !prev);
       wait().then(() => setOpen(false));
     }
   };
@@ -54,8 +54,7 @@ const CreateSubGroupForm = ({ users, groups }) => {
       setFormState({
         name: '',
         description: '',
-        firstName: '',
-        lastName: '',
+        id: '',
         groupName: '',
       });
     }
@@ -110,10 +109,7 @@ const CreateSubGroupForm = ({ users, groups }) => {
             </div>
             <div>
               <Select
-                onValueChange={(value) => {
-                  const [firstName, lastName] = value.split('-');
-                  setFormState({ ...formState, firstName, lastName });
-                }}
+                onValueChange={(value) => setFormState({ ...formState, id: value })}
                 disabled={!formState.groupName}
               >
                 <SelectTrigger>
@@ -123,11 +119,11 @@ const CreateSubGroupForm = ({ users, groups }) => {
                   {users.length > 0 ? (
                     users.map((user, idx) => (
                       <SelectItem
-                        value={`${user.firstName}-${user.lastName}`}
+                        value={user.id}
                         key={idx}
                         className="cursor-pointer lg:not-hover:opacity-50 lg:hover:opacity-100"
                       >
-                        {user.firstName} {user.lastName}
+                        {user.lastName} {user.firstName}
                       </SelectItem>
                     ))
                   ) : (
@@ -139,10 +135,7 @@ const CreateSubGroupForm = ({ users, groups }) => {
               </Select>
             </div>
             <DialogFooter className={'mt-4'}>
-              <Button
-                className="w-full cursor-pointer"
-                disabled={(!formState.firstName && !formState.lastName) || !formState.groupName}
-              >
+              <Button className="w-full cursor-pointer" disabled={!formState.id || !formState.groupName}>
                 Létrehozása
               </Button>
             </DialogFooter>
