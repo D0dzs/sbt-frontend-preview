@@ -8,8 +8,8 @@ const TeamLeader = ({ leader, position }) => {
       <div className="relative p-2">
         {/* eslint-disable-next-line */}
         <img
-          src={leader.avatarURL ?? '/images/team/Leader 1.jpg'}
-          alt="Leader 1"
+          src={leader.avatarURL ? `${process.env.CDN_URL}/${leader.avatarURL}` : '/navbar/logo.svg'}
+          alt={`${firstName} ${lastName}`}
           className="h-20 w-20 rounded-full object-cover lg:h-28 lg:w-28"
         />
         <div className="dark:outline-bme-orange outline-bme-blue absolute top-0 left-0 h-full w-full rounded-full bg-transparent outline-2" />

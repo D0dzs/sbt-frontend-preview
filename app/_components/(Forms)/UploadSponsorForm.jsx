@@ -56,7 +56,7 @@ const UploadSponsorForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formState.sLogo) return toast.error('Please select an image file.');
+    if (!formState.sLogo) return toast.error('Kérlek válassz ki egy képet!');
 
     const formData = new FormData();
     formData.append('sName', formState.sName);
@@ -68,17 +68,14 @@ const UploadSponsorForm = () => {
       const res = await fetch(`${process.env.API_URL}/sponsor/upload`, {
         method: 'POST',
         credentials: 'include',
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
         body: formData,
       });
 
-      if (!res.ok) return toast.error(`Upload failed: ${res.statusText ?? 'Unknown error'}`);
+      if (!res.ok) return toast.error(`${res.statusText ?? 'Unknown error'}`);
 
-      toast.success('Sponsor uploaded successfully!');
+      toast.success('Szponzor sikeresen feltöltve!');
     } catch (error) {
-      toast.error(`Error: ${error.message}`);
+      toast.error(`Hiba: ${error.message}`);
     }
   };
 
@@ -180,7 +177,7 @@ const UploadSponsorForm = () => {
               <label className="text-bme-black dark:text-bme-white mb-2 block text-sm font-medium lg:text-base">
                 Melyik kategóriába szeretnéd hozzáadni?
               </label>
-              <Select required>
+              <Select required onValueChange={(value) => setFormState((prev) => ({ ...prev, sCategory: value }))}>
                 <SelectTrigger>
                   <SelectValue placeholder="Válassz kategóriát" />
                 </SelectTrigger>
@@ -194,7 +191,7 @@ const UploadSponsorForm = () => {
               </Select>
             </div>
             <DialogFooter className={'mt-4'}>
-              <Button type="submit" className="cursor-pointer">
+              <Button type="submit" className="cursor-pointer" disabled={!formState.sCategory}>
                 Hozzáadás
               </Button>
             </DialogFooter>
