@@ -16,7 +16,7 @@ const NewsDisplay = () => {
   ) : (
     <div className="grid grid-cols-3 place-items-center gap-4">
       {mockUpNews.map((news, idx) => (
-        <NewsCard key={idx} title={news.title} date={news.date} imageURL={news.imageURL} />
+        <NewsCard url={news.url ?? '/'} key={idx} title={news.title} date={news.date} imageURL={news.imageURL} />
       ))}
     </div>
   );

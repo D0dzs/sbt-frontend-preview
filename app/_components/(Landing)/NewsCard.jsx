@@ -3,7 +3,7 @@
 import { CalendarIcon, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
-const NewsCard = ({ imageURL, date, title }) => {
+const NewsCard = ({ url, imageURL, date, title }) => {
   return (
     <div className="w-full">
       <div className="bg-bme-lfront dark:bg-bme-dfront flex h-full min-h-96 flex-col overflow-hidden rounded-2xl shadow-lg">
@@ -20,7 +20,7 @@ const NewsCard = ({ imageURL, date, title }) => {
         <article className="flex flex-1 flex-col justify-between px-4 pb-4">
           <h3 className="line-clamp-2 text-lg lg:text-xl">{title}</h3>
           <Link
-            href={'/'}
+            href={url}
             className="text-bme-blue hover:text-hovered-bme-blue hover:dark:text-hovered-bme-orange dark:text-bme-orange mx-auto flex w-fit items-center gap-1 text-center text-sm lg:text-base"
           >
             Hír megtekintése

@@ -97,6 +97,7 @@
 * {
   scrollbar-width: none;
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 
   transition: background-color, color, border-color, box-shadow;
 }

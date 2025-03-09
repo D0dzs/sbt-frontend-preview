@@ -24,7 +24,7 @@ export default function Home() {
         className="dark:bg-bme-dprimary bg-bme-lprimary relative grid grid-flow-row gap-12 lg:gap-32"
       >
         <Container
-          className={'mt-12 flex h-fit w-[85vw] flex-col gap-8 overflow-clip p-8 px-4 lg:w-[60vw] 2xl:flex-row'}
+          className={'mt-12 flex h-fit w-[85vw] flex-col gap-8 overflow-clip p-8 px-8 lg:w-[60vw] 2xl:flex-row'}
         >
           <div className="relative mt-0 h-full w-full px-1.5 lg:my-auto lg:py-8 lg:pt-8">
             <Image
@@ -46,7 +46,7 @@ export default function Home() {
               loading="lazy"
             />
           </div>
-          <div className="my-auto flex h-full flex-col items-center justify-center gap-3 pt-0 lg:p-0 lg:px-8">
+          <div className="my-auto flex h-full flex-col items-center justify-center gap-3 pt-0 lg:p-0">
             <h3 className="text-center text-xl lg:text-3xl">Rólunk</h3>
             <p className="text-justify text-xs font-extralight md:mx-auto md:text-base">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae velit culpa perferendis dignissimos,
@@ -83,7 +83,12 @@ export default function Home() {
           <h1 className="mb-4 text-center text-xl lg:text-3xl">Fedezd fel</h1>
           <div className="mx-auto flex w-full flex-wrap justify-center gap-4 lg:gap-6">
             <ExploreFlagLink text={'További versenyeink >'} imgAlt={'Versenyeink'} imgSrc={'/more/button1.webp'} />
-            <ExploreFlagLink href='/team' text={'További tagjaink >'} imgAlt={'Tagjaink'} imgSrc={'/more/button2.webp'} />
+            <ExploreFlagLink
+              href="/team"
+              text={'További tagjaink >'}
+              imgAlt={'Tagjaink'}
+              imgSrc={'/more/button2.webp'}
+            />
             <ExploreFlagLink
               text={'További megorokitett képeink >'}
               imgAlt={'Versenyeink'}
