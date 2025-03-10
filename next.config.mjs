@@ -11,10 +11,6 @@ const nextConfig = {
     ],
     formats: ['image/webp'],
   },
-  env: {
-    API_URL: 'http://localhost:8080/api',
-    CDN_URL: 'http://localhost:8080/cdn',
-  },
   eslint: {
     ignoreDuringBuilds: true,
   },
