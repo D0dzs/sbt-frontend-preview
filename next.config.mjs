@@ -3,9 +3,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3000',
+        protocol: 'https',
+        hostname: 'sbt-backend-demo-production.up.railway.app',
+        port: '8080',
         pathname: '/**',
       },
     ],
