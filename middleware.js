@@ -2,9 +2,14 @@ import { NextResponse } from 'next/server';
 
 export async function middleware(request) {
   try {
+    const token = request.cookies.get('token')?.value;
+
     const response = await fetch(`${process.env.API_URL}/auth/me`, {
       method: 'GET',
       credentials: 'include',
+      headers: {
+        Cookie: `token=${token}`,
+      },
     });
 
     if (!response.ok) throw new Error('Failed to fetch user');
