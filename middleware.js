@@ -1,20 +1,21 @@
 import { NextResponse } from 'next/server';
+import { cookies } from 'next/headers';
 
 export async function middleware(request) {
-  const cookieHeader = request.headers.get('cookie') || '';
-  const token = cookieHeader
-    .split('; ')
-    .find((row) => row.startsWith('token='))
-    ?.split('=')[1];
+  const cookieStore = cookies();
+  const token = cookieStore.get('token');
 
   if (!token) return NextResponse.redirect(new URL('/', request.url));
 
   try {
+    // Properly format the cookie for the request header
+    const cookieHeader = `token=${token.value}`;
+
     const response = await fetch(`${process.env.API_URL}/auth/me`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        cookie: cookieHeader,
+        Cookie: cookieHeader,
       },
     });
 
