@@ -10,9 +10,9 @@ export default function NotFound() {
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center gap-4">
       {/* eslint-disable-next-line */}
-      <img className="absolute -z-1 h-full w-full opacity-50" src="/not-found-gif.webp" alt="404" />
+      <img className="absolute -z-1 h-full w-full object-cover opacity-50" src="/not-found-gif.webp" alt="404" />
       <div className="flex w-full flex-col items-center">
-        <h1 className="text-4xl font-bold">Ez az oldal elhajózott... ⛵</h1>
+        <h1 className="text-center text-4xl font-bold">Ez az oldal elhajózott... ⛵</h1>
         <p>Sajnos a keresett oldal nem található.</p>
       </div>
       <Link
