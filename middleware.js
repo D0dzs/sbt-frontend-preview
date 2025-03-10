@@ -1,16 +1,24 @@
 import { NextResponse } from 'next/server';
 
 export async function middleware(request) {
-  const token = request.cookies.get('token')?.value;
+  const cookieHeader = request.headers.get('cookie') || '';
+  const token = cookieHeader
+    .split('; ')
+    .find((row) => row.startsWith('token='))
+    ?.split('=')[1];
+
+  if (!token) return NextResponse.redirect(new URL('/', request.url));
 
   try {
     const response = await fetch(`${process.env.API_URL}/auth/me`, {
-      credentials: 'include',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        cookie: `token=${token}`,
+        cookie: cookieHeader,
       },
     });
+
+    if (!response.ok) throw new Error('Failed to fetch user');
 
     const { user } = await response.json();
     if (!user) return NextResponse.redirect(new URL('/', request.url));
