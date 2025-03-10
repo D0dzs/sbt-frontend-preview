@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { cn } from '~/lib/utils';
@@ -25,10 +24,10 @@ const NewsSwiper = ({ customArray, className, children, ...props }) => {
         className={`${cn('my-4 max-w-80 min-w-full grid-rows-2 gap-4 overflow-clip rounded-2xl bg-transparent', className)}`}
         {...props}
       >
-        {customArray.map((el, idx) => {
+        {customArray.map((news, idx) => {
           return (
             <SwiperSlide key={idx}>
-              <NewsCard title={el.title} date={el.date} imageURL={el.imageURL} />
+              <NewsCard url={news.url} title={news.title} date={news.date} imageURL={news.imageURL} />
             </SwiperSlide>
           );
         })}
