@@ -31,7 +31,7 @@ const HeroScreen = () => {
       <div className="fixed top-0 left-0 h-fit w-fit">
         <video
           className="fixed h-full w-full object-cover"
-          src="/hero/hero_videov2.mp4"
+          src="/hero/hero_video.mp4"
           loop
           autoPlay
           muted
@@ -41,7 +41,7 @@ const HeroScreen = () => {
       </div>
 
       {error ? (
-        <div className="bg-bme-white/20 dark:bg-bme-black/20 absolute top-12 left-1/2 grid min-w-64 -translate-x-1/2 transform grid-flow-col place-items-center rounded-lg px-3 py-2 backdrop-blur-xs select-none lg:right-32 lg:left-auto lg:translate-x-0 lg:gap-4">
+        <div className="bg-bme-white/20 dark:bg-bme-black/20 absolute top-12 left-1/2 grid min-w-64 -translate-x-1/2 transform grid-flow-col place-items-center rounded-lg px-3 py-2 backdrop-blur-xs select-none lg:top-6 lg:right-12 lg:left-auto lg:translate-x-0 lg:gap-2">
           <SunIcon
             size={36}
             className="stroke-bme-orange animate-duration-[15s] animate-spin stroke-2 lg:h-12 lg:w-12"
