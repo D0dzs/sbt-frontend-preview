@@ -28,20 +28,9 @@ const MobileLinks = ({ isOpen, handleToggle, user, handleLogout, privileged }) =
             />
             <Accordion type="single" collapsible className="min-w-full pt-14">
               <AccordionItem value="item-1">
-                <AccordionTrigger className={'text-2xl'} visibleChevron>
-                  RÓLUNK
-                </AccordionTrigger>
-                <AccordionContent className={'flex flex-col gap-4'}>
-                  <Link scroll className="ml-8" href={''} onClick={handleToggle}>
-                    Csapattagok
-                  </Link>
-                  <Link scroll className="ml-8" href={''} onClick={handleToggle}>
-                    Rólunk+
-                  </Link>
-                  <Link scroll className="ml-8" href={''} onClick={handleToggle}>
-                    Eredményeink
-                  </Link>
-                </AccordionContent>
+                <Link scroll href={'/team'} onClick={handleToggle}>
+                  <AccordionTrigger className={'text-2xl'}>RÓLUNK</AccordionTrigger>
+                </Link>
               </AccordionItem>
             </Accordion>
             <Accordion type="single" collapsible className="min-w-full">
